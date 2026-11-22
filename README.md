@@ -44,6 +44,9 @@ attribution and under the same license. See *Attribution* below.
 | File | What |
 |---|---|
 | `cars.json` | the database (edit this) |
+| `dtc.json` | fault code descriptions and combinations (fi / en / sv) |
+| `tests/dtc-cases.json` | example fault code sets with the combinations and titles they must give |
+| `tools/check-dtc.js` | checks `dtc.json` and the cases: `node tools/check-dtc.js` |
 | `tests/recorded.json` | replies recorded on real cars, with the values they must give |
 | `tools/check.js` | checks structure, safety rules and the recorded replies: `node tools/check.js` |
 | `public-key.txt` | public half of the signing key (the same key is built into the app) |
@@ -127,6 +130,41 @@ request / reply address pairs of a table's units – 11-bit (0x000–0x7FF), or
 else (the same rules as `tools/check.js`). It never sweeps addresses. New ways of talking to a car (protocols, addressing) need an
 app update; a new `platform` name is ignored by older apps.
 
+## Fault codes (`dtc.json`, app 0.38.0 and newer)
+
+Veen Auto's fault code scan (only when the user asks for it) reads the generic
+stored, pending and permanent codes and the battery unit's own codes, and
+explains them with this file. Each code is looked up in this order: the car
+brand's own meaning (`brands`), the code itself (`codes`), the narrowest
+range that contains it (`ranges`), and finally only what the code number
+itself says (system, generic or manufacturer). `combos` describe what
+several codes together usually mean.
+
+```jsonc
+{
+  "schema": 1, "version": "…",            // version set by the release workflow
+  "advice": { "battery_test": {"en": "…", "fi": "…", "sv": "…"} },
+  "failureTypes": { "1C": {"en": "voltage out of range", …} },  // 3rd byte of battery unit codes
+  "codes":  { "P0A80": { "area": "battery", "sev": "high", "advice": "battery_test",
+                          "en": {"title": "…", "text": "…"}, "fi": {…}, "sv": {…} } },
+  "ranges": [ { "from": "P0B00", "to": "P0BFF", "area": "battery", "sev": "medium", … } ],
+  "brands": { "Toyota": { "P3014": { … } } },   // manufacturer codes (P1, P3, …) per brand
+  "combos": [ { "id": "weak-module", "all": ["P0A80"], "any": ["P0AFA", "P3011"],
+                "anyMin": 1, "also": ["U0001-U02FF"], "alsoMin": 2, "sev": "high", "en": {…}, … } ]
+}
+```
+
+- `area`: battery, hybrid, charging, engine, fuel, emissions, transmission,
+  electrical, network, chassis, body, other. `sev`: low, medium, high, critical.
+- A combination applies when every `all` pattern matches one of the codes,
+  at least `anyMin` (default 1) codes match `any`, and at least `alsoMin`
+  (default 1) match `also`. A pattern is a code or a range (`P0300-P0312`).
+  Battery unit codes like `P0AFA-1C` are matched without the `-1C` part.
+- **Wording:** write descriptions in your own words. Code numbers and the
+  SAE category names are facts, but don't copy text from manuals or code
+  lists. Explain what the code means for the driver, the battery and fuel use.
+- Every entry needs English, Finnish and Swedish.
+
 ## Changing the data
 
 1. Edit `cars.json` (e.g. a model's `readiness` to `TESTED` after reports
@@ -135,8 +173,8 @@ app update; a new `platform` name is ignored by older apps.
 3. `node tools/check.js` – then commit to `main` (or open a pull request:
    the check runs there too, without releasing).
 
-The workflow publishes `cars-<version>` with `cars.json` and
-`cars.json.sig`; apps pick it up on the next refresh, and the next app
+The workflow publishes `cars-<version>` with `cars.json`, `dtc.json` and
+their `.sig` files; apps pick it up on the next refresh, and the next app
 build bundles it. An app uses a downloaded database only if the signature
 matches its built-in public key, the data passes the same checks and the
 version is newer than its own copy.
@@ -163,5 +201,6 @@ manager): a lost key means a new app release with a new public key.
   "+ = discharging".
 - **Esco EV OBD Scanner** by EsaHub (<https://github.com/EsaHub/EscoEvObdScanner>),
   CC BY 4.0 – Stellantis identifiers.
-- **Veen Auto** (Veen TV) – Citroën C5 X Hybrid formulas, test status, and
-  corrections from Veen Auto car check reports.
+- **Veen Auto** (Veen TV) – Citroën C5 X Hybrid formulas, test status,
+  corrections from Veen Auto car check reports, and the fault code
+  descriptions and combinations in `dtc.json`.

@@ -1,0 +1,2580 @@
+{
+ "schema": 1,
+ "version": "2026.11.23.1",
+ "advice": {
+  "hv_service": {
+   "en": "Have the hybrid / EV system checked by a workshop that works on high-voltage systems. Don't open the battery yourself.",
+   "fi": "Tarkastuta hybridi-/sähköjärjestelmä korjaamolla, joka saa käsitellä suurjännitejärjestelmiä. Älä avaa akkua itse.",
+   "sv": "Låt en verkstad som arbetar med högvoltssystem kontrollera hybrid-/elsystemet. Öppna inte batteriet själv."
+  },
+  "hv_stop": {
+   "en": "Safety: stop when it is safe, don't touch orange high-voltage cables, and have the car towed to a workshop if the warning stays on.",
+   "fi": "Turvallisuus: pysähdy kun se on turvallista, älä koske oransseihin suurjännitekaapeleihin ja hinauta auto korjaamolle, jos varoitus ei poistu.",
+   "sv": "Säkerhet: stanna när det är säkert, rör inte orange högvoltskablar och bogsera bilen till en verkstad om varningen kvarstår."
+  },
+  "battery_test": {
+   "en": "Run Veen Auto's battery load test and look at the cell spread and the weakest module; share the result with the workshop.",
+   "fi": "Aja Veen Auton akun kuormitustesti ja katso kennojen hajonta ja heikoin moduuli; näytä tulos korjaamolle.",
+   "sv": "Kör Veen Autos belastningstest och titta på cellspridningen och den svagaste modulen; visa resultatet för verkstaden."
+  },
+  "cooling": {
+   "en": "Check that the battery cooling air intake (often by the rear seat) is not blocked and its filter is clean.",
+   "fi": "Tarkista, ettei akun jäähdytysilman otto (usein takaistuimen vieressä) ole tukossa ja että sen suodatin on puhdas.",
+   "sv": "Kontrollera att batteriets kylluftsintag (ofta vid baksätet) inte är blockerat och att filtret är rent."
+  },
+  "twelve_v": {
+   "en": "Check the 12 V battery and its terminals first: a weak 12 V battery causes many unrelated-looking faults.",
+   "fi": "Tarkista ensin 12 V:n akku ja sen navat: heikko 12 V:n akku aiheuttaa monia toisiinsa liittymättömiltä näyttäviä vikoja.",
+   "sv": "Kontrollera först 12 V-batteriet och dess poler: ett svagt 12 V-batteri ger många fel som verkar orelaterade."
+  },
+  "workshop": {
+   "en": "Have it checked at a workshop; driving is usually possible but fuel use or emissions may suffer.",
+   "fi": "Tarkastuta korjaamolla; ajaminen on yleensä mahdollista, mutta kulutus tai päästöt voivat kasvaa.",
+   "sv": "Låt en verkstad kontrollera; körning går oftast men förbrukning eller utsläpp kan öka."
+  },
+  "misfire": {
+   "en": "Avoid hard acceleration and have it checked soon: a flashing engine light means misfires that can damage the catalytic converter.",
+   "fi": "Vältä voimakkaita kiihdytyksiä ja tarkastuta pian: vilkkuva moottorin vikavalo tarkoittaa sytytyskatkoja, jotka voivat vaurioittaa katalysaattoria.",
+   "sv": "Undvik kraftig acceleration och låt kontrollera snart: blinkande motorlampa betyder misständningar som kan skada katalysatorn."
+  },
+  "fuel_cap": {
+   "en": "Check that the fuel cap or flap closes properly; the code clears itself after a few drives if that was the cause.",
+   "fi": "Tarkista, että tankin korkki tai luukku sulkeutuu kunnolla; koodi poistuu itsestään muutaman ajon jälkeen, jos syy oli siinä.",
+   "sv": "Kontrollera att tanklocket eller luckan stänger ordentligt; koden försvinner av sig själv efter några körningar om det var orsaken."
+  },
+  "charging": {
+   "en": "Try another charging point and cable; if the fault stays, have the on-board charger checked.",
+   "fi": "Kokeile toista latauspistettä ja johtoa; jos vika ei poistu, tarkastuta auton oma laturi.",
+   "sv": "Prova en annan laddpunkt och kabel; om felet kvarstår, låt kontrollera bilens inbyggda laddare."
+  }
+ },
+ "failureTypes": {
+  "11": {
+   "en": "short to ground",
+   "fi": "oikosulku maahan",
+   "sv": "kortslutning till jord"
+  },
+  "12": {
+   "en": "short to battery voltage",
+   "fi": "oikosulku akkujännitteeseen",
+   "sv": "kortslutning till batterispänning"
+  },
+  "13": {
+   "en": "open circuit",
+   "fi": "katkos piirissä",
+   "sv": "avbrott i kretsen"
+  },
+  "14": {
+   "en": "short to ground or open",
+   "fi": "oikosulku maahan tai katkos",
+   "sv": "kortslutning till jord eller avbrott"
+  },
+  "15": {
+   "en": "short to battery voltage or open",
+   "fi": "oikosulku akkujännitteeseen tai katkos",
+   "sv": "kortslutning till batterispänning eller avbrott"
+  },
+  "16": {
+   "en": "voltage below threshold",
+   "fi": "jännite alle rajan",
+   "sv": "spänning under gränsen"
+  },
+  "17": {
+   "en": "voltage above threshold",
+   "fi": "jännite yli rajan",
+   "sv": "spänning över gränsen"
+  },
+  "1C": {
+   "en": "voltage out of range",
+   "fi": "jännite sallitun alueen ulkopuolella",
+   "sv": "spänning utanför tillåtet område"
+  },
+  "1F": {
+   "en": "circuit intermittent",
+   "fi": "ajoittainen piirivika",
+   "sv": "intermittent kretsfel"
+  },
+  "21": {
+   "en": "signal amplitude too low",
+   "fi": "signaalin taso liian matala",
+   "sv": "signalnivån för låg"
+  },
+  "22": {
+   "en": "signal amplitude too high",
+   "fi": "signaalin taso liian korkea",
+   "sv": "signalnivån för hög"
+  },
+  "29": {
+   "en": "signal invalid",
+   "fi": "virheellinen signaali",
+   "sv": "ogiltig signal"
+  },
+  "31": {
+   "en": "no signal",
+   "fi": "ei signaalia",
+   "sv": "ingen signal"
+  },
+  "4B": {
+   "en": "over temperature",
+   "fi": "ylilämpö",
+   "sv": "övertemperatur"
+  },
+  "54": {
+   "en": "missing calibration",
+   "fi": "kalibrointi puuttuu",
+   "sv": "kalibrering saknas"
+  },
+  "62": {
+   "en": "signal compare failure",
+   "fi": "signaalien vertailuvirhe",
+   "sv": "signaljämförelsefel"
+  },
+  "64": {
+   "en": "signal plausibility failure",
+   "fi": "signaali epäuskottava",
+   "sv": "signalen orimlig"
+  },
+  "71": {
+   "en": "actuator stuck",
+   "fi": "toimilaite jumissa",
+   "sv": "ställdon fastnat"
+  },
+  "73": {
+   "en": "actuator stuck closed",
+   "fi": "toimilaite jumissa kiinni",
+   "sv": "ställdon fastnat stängt"
+  },
+  "81": {
+   "en": "invalid serial data received",
+   "fi": "vastaanotettu virheellistä sarjadataa",
+   "sv": "ogiltiga seriella data mottagna"
+  },
+  "87": {
+   "en": "missing message",
+   "fi": "viesti puuttuu",
+   "sv": "meddelande saknas"
+  },
+  "92": {
+   "en": "performance or incorrect operation",
+   "fi": "suorituskyky tai virheellinen toiminta",
+   "sv": "prestanda eller felaktig funktion"
+  },
+  "96": {
+   "en": "component internal failure",
+   "fi": "komponentin sisäinen vika",
+   "sv": "internt komponentfel"
+  },
+  "98": {
+   "en": "component or system over temperature",
+   "fi": "komponentin tai järjestelmän ylilämpö",
+   "sv": "komponent eller system övertemperatur"
+  }
+ },
+ "codes": {
+  "P0A00": {
+   "area": "hybrid",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Motor electronics coolant temperature sensor circuit",
+    "text": "The temperature sensor of the inverter / motor electronics cooling circuit gives an implausible signal."
+   },
+   "fi": {
+    "title": "Moottorielektroniikan jäähdytysnesteen lämpöanturin piiri",
+    "text": "Invertterin / moottorielektroniikan jäähdytyspiirin lämpöanturin signaali on epäuskottava."
+   },
+   "sv": {
+    "title": "Motorelektronikens kylvätsketemperaturgivare, krets",
+    "text": "Temperaturgivaren i växelriktarens / motorelektronikens kylkrets ger en orimlig signal."
+   }
+  },
+  "P0A01": {
+   "area": "hybrid",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Motor electronics coolant temperature sensor range / performance",
+    "text": "The inverter coolant temperature does not change as expected; possible low coolant or a failing pump."
+   },
+   "fi": {
+    "title": "Moottorielektroniikan jäähdytysnesteen lämpöanturin alue / toiminta",
+    "text": "Invertterin jäähdytysnesteen lämpötila ei muutu odotetusti; mahdollisesti vähäinen neste tai heikko pumppu."
+   },
+   "sv": {
+    "title": "Motorelektronikens kylvätsketemperaturgivare, område / funktion",
+    "text": "Växelriktarens kylvätsketemperatur ändras inte som väntat; möjligen låg kylvätskenivå eller svag pump."
+   }
+  },
+  "P0A08": {
+   "area": "electrical",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "DC/DC converter status circuit",
+    "text": "The DC/DC converter charges the 12 V battery from the high-voltage battery. If it stops, the 12 V battery runs down and the car can stop working."
+   },
+   "fi": {
+    "title": "DC/DC-muuntimen tilapiiri",
+    "text": "DC/DC-muunnin lataa 12 V:n akkua suurjänniteakusta. Jos se lakkaa toimimasta, 12 V:n akku tyhjenee ja auto voi pysähtyä."
+   },
+   "sv": {
+    "title": "DC/DC-omvandlarens statuskrets",
+    "text": "DC/DC-omvandlaren laddar 12 V-batteriet från högvoltsbatteriet. Slutar den fungera laddas 12 V-batteriet ur och bilen kan stanna."
+   }
+  },
+  "P0A09": {
+   "area": "electrical",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "DC/DC converter status circuit low",
+    "text": "The DC/DC converter charges the 12 V battery from the high-voltage battery. If it stops, the 12 V battery runs down and the car can stop working."
+   },
+   "fi": {
+    "title": "DC/DC-muuntimen tilapiiri, matala",
+    "text": "DC/DC-muunnin lataa 12 V:n akkua suurjänniteakusta. Jos se lakkaa toimimasta, 12 V:n akku tyhjenee ja auto voi pysähtyä."
+   },
+   "sv": {
+    "title": "DC/DC-omvandlarens statuskrets låg",
+    "text": "DC/DC-omvandlaren laddar 12 V-batteriet från högvoltsbatteriet. Slutar den fungera laddas 12 V-batteriet ur och bilen kan stanna."
+   }
+  },
+  "P0A10": {
+   "area": "electrical",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "DC/DC converter status circuit high",
+    "text": "The DC/DC converter charges the 12 V battery from the high-voltage battery. If it stops, the 12 V battery runs down and the car can stop working."
+   },
+   "fi": {
+    "title": "DC/DC-muuntimen tilapiiri, korkea",
+    "text": "DC/DC-muunnin lataa 12 V:n akkua suurjänniteakusta. Jos se lakkaa toimimasta, 12 V:n akku tyhjenee ja auto voi pysähtyä."
+   },
+   "sv": {
+    "title": "DC/DC-omvandlarens statuskrets hög",
+    "text": "DC/DC-omvandlaren laddar 12 V-batteriet från högvoltsbatteriet. Slutar den fungera laddas 12 V-batteriet ur och bilen kan stanna."
+   }
+  },
+  "P0A0A": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage system interlock circuit",
+    "text": "The safety loop that checks all high-voltage connectors and covers are closed is open or faulty. The car switches the high voltage off."
+   },
+   "fi": {
+    "title": "Suurjännitejärjestelmän lukituspiiri",
+    "text": "Turvasilmukka, joka valvoo suurjänniteliittimien ja -suojien kiinnioloa, on auki tai viallinen. Auto katkaisee suurjännitteen."
+   },
+   "sv": {
+    "title": "Högvoltssystemets förreglingskrets",
+    "text": "Säkerhetsslingan som kontrollerar att alla högvoltskontakter och kåpor är stängda är bruten eller felaktig. Bilen stänger av högspänningen."
+   }
+  },
+  "P0A0B": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage system interlock circuit performance",
+    "text": "The safety loop that checks all high-voltage connectors and covers are closed is open or faulty. The car switches the high voltage off."
+   },
+   "fi": {
+    "title": "Suurjännitejärjestelmän lukituspiirin toiminta",
+    "text": "Turvasilmukka, joka valvoo suurjänniteliittimien ja -suojien kiinnioloa, on auki tai viallinen. Auto katkaisee suurjännitteen."
+   },
+   "sv": {
+    "title": "Högvoltssystemets förreglingskrets, funktion",
+    "text": "Säkerhetsslingan som kontrollerar att alla högvoltskontakter och kåpor är stängda är bruten eller felaktig. Bilen stänger av högspänningen."
+   }
+  },
+  "P0A0C": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage system interlock circuit low",
+    "text": "The safety loop that checks all high-voltage connectors and covers are closed is open or faulty. The car switches the high voltage off."
+   },
+   "fi": {
+    "title": "Suurjännitejärjestelmän lukituspiiri, matala",
+    "text": "Turvasilmukka, joka valvoo suurjänniteliittimien ja -suojien kiinnioloa, on auki tai viallinen. Auto katkaisee suurjännitteen."
+   },
+   "sv": {
+    "title": "Högvoltssystemets förreglingskrets låg",
+    "text": "Säkerhetsslingan som kontrollerar att alla högvoltskontakter och kåpor är stängda är bruten eller felaktig. Bilen stänger av högspänningen."
+   }
+  },
+  "P0A0D": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage system interlock circuit high",
+    "text": "The safety loop that checks all high-voltage connectors and covers are closed is open or faulty. The car switches the high voltage off."
+   },
+   "fi": {
+    "title": "Suurjännitejärjestelmän lukituspiiri, korkea",
+    "text": "Turvasilmukka, joka valvoo suurjänniteliittimien ja -suojien kiinnioloa, on auki tai viallinen. Auto katkaisee suurjännitteen."
+   },
+   "sv": {
+    "title": "Högvoltssystemets förreglingskrets hög",
+    "text": "Säkerhetsslingan som kontrollerar att alla högvoltskontakter och kåpor är stängda är bruten eller felaktig. Bilen stänger av högspänningen."
+   }
+  },
+  "P0A0E": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage system interlock circuit intermittent",
+    "text": "The safety loop that checks all high-voltage connectors and covers are closed is open or faulty. The car switches the high voltage off."
+   },
+   "fi": {
+    "title": "Suurjännitejärjestelmän lukituspiiri, ajoittainen",
+    "text": "Turvasilmukka, joka valvoo suurjänniteliittimien ja -suojien kiinnioloa, on auki tai viallinen. Auto katkaisee suurjännitteen."
+   },
+   "sv": {
+    "title": "Högvoltssystemets förreglingskrets, intermittent",
+    "text": "Säkerhetsslingan som kontrollerar att alla högvoltskontakter och kåpor är stängda är bruten eller felaktig. Bilen stänger av högspänningen."
+   }
+  },
+  "P0A0F": {
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Engine failed to start",
+    "text": "The hybrid system tried to start the petrol engine but it did not start (fuel, ignition or engine sensor fault)."
+   },
+   "fi": {
+    "title": "Moottori ei käynnistynyt",
+    "text": "Hybridijärjestelmä yritti käynnistää polttomoottorin, mutta se ei käynnistynyt (polttoaine-, sytytys- tai anturivika)."
+   },
+   "sv": {
+    "title": "Motorn startade inte",
+    "text": "Hybridsystemet försökte starta bensinmotorn men den startade inte (bränsle-, tändnings- eller givarfel)."
+   }
+  },
+  "P0A1A": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Generator control module",
+    "text": "Internal fault in the control unit of the hybrid generator (motor-generator)."
+   },
+   "fi": {
+    "title": "Generaattorin ohjainlaite",
+    "text": "Sisäinen vika hybridin generaattorin (moottorigeneraattorin) ohjainlaitteessa."
+   },
+   "sv": {
+    "title": "Generatorns styrenhet",
+    "text": "Internt fel i hybridgeneratorns (motorgeneratorns) styrenhet."
+   }
+  },
+  "P0A1B": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Drive motor A control module",
+    "text": "Internal fault in the control unit of the electric drive motor."
+   },
+   "fi": {
+    "title": "Ajomoottorin A ohjainlaite",
+    "text": "Sisäinen vika sähköisen ajomoottorin ohjainlaitteessa."
+   },
+   "sv": {
+    "title": "Drivmotor A, styrenhet",
+    "text": "Internt fel i den elektriska drivmotorns styrenhet."
+   }
+  },
+  "P0A1F": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Battery energy control module",
+    "text": "Internal fault in the battery control unit (BMS / BECM) that monitors the high-voltage battery."
+   },
+   "fi": {
+    "title": "Akun ohjainlaite",
+    "text": "Sisäinen vika suurjänniteakkua valvovassa akun ohjainlaitteessa (BMS / BECM)."
+   },
+   "sv": {
+    "title": "Batteriets styrenhet",
+    "text": "Internt fel i batteriets styrenhet (BMS / BECM) som övervakar högvoltsbatteriet."
+   }
+  },
+  "P0A3F": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Drive motor A position sensor circuit",
+    "text": "The rotor position sensor (resolver) of the drive motor gives no or a wrong signal; the motor cannot be controlled properly."
+   },
+   "fi": {
+    "title": "Ajomoottorin A asentoanturin piiri",
+    "text": "Ajomoottorin roottorin asentoanturi (resolveri) ei anna signaalia tai antaa väärän; moottoria ei voi ohjata kunnolla."
+   },
+   "sv": {
+    "title": "Drivmotor A, lägesgivarkrets",
+    "text": "Drivmotorns rotorlägesgivare (resolver) ger ingen eller fel signal; motorn kan inte styras korrekt."
+   }
+  },
+  "P0A4B": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Generator position sensor circuit",
+    "text": "The rotor position sensor of the generator gives no or a wrong signal."
+   },
+   "fi": {
+    "title": "Generaattorin asentoanturin piiri",
+    "text": "Generaattorin roottorin asentoanturi ei anna signaalia tai antaa väärän."
+   },
+   "sv": {
+    "title": "Generatorns lägesgivarkrets",
+    "text": "Generatorns rotorlägesgivare ger ingen eller fel signal."
+   }
+  },
+  "P0A78": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Drive motor A inverter performance",
+    "text": "The inverter that drives the electric motor reports a fault (overcurrent, overheating or an internal fault)."
+   },
+   "fi": {
+    "title": "Ajomoottorin A invertterin toiminta",
+    "text": "Sähkömoottoria ohjaava invertteri ilmoittaa viasta (ylivirta, ylikuumeneminen tai sisäinen vika)."
+   },
+   "sv": {
+    "title": "Drivmotor A, växelriktarens funktion",
+    "text": "Växelriktaren som driver elmotorn rapporterar ett fel (överström, överhettning eller internt fel)."
+   }
+  },
+  "P0A7A": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Generator inverter performance",
+    "text": "The inverter of the generator reports a fault."
+   },
+   "fi": {
+    "title": "Generaattorin invertterin toiminta",
+    "text": "Generaattorin invertteri ilmoittaa viasta."
+   },
+   "sv": {
+    "title": "Generatorns växelriktare, funktion",
+    "text": "Generatorns växelriktare rapporterar ett fel."
+   }
+  },
+  "P0A7D": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "battery_test",
+   "en": {
+    "title": "Hybrid battery pack state of charge low",
+    "text": "The high-voltage battery is more discharged than the system allows, for example after standing long or when the engine could not charge it."
+   },
+   "fi": {
+    "title": "Hybridiakun varaustila matala",
+    "text": "Suurjänniteakku on tyhjempi kuin järjestelmä sallii, esim. pitkän seisonnan jälkeen tai kun moottori ei ole voinut ladata sitä."
+   },
+   "sv": {
+    "title": "Hybridbatteriets laddningsnivå låg",
+    "text": "Högvoltsbatteriet är mer urladdat än systemet tillåter, t.ex. efter lång uppställning eller när motorn inte kunnat ladda det."
+   }
+  },
+  "P0A7E": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "cooling",
+   "en": {
+    "title": "Hybrid battery pack over temperature",
+    "text": "The high-voltage battery got too hot. Power is limited to protect the cells."
+   },
+   "fi": {
+    "title": "Hybridiakun ylilämpö",
+    "text": "Suurjänniteakku on kuumentunut liikaa. Tehoa rajoitetaan kennojen suojaamiseksi."
+   },
+   "sv": {
+    "title": "Hybridbatteriet överhettat",
+    "text": "Högvoltsbatteriet har blivit för varmt. Effekten begränsas för att skydda cellerna."
+   }
+  },
+  "P0A7F": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "battery_test",
+   "en": {
+    "title": "Hybrid battery pack deterioration",
+    "text": "The battery has aged: its capacity or internal resistance is outside the limits the car accepts."
+   },
+   "fi": {
+    "title": "Hybridiakun heikkeneminen",
+    "text": "Akku on vanhentunut: sen kapasiteetti tai sisäinen vastus on auton hyväksymien rajojen ulkopuolella."
+   },
+   "sv": {
+    "title": "Hybridbatteriets försämring",
+    "text": "Batteriet har åldrats: kapaciteten eller inre resistansen ligger utanför bilens gränser."
+   }
+  },
+  "P0A80": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "battery_test",
+   "en": {
+    "title": "Replace hybrid battery pack",
+    "text": "The battery control unit found that one or more cell blocks differ too much from the others (usually a weak module). The car still drives but with reduced hybrid function."
+   },
+   "fi": {
+    "title": "Vaihda hybridiakku",
+    "text": "Akun ohjainlaite havaitsi, että yksi tai useampi kennolohko poikkeaa liikaa muista (yleensä heikko moduuli). Auto kulkee, mutta hybriditoiminto on rajoitettu."
+   },
+   "sv": {
+    "title": "Byt hybridbatteri",
+    "text": "Batteriets styrenhet har upptäckt att ett eller flera cellblock avviker för mycket från de andra (oftast en svag modul). Bilen går men med begränsad hybridfunktion."
+   }
+  },
+  "P0A81": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "cooling",
+   "en": {
+    "title": "Hybrid battery cooling fan 1 control circuit",
+    "text": "The fan that cools the high-voltage battery does not work as commanded; the battery may overheat and power is limited."
+   },
+   "fi": {
+    "title": "Hybridiakun jäähdytyspuhaltimen 1 ohjauspiiri",
+    "text": "Suurjänniteakkua jäähdyttävä puhallin ei toimi ohjatusti; akku voi ylikuumentua ja tehoa rajoitetaan."
+   },
+   "sv": {
+    "title": "Hybridbatteriets kylfläkt 1, styrkrets",
+    "text": "Fläkten som kyler högvoltsbatteriet fungerar inte som styrt; batteriet kan överhettas och effekten begränsas."
+   }
+  },
+  "P0A82": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "cooling",
+   "en": {
+    "title": "Hybrid battery cooling fan 1 performance / stuck off",
+    "text": "The fan that cools the high-voltage battery does not work as commanded; the battery may overheat and power is limited."
+   },
+   "fi": {
+    "title": "Hybridiakun jäähdytyspuhaltimen 1 toiminta / ei käy",
+    "text": "Suurjänniteakkua jäähdyttävä puhallin ei toimi ohjatusti; akku voi ylikuumentua ja tehoa rajoitetaan."
+   },
+   "sv": {
+    "title": "Hybridbatteriets kylfläkt 1, funktion / går inte",
+    "text": "Fläkten som kyler högvoltsbatteriet fungerar inte som styrt; batteriet kan överhettas och effekten begränsas."
+   }
+  },
+  "P0A92": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid generator performance",
+    "text": "The generator does not produce the expected power."
+   },
+   "fi": {
+    "title": "Hybridigeneraattorin toiminta",
+    "text": "Generaattori ei tuota odotettua tehoa."
+   },
+   "sv": {
+    "title": "Hybridgeneratorns funktion",
+    "text": "Generatorn ger inte den förväntade effekten."
+   }
+  },
+  "P0A93": {
+   "area": "hybrid",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Inverter cooling system performance",
+    "text": "The cooling of the inverter does not work well enough (low coolant, failed pump or air in the circuit)."
+   },
+   "fi": {
+    "title": "Invertterin jäähdytysjärjestelmän toiminta",
+    "text": "Invertterin jäähdytys ei toimi riittävästi (vähän nestettä, viallinen pumppu tai ilmaa piirissä)."
+   },
+   "sv": {
+    "title": "Växelriktarens kylsystem, funktion",
+    "text": "Växelriktarens kylning fungerar inte tillräckligt (låg kylvätska, trasig pump eller luft i kretsen)."
+   }
+  },
+  "P0A94": {
+   "area": "electrical",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "DC/DC converter performance",
+    "text": "The voltage converter between the battery and the motors (boost converter) does not reach the requested voltage."
+   },
+   "fi": {
+    "title": "DC/DC-muuntimen toiminta",
+    "text": "Akun ja moottorien välinen jännitemuunnin (boost-muunnin) ei saavuta pyydettyä jännitettä."
+   },
+   "sv": {
+    "title": "DC/DC-omvandlarens funktion",
+    "text": "Spänningsomvandlaren mellan batteriet och motorerna (boost) når inte begärd spänning."
+   }
+  },
+  "P0A95": {
+   "area": "hybrid",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage fuse",
+    "text": "A fuse in the high-voltage circuit has blown or its circuit is open."
+   },
+   "fi": {
+    "title": "Suurjännitesulake",
+    "text": "Suurjännitepiirin sulake on palanut tai sen piiri on auki."
+   },
+   "sv": {
+    "title": "Högvoltssäkring",
+    "text": "En säkring i högvoltskretsen har löst ut eller kretsen är bruten."
+   }
+  },
+  "P0A9B": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery temperature sensor A circuit",
+    "text": "A battery temperature sensor gives an implausible value; the battery unit limits power to be safe. Compare with the temperature probes in Veen Auto."
+   },
+   "fi": {
+    "title": "Hybridiakun lämpöanturin A piiri",
+    "text": "Akun lämpöanturi antaa epäuskottavan arvon; akun ohjainlaite rajoittaa tehoa varmuuden vuoksi. Vertaa Veen Auton lämpöantureihin."
+   },
+   "sv": {
+    "title": "Hybridbatteriets temperaturgivare A, krets",
+    "text": "En temperaturgivare i batteriet ger ett orimligt värde; styrenheten begränsar effekten för säkerhets skull. Jämför med temperaturgivarna i Veen Auto."
+   }
+  },
+  "P0A9C": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery temperature sensor A range / performance",
+    "text": "A battery temperature sensor gives an implausible value; the battery unit limits power to be safe. Compare with the temperature probes in Veen Auto."
+   },
+   "fi": {
+    "title": "Hybridiakun lämpöanturin A alue / toiminta",
+    "text": "Akun lämpöanturi antaa epäuskottavan arvon; akun ohjainlaite rajoittaa tehoa varmuuden vuoksi. Vertaa Veen Auton lämpöantureihin."
+   },
+   "sv": {
+    "title": "Hybridbatteriets temperaturgivare A, område / funktion",
+    "text": "En temperaturgivare i batteriet ger ett orimligt värde; styrenheten begränsar effekten för säkerhets skull. Jämför med temperaturgivarna i Veen Auto."
+   }
+  },
+  "P0A9D": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery temperature sensor A circuit low",
+    "text": "A battery temperature sensor gives an implausible value; the battery unit limits power to be safe. Compare with the temperature probes in Veen Auto."
+   },
+   "fi": {
+    "title": "Hybridiakun lämpöanturin A piiri, matala",
+    "text": "Akun lämpöanturi antaa epäuskottavan arvon; akun ohjainlaite rajoittaa tehoa varmuuden vuoksi. Vertaa Veen Auton lämpöantureihin."
+   },
+   "sv": {
+    "title": "Hybridbatteriets temperaturgivare A, krets låg",
+    "text": "En temperaturgivare i batteriet ger ett orimligt värde; styrenheten begränsar effekten för säkerhets skull. Jämför med temperaturgivarna i Veen Auto."
+   }
+  },
+  "P0A9E": {
+   "area": "battery",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery temperature sensor A circuit high",
+    "text": "A battery temperature sensor gives an implausible value; the battery unit limits power to be safe. Compare with the temperature probes in Veen Auto."
+   },
+   "fi": {
+    "title": "Hybridiakun lämpöanturin A piiri, korkea",
+    "text": "Akun lämpöanturi antaa epäuskottavan arvon; akun ohjainlaite rajoittaa tehoa varmuuden vuoksi. Vertaa Veen Auton lämpöantureihin."
+   },
+   "sv": {
+    "title": "Hybridbatteriets temperaturgivare A, krets hög",
+    "text": "En temperaturgivare i batteriet ger ett orimligt värde; styrenheten begränsar effekten för säkerhets skull. Jämför med temperaturgivarna i Veen Auto."
+   }
+  },
+  "P0AA1": {
+   "area": "battery",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "Hybrid battery positive contactor stuck closed",
+    "text": "The main relay on the battery's plus side did not open when it should (welded contacts). The battery cannot be disconnected safely."
+   },
+   "fi": {
+    "title": "Hybridiakun plussyöttöreleen koskettimet jumissa kiinni",
+    "text": "Akun plusnavan pääkontaktori ei auennut kun piti (hitsautuneet koskettimet). Akkua ei voi irtikytkeä turvallisesti."
+   },
+   "sv": {
+    "title": "Hybridbatteriets pluskontaktor fastnat sluten",
+    "text": "Huvudreläet på batteriets plussida öppnade inte när det skulle (svetsade kontakter). Batteriet kan inte kopplas bort säkert."
+   }
+  },
+  "P0AA4": {
+   "area": "battery",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "Hybrid battery negative contactor stuck closed",
+    "text": "The main relay on the battery's minus side did not open when it should."
+   },
+   "fi": {
+    "title": "Hybridiakun miinussyöttöreleen koskettimet jumissa kiinni",
+    "text": "Akun miinusnavan pääkontaktori ei auennut kun piti."
+   },
+   "sv": {
+    "title": "Hybridbatteriets minuskontaktor fastnat sluten",
+    "text": "Huvudreläet på batteriets minussida öppnade inte när det skulle."
+   }
+  },
+  "P0AA6": {
+   "area": "battery",
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "Hybrid battery voltage system isolation fault",
+    "text": "Current leaks from the high-voltage system to the car body (insulation fault), e.g. a damaged cable, moisture in a connector or a leaking cell."
+   },
+   "fi": {
+    "title": "Hybridiakun jännitejärjestelmän eristysvika",
+    "text": "Suurjännitejärjestelmästä vuotaa virtaa auton koriin (eristysvika), esim. vaurioitunut kaapeli, kosteutta liittimessä tai vuotava kenno."
+   },
+   "sv": {
+    "title": "Hybridbatteriets spänningssystem, isolationsfel",
+    "text": "Ström läcker från högvoltssystemet till karossen (isolationsfel), t.ex. skadad kabel, fukt i en kontakt eller en läckande cell."
+   }
+  },
+  "P0ABF": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery current sensor A circuit",
+    "text": "The sensor that measures the battery current gives an implausible signal; charge and power estimates become unreliable (also the current and power shown by Veen Auto)."
+   },
+   "fi": {
+    "title": "Hybridiakun virta-anturin A piiri",
+    "text": "Akun virtaa mittaava anturi antaa epäuskottavan signaalin; varaus- ja tehoarviot muuttuvat epäluotettaviksi (myös Veen Auton näyttämä virta ja teho)."
+   },
+   "sv": {
+    "title": "Hybridbatteriets strömgivare A, krets",
+    "text": "Givaren som mäter batteriströmmen ger en orimlig signal; laddnings- och effektuppskattningar blir opålitliga (även strömmen och effekten i Veen Auto)."
+   }
+  },
+  "P0AC0": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery current sensor A range / performance",
+    "text": "The sensor that measures the battery current gives an implausible signal; charge and power estimates become unreliable (also the current and power shown by Veen Auto)."
+   },
+   "fi": {
+    "title": "Hybridiakun virta-anturin A alue / toiminta",
+    "text": "Akun virtaa mittaava anturi antaa epäuskottavan signaalin; varaus- ja tehoarviot muuttuvat epäluotettaviksi (myös Veen Auton näyttämä virta ja teho)."
+   },
+   "sv": {
+    "title": "Hybridbatteriets strömgivare A, område / funktion",
+    "text": "Givaren som mäter batteriströmmen ger en orimlig signal; laddnings- och effektuppskattningar blir opålitliga (även strömmen och effekten i Veen Auto)."
+   }
+  },
+  "P0AC4": {
+   "area": "hybrid",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Hybrid control module requested warning lamp",
+    "text": "The hybrid control unit switched the engine warning lamp on because of a fault stored in another unit. Look for further codes in the battery or hybrid unit."
+   },
+   "fi": {
+    "title": "Hybridiohjain pyysi vikavalon",
+    "text": "Hybridiohjain sytytti moottorin vikavalon toisen ohjainlaitteen tallentaman vian takia. Etsi lisäkoodeja akun tai hybridin ohjainlaitteesta."
+   },
+   "sv": {
+    "title": "Hybridstyrenheten begärde varningslampa",
+    "text": "Hybridstyrenheten tände motorlampan på grund av ett fel i en annan enhet. Leta efter fler koder i batteri- eller hybridenheten."
+   }
+  },
+  "P0AFA": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "battery_test",
+   "en": {
+    "title": "Hybrid battery system voltage low",
+    "text": "The battery voltage fell below the lower limit, typically under load when one or more modules are weak, or at a very low charge."
+   },
+   "fi": {
+    "title": "Hybridiakun jännite matala",
+    "text": "Akun jännite laski alarajan alle, tyypillisesti kuormituksessa, kun yksi tai useampi moduuli on heikko, tai hyvin matalalla varauksella."
+   },
+   "sv": {
+    "title": "Hybridbatteriets spänning låg",
+    "text": "Batterispänningen sjönk under den nedre gränsen, typiskt under belastning när en eller flera moduler är svaga, eller vid mycket låg laddning."
+   }
+  },
+  "P0AFB": {
+   "area": "battery",
+   "sev": "high",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid battery system voltage high",
+    "text": "The battery voltage rose above the upper limit, e.g. during strong regeneration with a full battery or because of a sensing fault."
+   },
+   "fi": {
+    "title": "Hybridiakun jännite korkea",
+    "text": "Akun jännite nousi ylärajan yli, esim. voimakkaassa regeneroinnissa täydellä akulla tai mittausvian takia."
+   },
+   "sv": {
+    "title": "Hybridbatteriets spänning hög",
+    "text": "Batterispänningen steg över den övre gränsen, t.ex. vid kraftig regenerering med fullt batteri eller på grund av ett mätfel."
+   }
+  },
+  "P0100": {
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Mass air flow sensor circuit",
+    "text": "The air flow sensor gives no usable signal; the engine runs on estimates and may use more fuel."
+   },
+   "fi": {
+    "title": "Ilmamassamittarin piiri",
+    "text": "Ilmamassamittari ei anna käyttökelpoista signaalia; moottori toimii arvioilla ja voi kuluttaa enemmän."
+   },
+   "sv": {
+    "title": "Luftmassamätarens krets",
+    "text": "Luftmassamätaren ger ingen användbar signal; motorn går på uppskattningar och kan dra mer bränsle."
+   }
+  },
+  "P0101": {
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Mass air flow sensor range / performance",
+    "text": "The measured air flow does not match what the engine expects: a dirty sensor, an air leak or a blocked air filter."
+   },
+   "fi": {
+    "title": "Ilmamassamittarin alue / toiminta",
+    "text": "Mitattu ilmamäärä ei vastaa odotettua: likainen anturi, ilmavuoto tai tukkeutunut ilmansuodatin."
+   },
+   "sv": {
+    "title": "Luftmassamätare, område / funktion",
+    "text": "Uppmätt luftmängd stämmer inte med det förväntade: smutsig givare, luftläcka eller igensatt luftfilter."
+   }
+  },
+  "P0110": {
+   "area": "engine",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Intake air temperature sensor circuit",
+    "text": "The intake air temperature sensor gives an implausible signal."
+   },
+   "fi": {
+    "title": "Imuilman lämpöanturin piiri",
+    "text": "Imuilman lämpöanturi antaa epäuskottavan signaalin."
+   },
+   "sv": {
+    "title": "Insugsluftens temperaturgivare, krets",
+    "text": "Insugsluftens temperaturgivare ger en orimlig signal."
+   }
+  },
+  "P0115": {
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Engine coolant temperature sensor circuit",
+    "text": "The coolant temperature sensor gives an implausible signal; fan control and engine warm-up are affected."
+   },
+   "fi": {
+    "title": "Jäähdytysnesteen lämpöanturin piiri",
+    "text": "Jäähdytysnesteen lämpöanturi antaa epäuskottavan signaalin; puhaltimen ohjaus ja lämpeneminen häiriintyvät."
+   },
+   "sv": {
+    "title": "Kylvätsketemperaturgivare, krets",
+    "text": "Kylvätsketemperaturgivaren ger en orimlig signal; fläktstyrning och uppvärmning påverkas."
+   }
+  },
+  "P0128": {
+   "area": "engine",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Coolant below thermostat regulating temperature",
+    "text": "The engine warms up too slowly, usually a thermostat stuck open. In hybrids the engine runs more to warm up, raising fuel use."
+   },
+   "fi": {
+    "title": "Jäähdytysneste ei saavuta termostaatin lämpötilaa",
+    "text": "Moottori lämpenee liian hitaasti, yleensä auki jumittunut termostaatti. Hybridissä moottori käy enemmän lämmetäkseen, mikä lisää kulutusta."
+   },
+   "sv": {
+    "title": "Kylvätskan når inte termostatens temperatur",
+    "text": "Motorn värms upp för långsamt, oftast en termostat som fastnat öppen. I hybrider går motorn mer för att bli varm, vilket ökar förbrukningen."
+   }
+  },
+  "P0130": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Oxygen sensor circuit (bank 1, sensor 1)",
+    "text": "The front oxygen (lambda) sensor gives no usable signal; fuel mixture control is less accurate."
+   },
+   "fi": {
+    "title": "Happianturin piiri (rivi 1, anturi 1)",
+    "text": "Etummainen happianturi (lambda) ei anna käyttökelpoista signaalia; seosohjaus on epätarkempi."
+   },
+   "sv": {
+    "title": "Syresensorns krets (bank 1, givare 1)",
+    "text": "Den främre syresensorn (lambda) ger ingen användbar signal; blandningsregleringen blir sämre."
+   }
+  },
+  "P0135": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Oxygen sensor heater circuit (bank 1, sensor 1)",
+    "text": "The heater of the front oxygen sensor is faulty; mixture control starts later after a cold start."
+   },
+   "fi": {
+    "title": "Happianturin lämmitinpiiri (rivi 1, anturi 1)",
+    "text": "Etummaisen happianturin lämmitin on viallinen; seosohjaus alkaa myöhemmin kylmäkäynnistyksen jälkeen."
+   },
+   "sv": {
+    "title": "Syresensorns värmekrets (bank 1, givare 1)",
+    "text": "Värmaren i den främre syresensorn är trasig; blandningsregleringen startar senare efter kallstart."
+   }
+  },
+  "P0141": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Oxygen sensor heater circuit (bank 1, sensor 2)",
+    "text": "The heater of the rear oxygen sensor (after the catalytic converter) is faulty."
+   },
+   "fi": {
+    "title": "Happianturin lämmitinpiiri (rivi 1, anturi 2)",
+    "text": "Takimmaisen happianturin (katalysaattorin jälkeen) lämmitin on viallinen."
+   },
+   "sv": {
+    "title": "Syresensorns värmekrets (bank 1, givare 2)",
+    "text": "Värmaren i den bakre syresensorn (efter katalysatorn) är trasig."
+   }
+  },
+  "P0171": {
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "System too lean (bank 1)",
+    "text": "The engine gets too much air for the fuel: an air leak after the air flow sensor, a dirty air flow sensor or weak fuel delivery. Fuel use and power may suffer."
+   },
+   "fi": {
+    "title": "Seos liian laiha (rivi 1)",
+    "text": "Moottori saa liikaa ilmaa polttoaineeseen nähden: ilmavuoto ilmamassamittarin jälkeen, likainen mittari tai heikko polttoaineen syöttö."
+   },
+   "sv": {
+    "title": "Systemet för magert (bank 1)",
+    "text": "Motorn får för mycket luft i förhållande till bränslet: luftläcka efter luftmassamätaren, smutsig mätare eller svag bränsletillförsel."
+   }
+  },
+  "P0172": {
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "System too rich (bank 1)",
+    "text": "The engine gets too much fuel: a leaking injector, a faulty sensor or a blocked air filter. Fuel use rises."
+   },
+   "fi": {
+    "title": "Seos liian rikas (rivi 1)",
+    "text": "Moottori saa liikaa polttoainetta: vuotava suutin, viallinen anturi tai tukkeutunut ilmansuodatin. Kulutus kasvaa."
+   },
+   "sv": {
+    "title": "Systemet för fett (bank 1)",
+    "text": "Motorn får för mycket bränsle: läckande spridare, felaktig givare eller igensatt luftfilter. Förbrukningen ökar."
+   }
+  },
+  "P0174": {
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "System too lean (bank 2)",
+    "text": "As P0171, for the second cylinder bank."
+   },
+   "fi": {
+    "title": "Seos liian laiha (rivi 2)",
+    "text": "Kuten P0171, toiselle sylinteririville."
+   },
+   "sv": {
+    "title": "Systemet för magert (bank 2)",
+    "text": "Som P0171, för den andra cylinderbanken."
+   }
+  },
+  "P0175": {
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "System too rich (bank 2)",
+    "text": "As P0172, for the second cylinder bank."
+   },
+   "fi": {
+    "title": "Seos liian rikas (rivi 2)",
+    "text": "Kuten P0172, toiselle sylinteririville."
+   },
+   "sv": {
+    "title": "Systemet för fett (bank 2)",
+    "text": "Som P0172, för den andra cylinderbanken."
+   }
+  },
+  "P0300": {
+   "area": "engine",
+   "sev": "high",
+   "advice": "misfire",
+   "en": {
+    "title": "Random / multiple cylinder misfire",
+    "text": "Misfires in several cylinders or changing cylinders: ignition, fuel or air problem common to the engine."
+   },
+   "fi": {
+    "title": "Satunnaiset / useiden sylinterien sytytyskatkot",
+    "text": "Sytytyskatkoja useissa tai vaihtelevissa sylintereissä: koko moottorin yhteinen sytytys-, polttoaine- tai ilmaongelma."
+   },
+   "sv": {
+    "title": "Slumpmässiga / flera cylindrars misständningar",
+    "text": "Misständningar i flera eller växlande cylindrar: tändnings-, bränsle- eller luftproblem gemensamt för motorn."
+   }
+  },
+  "P0325": {
+   "area": "engine",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Knock sensor 1 circuit",
+    "text": "The knock sensor gives no usable signal; the engine retards ignition for safety, which costs some power and fuel."
+   },
+   "fi": {
+    "title": "Nakutusanturin 1 piiri",
+    "text": "Nakutusanturi ei anna käyttökelpoista signaalia; moottori myöhästää sytytystä varmuuden vuoksi, mikä vie hieman tehoa ja lisää kulutusta."
+   },
+   "sv": {
+    "title": "Knackgivare 1, krets",
+    "text": "Knackgivaren ger ingen användbar signal; motorn senarelägger tändningen för säkerhets skull, vilket kostar lite effekt och bränsle."
+   }
+  },
+  "P0335": {
+   "area": "engine",
+   "sev": "high",
+   "advice": "workshop",
+   "en": {
+    "title": "Crankshaft position sensor circuit",
+    "text": "No signal from the crankshaft sensor; the engine may not start or may stall."
+   },
+   "fi": {
+    "title": "Kampiakselin asentoanturin piiri",
+    "text": "Kampiakselin anturista ei tule signaalia; moottori ei ehkä käynnisty tai sammuu."
+   },
+   "sv": {
+    "title": "Vevaxelns lägesgivare, krets",
+    "text": "Ingen signal från vevaxelgivaren; motorn kanske inte startar eller stannar."
+   }
+  },
+  "P0340": {
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Camshaft position sensor circuit",
+    "text": "No signal from the camshaft sensor; starting may take longer."
+   },
+   "fi": {
+    "title": "Nokka-akselin asentoanturin piiri",
+    "text": "Nokka-akselin anturista ei tule signaalia; käynnistys voi kestää pidempään."
+   },
+   "sv": {
+    "title": "Kamaxelns lägesgivare, krets",
+    "text": "Ingen signal från kamaxelgivaren; starten kan ta längre tid."
+   }
+  },
+  "P0401": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Exhaust gas recirculation flow insufficient",
+    "text": "Too little exhaust gas is returned to the intake, often because of carbon deposits in the EGR valve or passages."
+   },
+   "fi": {
+    "title": "Pakokaasun takaisinkierrätyksen virtaus riittämätön",
+    "text": "Imusarjaan palaa liian vähän pakokaasua, usein EGR-venttiilin tai kanavien karstoittumisen takia."
+   },
+   "sv": {
+    "title": "Avgasåterföring, för lågt flöde",
+    "text": "För lite avgaser återförs till insuget, ofta på grund av sotavlagringar i EGR-ventilen eller kanalerna."
+   }
+  },
+  "P0420": {
+   "area": "emissions",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Catalyst efficiency below threshold (bank 1)",
+    "text": "The catalytic converter no longer cleans the exhaust well enough (aged converter, or a misreading rear oxygen sensor)."
+   },
+   "fi": {
+    "title": "Katalysaattorin hyötysuhde alle rajan (rivi 1)",
+    "text": "Katalysaattori ei enää puhdista pakokaasuja riittävästi (vanhentunut katalysaattori tai väärin mittaava takimmainen happianturi)."
+   },
+   "sv": {
+    "title": "Katalysatorns verkningsgrad under gränsen (bank 1)",
+    "text": "Katalysatorn renar inte längre avgaserna tillräckligt (åldrad katalysator eller en felmätande bakre syresensor)."
+   }
+  },
+  "P0430": {
+   "area": "emissions",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Catalyst efficiency below threshold (bank 2)",
+    "text": "As P0420, for the second cylinder bank."
+   },
+   "fi": {
+    "title": "Katalysaattorin hyötysuhde alle rajan (rivi 2)",
+    "text": "Kuten P0420, toiselle sylinteririville."
+   },
+   "sv": {
+    "title": "Katalysatorns verkningsgrad under gränsen (bank 2)",
+    "text": "Som P0420, för den andra cylinderbanken."
+   }
+  },
+  "P0440": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "fuel_cap",
+   "en": {
+    "title": "Evaporative emission system",
+    "text": "Fault in the system that captures fuel vapour from the tank."
+   },
+   "fi": {
+    "title": "Polttoainehöyryjen talteenottojärjestelmä",
+    "text": "Vika järjestelmässä, joka ottaa talteen tankin polttoainehöyryt."
+   },
+   "sv": {
+    "title": "Avdunstningssystem",
+    "text": "Fel i systemet som fångar upp bränsleångor från tanken."
+   }
+  },
+  "P0441": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Evaporative emission system incorrect purge flow",
+    "text": "The valve that feeds fuel vapour to the engine does not let the expected flow through."
+   },
+   "fi": {
+    "title": "Polttoainehöyryjärjestelmän huuhteluvirtaus väärä",
+    "text": "Polttoainehöyryjä moottoriin syöttävä venttiili ei päästä odotettua virtausta läpi."
+   },
+   "sv": {
+    "title": "Avdunstningssystem, felaktigt spolflöde",
+    "text": "Ventilen som leder bränsleångor till motorn släpper inte igenom förväntat flöde."
+   }
+  },
+  "P0442": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "fuel_cap",
+   "en": {
+    "title": "Evaporative emission system small leak",
+    "text": "A small leak in the fuel vapour system."
+   },
+   "fi": {
+    "title": "Polttoainehöyryjärjestelmän pieni vuoto",
+    "text": "Pieni vuoto polttoainehöyryjärjestelmässä."
+   },
+   "sv": {
+    "title": "Avdunstningssystem, liten läcka",
+    "text": "En liten läcka i bränsleångsystemet."
+   }
+  },
+  "P0455": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "fuel_cap",
+   "en": {
+    "title": "Evaporative emission system large leak",
+    "text": "A large leak in the fuel vapour system, very often a fuel cap that is loose or missing."
+   },
+   "fi": {
+    "title": "Polttoainehöyryjärjestelmän suuri vuoto",
+    "text": "Suuri vuoto polttoainehöyryjärjestelmässä, hyvin usein löysä tai puuttuva tankin korkki."
+   },
+   "sv": {
+    "title": "Avdunstningssystem, stor läcka",
+    "text": "En stor läcka i bränsleångsystemet, mycket ofta ett löst eller saknat tanklock."
+   }
+  },
+  "P0456": {
+   "area": "emissions",
+   "sev": "low",
+   "advice": "fuel_cap",
+   "en": {
+    "title": "Evaporative emission system very small leak",
+    "text": "A very small leak in the fuel vapour system (cap seal, hose)."
+   },
+   "fi": {
+    "title": "Polttoainehöyryjärjestelmän hyvin pieni vuoto",
+    "text": "Hyvin pieni vuoto polttoainehöyryjärjestelmässä (korkin tiiviste, letku)."
+   },
+   "sv": {
+    "title": "Avdunstningssystem, mycket liten läcka",
+    "text": "En mycket liten läcka i bränsleångsystemet (lockets tätning, slang)."
+   }
+  },
+  "P0500": {
+   "area": "chassis",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Vehicle speed sensor",
+    "text": "The speed signal is missing or implausible; this also affects Veen Auto's load test and trip data."
+   },
+   "fi": {
+    "title": "Ajonopeusanturi",
+    "text": "Nopeussignaali puuttuu tai on epäuskottava; tämä vaikuttaa myös Veen Auton kuormitustestiin ja matkatietoihin."
+   },
+   "sv": {
+    "title": "Hastighetsgivare",
+    "text": "Hastighetssignalen saknas eller är orimlig; det påverkar också Veen Autos belastningstest och resedata."
+   }
+  },
+  "P0505": {
+   "area": "engine",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Idle air control system",
+    "text": "The engine cannot hold the target idle speed."
+   },
+   "fi": {
+    "title": "Tyhjäkäynnin säätöjärjestelmä",
+    "text": "Moottori ei pysty pitämään tavoitetyhjäkäyntiä."
+   },
+   "sv": {
+    "title": "Tomgångsreglering",
+    "text": "Motorn kan inte hålla önskat tomgångsvarvtal."
+   }
+  },
+  "P0562": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "System voltage low",
+    "text": "The control unit's 12 V supply is too low: a weak or discharged 12 V battery, poor terminals, or (in hybrids and EVs) a DC/DC converter that doesn't charge."
+   },
+   "fi": {
+    "title": "Järjestelmäjännite matala",
+    "text": "Ohjainlaitteen 12 V:n syöttö on liian matala: heikko tai tyhjä 12 V:n akku, huonot navat tai (hybrideissä ja sähköautoissa) DC/DC-muunnin, joka ei lataa."
+   },
+   "sv": {
+    "title": "Systemspänning låg",
+    "text": "Styrenhetens 12 V-matning är för låg: svagt eller urladdat 12 V-batteri, dåliga poler eller (i hybrider och elbilar) en DC/DC-omvandlare som inte laddar."
+   }
+  },
+  "P0563": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "System voltage high",
+    "text": "The 12 V supply is too high: a faulty generator / DC/DC converter regulation."
+   },
+   "fi": {
+    "title": "Järjestelmäjännite korkea",
+    "text": "12 V:n syöttö on liian korkea: generaattorin / DC/DC-muuntimen säätövika."
+   },
+   "sv": {
+    "title": "Systemspänning hög",
+    "text": "12 V-matningen är för hög: fel i generatorns / DC/DC-omvandlarens reglering."
+   }
+  },
+  "P0606": {
+   "area": "engine",
+   "sev": "high",
+   "advice": "workshop",
+   "en": {
+    "title": "Control module processor fault",
+    "text": "The engine control unit found an internal fault. Sometimes caused by a low 12 V supply; check that first."
+   },
+   "fi": {
+    "title": "Ohjainlaitteen prosessorivika",
+    "text": "Moottorinohjain havaitsi sisäisen vian. Joskus syynä on matala 12 V:n syöttö; tarkista se ensin."
+   },
+   "sv": {
+    "title": "Styrenhetens processorfel",
+    "text": "Motorstyrenheten har upptäckt ett internt fel. Ibland orsakat av låg 12 V-matning; kontrollera det först."
+   }
+  },
+  "P0700": {
+   "area": "transmission",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Transmission control system",
+    "text": "The gearbox control unit has stored a fault; read its own codes for details."
+   },
+   "fi": {
+    "title": "Vaihteiston ohjausjärjestelmä",
+    "text": "Vaihteiston ohjainlaite on tallentanut vian; sen omat koodit kertovat lisää."
+   },
+   "sv": {
+    "title": "Växellådans styrsystem",
+    "text": "Växellådans styrenhet har lagrat ett fel; läs dess egna koder för detaljer."
+   }
+  },
+  "U0100": {
+   "area": "network",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with engine control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys moottorinohjaimeen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med motorstyrenheten",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0101": {
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with transmission control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys vaihteistonohjaimeen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med växellådans styrenhet",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0111": {
+   "area": "network",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with battery energy control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys akun ohjainlaitteeseen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med batteriets styrenhet",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0121": {
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with ABS control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys ABS-ohjainlaitteeseen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med ABS-styrenheten",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0140": {
+   "area": "network",
+   "sev": "low",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with body control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys korin ohjainlaitteeseen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med karosstyrenheten",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0155": {
+   "area": "network",
+   "sev": "low",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with instrument panel cluster",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys mittaristoon katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med instrumentpanelen",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  },
+  "U0293": {
+   "area": "network",
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with hybrid powertrain control module",
+    "text": "Another control unit stopped receiving messages from this unit on the CAN bus. Common causes: a low 12 V battery, a loose connector, or the unit itself."
+   },
+   "fi": {
+    "title": "Yhteys hybridivoimalinjan ohjaimeen katkennut",
+    "text": "Toinen ohjainlaite lakkasi saamasta tämän laitteen viestejä CAN-väylältä. Yleisiä syitä: matala 12 V:n akku, löysä liitin tai itse laite."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med hybriddrivlinans styrenhet",
+    "text": "En annan styrenhet slutade ta emot meddelanden från den här enheten på CAN-bussen. Vanliga orsaker: lågt 12 V-batteri, lös kontakt eller enheten själv."
+   }
+  }
+ },
+ "ranges": [
+  {
+   "from": "P0301",
+   "to": "P0312",
+   "area": "engine",
+   "sev": "high",
+   "advice": "misfire",
+   "en": {
+    "title": "Misfire in one cylinder",
+    "text": "Misfires in one cylinder; the last two digits are the cylinder number. Usually a spark plug, ignition coil or injector of that cylinder."
+   },
+   "fi": {
+    "title": "Sytytyskatko yhdessä sylinterissä",
+    "text": "Sytytyskatkoja yhdessä sylinterissä; kaksi viimeistä numeroa ovat sylinterin numero. Yleensä sen sylinterin sytytystulppa, puola tai suutin."
+   },
+   "sv": {
+    "title": "Misständning i en cylinder",
+    "text": "Misständningar i en cylinder; de två sista siffrorna är cylinderns nummer. Oftast tändstift, tändspole eller spridare i den cylindern."
+   }
+  },
+  {
+   "from": "P0A00",
+   "to": "P0AFF",
+   "area": "hybrid",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid / EV propulsion system",
+    "text": "A fault in the hybrid or electric drive system (motors, inverters, high-voltage battery or its control)."
+   },
+   "fi": {
+    "title": "Hybridi-/sähkövoimalinja",
+    "text": "Vika hybridi- tai sähkövoimalinjassa (moottorit, invertterit, suurjänniteakku tai sen ohjaus)."
+   },
+   "sv": {
+    "title": "Hybrid-/eldrivlina",
+    "text": "Ett fel i hybrid- eller eldrivlinan (motorer, växelriktare, högvoltsbatteri eller dess styrning)."
+   }
+  },
+  {
+   "from": "P0B00",
+   "to": "P0BFF",
+   "area": "battery",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid / EV battery system",
+    "text": "A fault in the high-voltage battery system, often the voltage or temperature sensing of a cell group or module."
+   },
+   "fi": {
+    "title": "Hybridi-/sähköauton akkujärjestelmä",
+    "text": "Vika suurjänniteakkujärjestelmässä, usein kennoryhmän tai moduulin jännite- tai lämpötilamittauksessa."
+   },
+   "sv": {
+    "title": "Hybrid-/elbilens batterisystem",
+    "text": "Ett fel i högvoltsbatterisystemet, ofta spännings- eller temperaturmätningen av en cellgrupp eller modul."
+   }
+  },
+  {
+   "from": "P0C00",
+   "to": "P0CFF",
+   "area": "hybrid",
+   "sev": "medium",
+   "advice": "hv_service",
+   "en": {
+    "title": "Hybrid / EV system",
+    "text": "A fault in the hybrid or electric drive system (motor, inverter, cooling or high-voltage battery)."
+   },
+   "fi": {
+    "title": "Hybridi-/sähköjärjestelmä",
+    "text": "Vika hybridi- tai sähköjärjestelmässä (moottori, invertteri, jäähdytys tai suurjänniteakku)."
+   },
+   "sv": {
+    "title": "Hybrid-/elsystem",
+    "text": "Ett fel i hybrid- eller elsystemet (motor, växelriktare, kylning eller högvoltsbatteri)."
+   }
+  },
+  {
+   "from": "P0D00",
+   "to": "P0DFF",
+   "area": "charging",
+   "sev": "medium",
+   "advice": "charging",
+   "en": {
+    "title": "Charging system",
+    "text": "A fault in the charging system (on-board charger, charging port, its lock or communication with the charging point)."
+   },
+   "fi": {
+    "title": "Latausjärjestelmä",
+    "text": "Vika latausjärjestelmässä (auton laturi, latausliitäntä, sen lukitus tai yhteys latauspisteeseen)."
+   },
+   "sv": {
+    "title": "Laddsystem",
+    "text": "Ett fel i laddsystemet (inbyggd laddare, laddport, dess lås eller kommunikationen med laddpunkten)."
+   }
+  },
+  {
+   "from": "P0100",
+   "to": "P01FF",
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Fuel and air metering",
+    "text": "A fault in measuring the engine's air or fuel (sensors, injectors, mixture control)."
+   },
+   "fi": {
+    "title": "Polttoaineen ja ilman annostelu",
+    "text": "Vika moottorin ilman tai polttoaineen mittauksessa (anturit, suuttimet, seossäätö)."
+   },
+   "sv": {
+    "title": "Bränsle- och luftdosering",
+    "text": "Ett fel i mätningen av motorns luft eller bränsle (givare, spridare, blandningsreglering)."
+   }
+  },
+  {
+   "from": "P0200",
+   "to": "P02FF",
+   "area": "fuel",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Fuel and air metering (injector circuits)",
+    "text": "A fault in the fuel injectors or their circuits, or in the fuel pump control."
+   },
+   "fi": {
+    "title": "Polttoaineen ja ilman annostelu (suutinpiirit)",
+    "text": "Vika ruiskutussuuttimissa tai niiden piireissä tai polttoainepumpun ohjauksessa."
+   },
+   "sv": {
+    "title": "Bränsle- och luftdosering (spridarkretsar)",
+    "text": "Ett fel i spridarna eller deras kretsar, eller i bränslepumpens styrning."
+   }
+  },
+  {
+   "from": "P0300",
+   "to": "P03FF",
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Ignition system or misfire",
+    "text": "A fault in the ignition system or engine sensors (crankshaft, camshaft, knock)."
+   },
+   "fi": {
+    "title": "Sytytysjärjestelmä tai sytytyskatko",
+    "text": "Vika sytytysjärjestelmässä tai moottorin antureissa (kampiakseli, nokka-akseli, nakutus)."
+   },
+   "sv": {
+    "title": "Tändsystem eller misständning",
+    "text": "Ett fel i tändsystemet eller motorns givare (vevaxel, kamaxel, knack)."
+   }
+  },
+  {
+   "from": "P0400",
+   "to": "P04FF",
+   "area": "emissions",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Auxiliary emission controls",
+    "text": "A fault in the emission control systems (EGR, catalytic converter, fuel vapour system, secondary air)."
+   },
+   "fi": {
+    "title": "Päästöjen lisäjärjestelmät",
+    "text": "Vika päästöjenhallintajärjestelmissä (EGR, katalysaattori, polttoainehöyryjärjestelmä, lisäilma)."
+   },
+   "sv": {
+    "title": "Extra avgasreningssystem",
+    "text": "Ett fel i avgasreningssystemen (EGR, katalysator, avdunstningssystem, sekundärluft)."
+   }
+  },
+  {
+   "from": "P0500",
+   "to": "P05FF",
+   "area": "engine",
+   "sev": "low",
+   "advice": "workshop",
+   "en": {
+    "title": "Vehicle speed, idle control and auxiliary inputs",
+    "text": "A fault in the speed signal, idle control or supporting inputs such as the 12 V supply."
+   },
+   "fi": {
+    "title": "Ajonopeus, tyhjäkäynti ja apusignaalit",
+    "text": "Vika nopeussignaalissa, tyhjäkäynnin säädössä tai apusignaaleissa, kuten 12 V:n syötössä."
+   },
+   "sv": {
+    "title": "Hastighet, tomgång och hjälpsignaler",
+    "text": "Ett fel i hastighetssignalen, tomgångsregleringen eller hjälpsignaler som 12 V-matningen."
+   }
+  },
+  {
+   "from": "P0600",
+   "to": "P06FF",
+   "area": "engine",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Control module and output circuits",
+    "text": "A fault in a control unit itself or in the circuits it drives."
+   },
+   "fi": {
+    "title": "Ohjainlaite ja lähtöpiirit",
+    "text": "Vika itse ohjainlaitteessa tai sen ohjaamissa piireissä."
+   },
+   "sv": {
+    "title": "Styrenhet och utgångskretsar",
+    "text": "Ett fel i själva styrenheten eller i kretsar den styr."
+   }
+  },
+  {
+   "from": "P0700",
+   "to": "P09FF",
+   "area": "transmission",
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Transmission",
+    "text": "A fault in the gearbox or its control."
+   },
+   "fi": {
+    "title": "Vaihteisto",
+    "text": "Vika vaihteistossa tai sen ohjauksessa."
+   },
+   "sv": {
+    "title": "Växellåda",
+    "text": "Ett fel i växellådan eller dess styrning."
+   }
+  },
+  {
+   "from": "U0001",
+   "to": "U00FF",
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Network communication",
+    "text": "A control unit has a problem with the CAN bus or stopped hearing another unit."
+   },
+   "fi": {
+    "title": "Väyläliikenne",
+    "text": "Ohjainlaitteella on ongelma CAN-väylän kanssa tai se ei enää kuule toista laitetta."
+   },
+   "sv": {
+    "title": "Nätverkskommunikation",
+    "text": "En styrenhet har problem med CAN-bussen eller slutade höra en annan enhet."
+   }
+  },
+  {
+   "from": "U0100",
+   "to": "U02FF",
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with a control module",
+    "text": "A control unit stopped receiving messages from another unit. A low 12 V battery is a common cause of several such codes at once."
+   },
+   "fi": {
+    "title": "Yhteys ohjainlaitteeseen katkennut",
+    "text": "Ohjainlaite lakkasi saamasta viestejä toiselta laitteelta. Matala 12 V:n akku on yleinen syy useaan tällaiseen koodiin kerralla."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med en styrenhet",
+    "text": "En styrenhet slutade ta emot meddelanden från en annan enhet. Ett lågt 12 V-batteri är en vanlig orsak till flera sådana koder samtidigt."
+   }
+  }
+ ],
+ "brands": {
+  "Toyota": {
+   "P3011": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 1 weak",
+     "text": "Toyota: battery block 1 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 1 heikko",
+     "text": "Toyota: akun lohkon 1 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 1 svagt",
+     "text": "Toyota: batteriblock 1 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3012": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 2 weak",
+     "text": "Toyota: battery block 2 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 2 heikko",
+     "text": "Toyota: akun lohkon 2 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 2 svagt",
+     "text": "Toyota: batteriblock 2 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3013": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 3 weak",
+     "text": "Toyota: battery block 3 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 3 heikko",
+     "text": "Toyota: akun lohkon 3 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 3 svagt",
+     "text": "Toyota: batteriblock 3 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3014": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 4 weak",
+     "text": "Toyota: battery block 4 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 4 heikko",
+     "text": "Toyota: akun lohkon 4 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 4 svagt",
+     "text": "Toyota: batteriblock 4 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3015": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 5 weak",
+     "text": "Toyota: battery block 5 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 5 heikko",
+     "text": "Toyota: akun lohkon 5 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 5 svagt",
+     "text": "Toyota: batteriblock 5 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3016": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 6 weak",
+     "text": "Toyota: battery block 6 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 6 heikko",
+     "text": "Toyota: akun lohkon 6 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 6 svagt",
+     "text": "Toyota: batteriblock 6 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3017": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 7 weak",
+     "text": "Toyota: battery block 7 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 7 heikko",
+     "text": "Toyota: akun lohkon 7 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 7 svagt",
+     "text": "Toyota: batteriblock 7 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3018": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 8 weak",
+     "text": "Toyota: battery block 8 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 8 heikko",
+     "text": "Toyota: akun lohkon 8 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 8 svagt",
+     "text": "Toyota: batteriblock 8 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3019": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 9 weak",
+     "text": "Toyota: battery block 9 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 9 heikko",
+     "text": "Toyota: akun lohkon 9 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 9 svagt",
+     "text": "Toyota: batteriblock 9 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3020": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 10 weak",
+     "text": "Toyota: battery block 10 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 10 heikko",
+     "text": "Toyota: akun lohkon 10 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 10 svagt",
+     "text": "Toyota: batteriblock 10 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3021": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 11 weak",
+     "text": "Toyota: battery block 11 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 11 heikko",
+     "text": "Toyota: akun lohkon 11 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 11 svagt",
+     "text": "Toyota: batteriblock 11 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3022": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 12 weak",
+     "text": "Toyota: battery block 12 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 12 heikko",
+     "text": "Toyota: akun lohkon 12 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 12 svagt",
+     "text": "Toyota: batteriblock 12 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3023": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 13 weak",
+     "text": "Toyota: battery block 13 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 13 heikko",
+     "text": "Toyota: akun lohkon 13 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 13 svagt",
+     "text": "Toyota: batteriblock 13 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3024": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 14 weak",
+     "text": "Toyota: battery block 14 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 14 heikko",
+     "text": "Toyota: akun lohkon 14 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 14 svagt",
+     "text": "Toyota: batteriblock 14 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3000": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery control",
+     "text": "Toyota: the battery control unit reports a battery malfunction; details are in the battery ECU's own codes or information codes."
+    },
+    "fi": {
+     "title": "Hybridiakun ohjaus",
+     "text": "Toyota: akun ohjainlaite ilmoittaa akkuviasta; tarkemmat tiedot ovat akun ohjainlaitteen omissa koodeissa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets styrning",
+     "text": "Toyota: batteriets styrenhet rapporterar ett batterifel; detaljer finns i batteristyrenhetens egna koder."
+    }
+   },
+   "P3190": {
+    "area": "engine",
+    "sev": "medium",
+    "advice": "workshop",
+    "en": {
+     "title": "Poor engine power",
+     "text": "Toyota hybrid: the engine does not deliver the expected power (air filter, low fuel, injectors or a clogged EGR)."
+    },
+    "fi": {
+     "title": "Moottorin teho heikko",
+     "text": "Toyota-hybridi: moottori ei tuota odotettua tehoa (ilmansuodatin, vähän polttoainetta, suuttimet tai tukkeutunut EGR)."
+    },
+    "sv": {
+     "title": "Låg motoreffekt",
+     "text": "Toyota hybrid: motorn ger inte förväntad effekt (luftfilter, lite bränsle, spridare eller igensatt EGR)."
+    }
+   }
+  },
+  "Lexus": {
+   "P3011": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 1 weak",
+     "text": "Toyota: battery block 1 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 1 heikko",
+     "text": "Toyota: akun lohkon 1 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 1 svagt",
+     "text": "Toyota: batteriblock 1 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3012": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 2 weak",
+     "text": "Toyota: battery block 2 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 2 heikko",
+     "text": "Toyota: akun lohkon 2 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 2 svagt",
+     "text": "Toyota: batteriblock 2 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3013": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 3 weak",
+     "text": "Toyota: battery block 3 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 3 heikko",
+     "text": "Toyota: akun lohkon 3 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 3 svagt",
+     "text": "Toyota: batteriblock 3 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3014": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 4 weak",
+     "text": "Toyota: battery block 4 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 4 heikko",
+     "text": "Toyota: akun lohkon 4 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 4 svagt",
+     "text": "Toyota: batteriblock 4 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3015": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 5 weak",
+     "text": "Toyota: battery block 5 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 5 heikko",
+     "text": "Toyota: akun lohkon 5 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 5 svagt",
+     "text": "Toyota: batteriblock 5 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3016": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 6 weak",
+     "text": "Toyota: battery block 6 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 6 heikko",
+     "text": "Toyota: akun lohkon 6 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 6 svagt",
+     "text": "Toyota: batteriblock 6 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3017": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 7 weak",
+     "text": "Toyota: battery block 7 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 7 heikko",
+     "text": "Toyota: akun lohkon 7 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 7 svagt",
+     "text": "Toyota: batteriblock 7 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3018": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 8 weak",
+     "text": "Toyota: battery block 8 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 8 heikko",
+     "text": "Toyota: akun lohkon 8 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 8 svagt",
+     "text": "Toyota: batteriblock 8 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3019": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 9 weak",
+     "text": "Toyota: battery block 9 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 9 heikko",
+     "text": "Toyota: akun lohkon 9 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 9 svagt",
+     "text": "Toyota: batteriblock 9 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3020": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 10 weak",
+     "text": "Toyota: battery block 10 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 10 heikko",
+     "text": "Toyota: akun lohkon 10 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 10 svagt",
+     "text": "Toyota: batteriblock 10 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3021": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 11 weak",
+     "text": "Toyota: battery block 11 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 11 heikko",
+     "text": "Toyota: akun lohkon 11 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 11 svagt",
+     "text": "Toyota: batteriblock 11 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3022": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 12 weak",
+     "text": "Toyota: battery block 12 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 12 heikko",
+     "text": "Toyota: akun lohkon 12 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 12 svagt",
+     "text": "Toyota: batteriblock 12 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3023": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 13 weak",
+     "text": "Toyota: battery block 13 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 13 heikko",
+     "text": "Toyota: akun lohkon 13 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 13 svagt",
+     "text": "Toyota: batteriblock 13 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3024": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery block 14 weak",
+     "text": "Toyota: battery block 14 has a lower voltage than the others; usually its module is worn. Often appears with P0A80."
+    },
+    "fi": {
+     "title": "Hybridiakun lohko 14 heikko",
+     "text": "Toyota: akun lohkon 14 jännite on muita matalampi; yleensä sen moduuli on kulunut. Esiintyy usein P0A80:n kanssa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets block 14 svagt",
+     "text": "Toyota: batteriblock 14 har lägre spänning än de andra; oftast är modulen sliten. Visas ofta tillsammans med P0A80."
+    }
+   },
+   "P3000": {
+    "area": "battery",
+    "sev": "high",
+    "advice": "battery_test",
+    "en": {
+     "title": "Hybrid battery control",
+     "text": "Toyota: the battery control unit reports a battery malfunction; details are in the battery ECU's own codes or information codes."
+    },
+    "fi": {
+     "title": "Hybridiakun ohjaus",
+     "text": "Toyota: akun ohjainlaite ilmoittaa akkuviasta; tarkemmat tiedot ovat akun ohjainlaitteen omissa koodeissa."
+    },
+    "sv": {
+     "title": "Hybridbatteriets styrning",
+     "text": "Toyota: batteriets styrenhet rapporterar ett batterifel; detaljer finns i batteristyrenhetens egna koder."
+    }
+   },
+   "P3190": {
+    "area": "engine",
+    "sev": "medium",
+    "advice": "workshop",
+    "en": {
+     "title": "Poor engine power",
+     "text": "Toyota hybrid: the engine does not deliver the expected power (air filter, low fuel, injectors or a clogged EGR)."
+    },
+    "fi": {
+     "title": "Moottorin teho heikko",
+     "text": "Toyota-hybridi: moottori ei tuota odotettua tehoa (ilmansuodatin, vähän polttoainetta, suuttimet tai tukkeutunut EGR)."
+    },
+    "sv": {
+     "title": "Låg motoreffekt",
+     "text": "Toyota hybrid: motorn ger inte förväntad effekt (luftfilter, lite bränsle, spridare eller igensatt EGR)."
+    }
+   }
+  }
+ },
+ "combos": [
+  {
+   "id": "weak-module",
+   "all": [
+    "P0A80"
+   ],
+   "any": [
+    "P0AFA",
+    "P3011",
+    "P3012",
+    "P3013",
+    "P3014",
+    "P3015",
+    "P3016",
+    "P3017",
+    "P3018",
+    "P3019",
+    "P3020",
+    "P3021",
+    "P3022",
+    "P3023",
+    "P3024"
+   ],
+   "sev": "high",
+   "advice": "battery_test",
+   "en": {
+    "title": "Weak battery module",
+    "text": "The battery unit sees a module that drops more than the others, and the pack voltage sags under load. This is the typical wear pattern of an older hybrid battery; one or a few modules usually cause it."
+   },
+   "fi": {
+    "title": "Heikko akkumoduuli",
+    "text": "Akun ohjainlaite näkee moduulin, jonka jännite laskee muita enemmän, ja akun jännite notkahtaa kuormituksessa. Tämä on vanhenevan hybridiakun tyypillinen kulumismalli; syynä on yleensä yksi tai muutama moduuli."
+   },
+   "sv": {
+    "title": "Svag batterimodul",
+    "text": "Batteriets styrenhet ser en modul som sjunker mer än de andra, och packspänningen sjunker under belastning. Det är det typiska slitagemönstret i ett äldre hybridbatteri; oftast orsakas det av en eller några få moduler."
+   }
+  },
+  {
+   "id": "pack-worn",
+   "all": [
+    "P0A7F"
+   ],
+   "any": [
+    "P0A80",
+    "P0AFA"
+   ],
+   "sev": "high",
+   "advice": "battery_test",
+   "en": {
+    "title": "Battery worn overall",
+    "text": "Both the whole-pack ageing check and the voltage or module check failed: the battery has lost capacity broadly, not just in one module."
+   },
+   "fi": {
+    "title": "Akku kulunut kokonaisuutena",
+    "text": "Sekä koko akun ikääntymistarkistus että jännite- tai moduulitarkistus epäonnistuivat: akku on menettänyt kapasiteettia laajasti, ei vain yhdessä moduulissa."
+   },
+   "sv": {
+    "title": "Batteriet slitet som helhet",
+    "text": "Både åldringskontrollen för hela batteriet och spännings- eller modulkontrollen misslyckades: batteriet har tappat kapacitet brett, inte bara i en modul."
+   }
+  },
+  {
+   "id": "hot-battery-fan",
+   "all": [
+    "P0A7E"
+   ],
+   "any": [
+    "P0A81",
+    "P0A82"
+   ],
+   "sev": "high",
+   "advice": "cooling",
+   "en": {
+    "title": "Battery overheating because of its cooling fan",
+    "text": "The battery overheated and its cooling fan does not work as it should. Often a blocked intake or a dirty fan; cells age faster when hot."
+   },
+   "fi": {
+    "title": "Akku ylikuumenee jäähdytyspuhaltimen takia",
+    "text": "Akku ylikuumeni, eikä sen jäähdytyspuhallin toimi kuten pitäisi. Usein tukossa oleva ilmanotto tai likainen puhallin; kennot vanhenevat nopeammin kuumina."
+   },
+   "sv": {
+    "title": "Batteriet överhettas på grund av kylfläkten",
+    "text": "Batteriet överhettades och dess kylfläkt fungerar inte som den ska. Ofta ett blockerat intag eller en smutsig fläkt; celler åldras snabbare när de är varma."
+   }
+  },
+  {
+   "id": "low-12v-network",
+   "any": [
+    "P0562",
+    "P0A08",
+    "P0A09",
+    "P0A10"
+   ],
+   "anyMin": 1,
+   "also": [
+    "U0001-U02FF"
+   ],
+   "alsoMin": 2,
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Low 12 V supply behind several communication faults",
+    "text": "Several control units lost contact with each other and the 12 V supply was low. A weak 12 V battery (or a DC/DC converter that doesn't charge it) is the likely common cause, not the units themselves."
+   },
+   "fi": {
+    "title": "Matala 12 V:n syöttö useiden yhteysvikojen takana",
+    "text": "Useat ohjainlaitteet menettivät yhteyden toisiinsa ja 12 V:n syöttö oli matala. Todennäköinen yhteinen syy on heikko 12 V:n akku (tai DC/DC-muunnin, joka ei lataa sitä), eivät laitteet itse."
+   },
+   "sv": {
+    "title": "Låg 12 V-matning bakom flera kommunikationsfel",
+    "text": "Flera styrenheter tappade kontakten med varandra och 12 V-matningen var låg. Ett svagt 12 V-batteri (eller en DC/DC-omvandlare som inte laddar det) är den troliga gemensamma orsaken, inte enheterna själva."
+   }
+  },
+  {
+   "id": "many-network",
+   "any": [
+    "U0001-U02FF"
+   ],
+   "anyMin": 3,
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Many communication faults at once",
+    "text": "Three or more 'lost communication' codes at once usually have one cause: a low 12 V battery during starting, a loose connector or a fault on the CAN bus."
+   },
+   "fi": {
+    "title": "Monta yhteysvikaa kerralla",
+    "text": "Kolme tai useampi \"yhteys katkennut\" -koodi kerralla johtuu yleensä yhdestä syystä: matala 12 V:n akku käynnistyksessä, löysä liitin tai CAN-väylän vika."
+   },
+   "sv": {
+    "title": "Många kommunikationsfel samtidigt",
+    "text": "Tre eller fler koder om förlorad kommunikation samtidigt har oftast en orsak: lågt 12 V-batteri vid start, en lös kontakt eller ett fel på CAN-bussen."
+   }
+  },
+  {
+   "id": "battery-unit-silent",
+   "all": [
+    "U0111"
+   ],
+   "any": [
+    "P0A00-P0BFF"
+   ],
+   "sev": "high",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Battery unit not answering",
+    "text": "The hybrid system lost contact with the battery control unit and stored battery faults. Check the 12 V supply and the battery unit's connectors before suspecting the battery itself."
+   },
+   "fi": {
+    "title": "Akun ohjainlaite ei vastaa",
+    "text": "Hybridijärjestelmä menetti yhteyden akun ohjainlaitteeseen ja tallensi akkuvikoja. Tarkista 12 V:n syöttö ja akun ohjainlaitteen liittimet ennen kuin epäilet itse akkua."
+   },
+   "sv": {
+    "title": "Batteriets styrenhet svarar inte",
+    "text": "Hybridsystemet tappade kontakten med batteriets styrenhet och lagrade batterifel. Kontrollera 12 V-matningen och styrenhetens kontakter innan du misstänker själva batteriet."
+   }
+  },
+  {
+   "id": "hv-safety",
+   "any": [
+    "P0AA6",
+    "P0A0A-P0A0E",
+    "P0AA1",
+    "P0AA4",
+    "P0A95"
+   ],
+   "sev": "critical",
+   "advice": "hv_stop",
+   "en": {
+    "title": "High-voltage safety fault",
+    "text": "The car has found a fault in the high-voltage safety systems (insulation, interlock, contactors or fuse). Treat it as a safety issue and have it checked before driving further."
+   },
+   "fi": {
+    "title": "Suurjännitteen turvallisuusvika",
+    "text": "Auto on havainnut vian suurjännitteen turvajärjestelmissä (eristys, lukituspiiri, kontaktorit tai sulake). Käsittele turvallisuusasiana ja tarkastuta ennen kuin ajat pidemmälle."
+   },
+   "sv": {
+    "title": "Säkerhetsfel i högvoltssystemet",
+    "text": "Bilen har hittat ett fel i högvoltssystemets säkerhetsfunktioner (isolation, förregling, kontaktorer eller säkring). Behandla det som en säkerhetsfråga och låt kontrollera innan du kör vidare."
+   }
+  },
+  {
+   "id": "both-banks-lean",
+   "all": [
+    "P0171",
+    "P0174"
+   ],
+   "sev": "medium",
+   "advice": "workshop",
+   "en": {
+    "title": "Both sides of the engine run lean",
+    "text": "Both cylinder banks get too much air: the cause is common to the whole engine, such as an intake air leak, a dirty air flow sensor or low fuel pressure, not a single injector."
+   },
+   "fi": {
+    "title": "Moottorin molemmat puolet laihalla",
+    "text": "Molemmat sylinteririvit saavat liikaa ilmaa: syy on koko moottorille yhteinen, kuten imuilmavuoto, likainen ilmamassamittari tai matala polttoainepaine, ei yksittäinen suutin."
+   },
+   "sv": {
+    "title": "Båda sidorna av motorn går magert",
+    "text": "Båda cylinderbankarna får för mycket luft: orsaken är gemensam för hela motorn, t.ex. en läcka i insuget, en smutsig luftmassamätare eller lågt bränsletryck, inte en enskild spridare."
+   }
+  },
+  {
+   "id": "lean-misfire",
+   "any": [
+    "P0171",
+    "P0174"
+   ],
+   "also": [
+    "P0300-P0312"
+   ],
+   "alsoMin": 1,
+   "sev": "high",
+   "advice": "misfire",
+   "en": {
+    "title": "Lean mixture causing misfires",
+    "text": "The mixture is lean and the engine misfires: fix the air leak or fuel delivery first; the misfires usually follow from it."
+   },
+   "fi": {
+    "title": "Laiha seos aiheuttaa sytytyskatkoja",
+    "text": "Seos on laiha ja moottorissa on sytytyskatkoja: korjaa ensin ilmavuoto tai polttoaineen syöttö; katkot johtuvat yleensä siitä."
+   },
+   "sv": {
+    "title": "Magert bränsle ger misständningar",
+    "text": "Blandningen är mager och motorn misständer: åtgärda först luftläckan eller bränsletillförseln; misständningarna följer oftast av det."
+   }
+  },
+  {
+   "id": "misfire-catalyst",
+   "any": [
+    "P0300-P0312"
+   ],
+   "also": [
+    "P0420",
+    "P0430"
+   ],
+   "alsoMin": 1,
+   "sev": "high",
+   "advice": "misfire",
+   "en": {
+    "title": "Misfires and a weak catalytic converter",
+    "text": "Unburnt fuel from misfires overheats and damages the catalytic converter. Fix the misfires first; the catalyst code may clear afterwards or the converter may already be damaged."
+   },
+   "fi": {
+    "title": "Sytytyskatkoja ja heikko katalysaattori",
+    "text": "Sytytyskatkojen palamaton polttoaine ylikuumentaa ja vaurioittaa katalysaattoria. Korjaa ensin katkot; katalysaattorikoodi voi poistua sen jälkeen tai katalysaattori voi jo olla vaurioitunut."
+   },
+   "sv": {
+    "title": "Misständningar och svag katalysator",
+    "text": "Oförbränt bränsle från misständningar överhettar och skadar katalysatorn. Åtgärda misständningarna först; katalysatorkoden kan försvinna efteråt eller katalysatorn kan redan vara skadad."
+   }
+  },
+  {
+   "id": "evap-cap",
+   "any": [
+    "P0440",
+    "P0442",
+    "P0455",
+    "P0456"
+   ],
+   "anyMin": 2,
+   "sev": "low",
+   "advice": "fuel_cap",
+   "en": {
+    "title": "Fuel vapour leak",
+    "text": "Several fuel vapour system codes: start with the fuel cap and its seal, then the hoses around the tank."
+   },
+   "fi": {
+    "title": "Polttoainehöyryvuoto",
+    "text": "Useita polttoainehöyryjärjestelmän koodeja: aloita tankin korkista ja sen tiivisteestä, sitten tankin ympäristön letkuista."
+   },
+   "sv": {
+    "title": "Läckage av bränsleångor",
+    "text": "Flera koder från avdunstningssystemet: börja med tanklocket och dess tätning, sedan slangarna runt tanken."
+   }
+  }
+ ]
+}
