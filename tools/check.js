@@ -10,9 +10,10 @@ const err = (m) => errors.push(m);
 
 const PLATFORMS = ['STELLANTIS', 'VW_MQB', 'HYUNDAI_KIA', 'TOYOTA', 'BMW', 'MERCEDES', 'GENERIC'];
 const READINESS = ['TESTED', 'IN_DEVELOPMENT', 'NOT_TESTED', 'GENERIC'];
-const TABLES = ['TOYOTA', 'BMW', 'MERCEDES', 'VW_MQB', 'HYUNDAI_KIA'];
+const TABLES = ['STELLANTIS', 'TOYOTA', 'BMW', 'MERCEDES', 'VW_MQB', 'HYUNDAI_KIA'];
+const TEXT_FORMATS = ['ascii', 'bcdDate', 'productionDate'];
 const VARIANT = /^[A-Z0-9_]{1,20}$/;
-const LIST_KEYS = ['cells.D440', 'cells.D442', 'cells.D8AD'];
+const LIST_KEYS = ['cells.D440', 'cells.D442', 'cells.D8AD', 'cells.D4B5', 'cells.D426'];
 const KINDS = ['VOLTAGE', 'HEALTH', 'TEMPERATURE'];
 const hex = (s, max, what) => {
   if (!/^(0x)?[0-9A-Fa-f]+$/.test(String(s))) { err(`${what}: not hex (${s})`); return -1; }
@@ -41,6 +42,7 @@ function checkFmt(f, where) {
   const len = f.len ?? 8, bix = f.bix ?? 0;
   if (!(len >= 1 && len <= 32) || !(bix >= 0 && bix <= 8191)) err(`${where}: bits`);
   if ((f.div ?? 1) === 0) err(`${where}: div 0`);
+  if (f.clamp && (f.min === undefined || f.max === undefined)) err(`${where}: clamp needs min and max`);
 }
 for (const [name, t] of Object.entries(db.tables || {})) {
   if (!TABLES.includes(name)) { err(`table ${name}: unknown platform`); continue; }
@@ -75,15 +77,22 @@ for (const [name, t] of Object.entries(db.tables || {})) {
   for (const x of t.texts || []) {
     const w = `${name}/${x.unit}/${x.id} ${x.name}`;
     unitList(x, w);
-    if (x.list) checkFmt(x.list.fmt, w); else if (!x.template || !Array.isArray(x.fields)) err(`${w}: template/fields`); else x.fields.forEach((f) => checkFmt(f, w));
+    if (x.list) checkFmt(x.list.fmt, w);
+    else if (x.format && !x.template) { if (!TEXT_FORMATS.includes(x.format)) err(`${w}: format ${x.format}`); }
+    else if (!x.template || !Array.isArray(x.fields)) err(`${w}: template/fields`); else x.fields.forEach((f) => checkFmt(f, w));
   }
   for (const s of t.series || []) {
     const w = `${name}/${s.unit}/${s.id} ${s.name}`;
     unitList(s, w);
     if (!LIST_KEYS.includes(s.listKey)) err(`${w}: listKey`);
     if (!KINDS.includes(s.kind)) err(`${w}: kind`);
-    if (!((s.size ?? 2) >= 1 && (s.size ?? 2) <= 4)) err(`${w}: size`);
-    checkFmt(s.fmt, w);
+    if (s.rate !== undefined && !['FAST', 'NORMAL', 'ONCE'].includes(s.rate)) err(`${w}: rate`);
+    if (s.alternatives) {
+      s.alternatives.forEach((a) => { if (!(a.size >= 1 && a.size <= 4) || !a.name) err(`${w}: alternative`); checkFmt(a.fmt, w); });
+    } else {
+      if (!((s.size ?? 2) >= 1 && (s.size ?? 2) <= 4)) err(`${w}: size`);
+      checkFmt(s.fmt, w);
+    }
   }
   for (const l of t.loops || []) {
     const w = `${name}/loop ${l.first} ${l.name}`;
@@ -97,6 +106,15 @@ for (const [name, t] of Object.entries(db.tables || {})) {
   }
   if (t.scan && t.scan.group) unitOrGroup(t.scan.group, `${name} scan`);
   if (t.identity && t.identity.group) unitOrGroup(t.identity.group, `${name} identity`);
+  for (const d of (t.identity && t.identity.dids) || []) {
+    hex(d[0], 0xFFFF, `${name} identity`);
+    if (d.length > 2 && !TEXT_FORMATS.includes(d[2])) err(`${name} identity ${d[0]}: format ${d[2]}`);
+  }
+  if (t.variantBy) {
+    unitOrGroup(t.variantBy.unit, `${name} variantBy`);
+    hex(t.variantBy.id, 0xFFFF, `${name} variantBy`);
+    [t.variantBy.default, ...t.variantBy.matches.map((m) => m[1])].forEach((v) => { if (!VARIANT.test(v)) err(`${name} variantBy: ${v}`); });
+  }
 }
 
 // ---- formulas (the same arithmetic as DidTable.Fmt in the app) ----
@@ -112,6 +130,7 @@ function scale(f, r) {
   if (r === null) return null;
   if (f.nullFrom !== undefined && r >= f.nullFrom) return null;
   const v = (r * (f.mul ?? 1)) / (f.div ?? 1) + (f.add ?? 0);
+  if (f.clamp) return Math.min(Math.max(v, f.min), f.max);
   if (f.min !== undefined && v < f.min) return null;
   if (f.max !== undefined && v > f.max) return null;
   return v;
@@ -154,8 +173,23 @@ for (const c of rec.cases) {
   }
   if (c.series) {
     const s = t.series.find((x) => x.id.toUpperCase() === c.series.toUpperCase() && (!c.name || x.name === c.name));
-    let vals = s ? list(d, s.start ?? 0, s.size ?? 2, s.fmt, s.count ?? Infinity) : [];
-    if (s && s.range) vals = vals.filter((v) => v >= s.range[0] && v <= s.range[1]);
+    let vals = [];
+    if (s && s.alternatives) {
+      // The first format whose values are all plausible (trailing raw-zero slots dropped), as in the app.
+      const KR = { VOLTAGE: [2.0, 4.5], HEALTH: [50, 110], TEMPERATURE: [-30, 70] }[s.kind];
+      const range = s.range || KR;
+      for (const a of s.alternatives) {
+        if (d.length < 4 || d.length % a.size) continue;
+        let pairs = [];
+        for (let i = 0; i < d.length / a.size; i++) { const r = raw(d, i * a.size * 8, a.size * 8, !!a.fmt.sign); pairs.push([r, scale(a.fmt, r)]); }
+        while (pairs.length && pairs[pairs.length - 1][0] === 0 && (pairs[pairs.length - 1][1] === null || pairs[pairs.length - 1][1] < range[0] || pairs[pairs.length - 1][1] > range[1])) pairs.pop();
+        const v = pairs.map((p) => p[1]);
+        if (v.length >= 4 && v.every((x) => x !== null && x >= range[0] && x <= range[1])) { vals = v; break; }
+      }
+    } else if (s) {
+      vals = list(d, s.start ?? 0, s.size ?? 2, s.fmt, s.count ?? Infinity);
+      if (s.range) vals = vals.filter((v) => v >= s.range[0] && v <= s.range[1]);
+    }
     if (vals.length !== c.expectCount) err(`${w}: ${vals.length} values, recorded ${c.expectCount}`);
     c.expectFirst.forEach((want, i) => { if (Math.abs(vals[i] - want) > 0.00002) err(`${w}: value ${i + 1} = ${vals[i]}, recorded ${want}`); });
     checked++;

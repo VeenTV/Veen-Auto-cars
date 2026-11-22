@@ -401,6 +401,343 @@
    "expectFirst": [
     3.94
    ]
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D810",
+   "data": "0188",
+   "expect": {
+    "SOC, raw": 98.0,
+    "Dashboard % (estimated)": 100.0
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D810",
+   "data": "009E",
+   "expect": {
+    "SOC, raw": 39.5,
+    "Dashboard % (estimated)": 24.183
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D865",
+   "data": "288D",
+   "expect": {
+    "Available energy": 10.381
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D815",
+   "data": "0D74",
+   "expect": {
+    "Pack voltage": 344.4
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D822",
+   "data": "05A0",
+   "expect": {
+    "12 V battery (BMS)": 14.4
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D877",
+   "data": "12",
+   "expect": {
+    "Battery temp, average": 18
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D87D",
+   "data": "38",
+   "expect": {
+    "Battery temp, min": 16
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D817",
+   "data": "13",
+   "expect": {
+    "Battery temp, max": 19
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D86F",
+   "data": "CB",
+   "expect": {
+    "Cell voltage, min": 4.06
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D870",
+   "data": "CC",
+   "expect": {
+    "Cell voltage, max": 4.08
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D860",
+   "data": "015D",
+   "expect": {
+    "State of health (SOH)": 87.25
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D49C",
+   "data": "00029FF4",
+   "expect": {
+    "Odometer (BMS copy)": 172020
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D816",
+   "data": "01EA",
+   "expect": {
+    "Battery current (+ = discharging)": 196.0
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D816",
+   "data": "FF0D",
+   "expect": {
+    "Battery current (+ = discharging)": -97.2
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D875",
+   "data": "015F",
+   "expect": {
+    "Health, 2nd reading (D875)": 87.75
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D862",
+   "data": "21",
+   "expect": {
+    "Cell charge, lowest": 33
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D863",
+   "data": "5F",
+   "expect": {
+    "Cell charge, highest": 95
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D804",
+   "data": "0BE3",
+   "expect": {
+    "HV voltage, 2nd reading": 304.3
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D871",
+   "data": "00000130",
+   "expect": {
+    "Power limit? D871": 30.4
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid at 76 % (Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D865",
+   "data": "1E9A",
+   "expect": {
+    "Available energy": 7.834
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid at 76 % (Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D815",
+   "data": "0CC2",
+   "expect": {
+    "Pack voltage": 326.6
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid at 76 % (Veen Auto)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D86F",
+   "data": "C1",
+   "expect": {
+    "Cell voltage, min": 3.86
+   },
+   "variant": "PHEV"
+  },
+  {
+   "car": "Citroën C5 X Hybrid 2022 (LG Chem PHEV unit, Veen Auto)",
+   "table": "STELLANTIS",
+   "series": "D8AD",
+   "name": "Module voltages",
+   "data": "B4B4B4B4B4B5B4B5B4B4B4B4B4B4",
+   "expectCount": 14,
+   "expectFirst": [
+    3.6,
+    3.6,
+    3.6,
+    3.6,
+    3.6,
+    3.62
+   ]
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D860",
+   "data": "0005F0",
+   "expect": {
+    "State of health (SOH)": 95.0
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D410",
+   "data": "A000",
+   "expect": {
+    "State of charge (SOC)": 80.0
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D815",
+   "data": "1630",
+   "expect": {
+    "Pack voltage": 355.0
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D816",
+   "data": "00012C00",
+   "expect": {
+    "Battery current": 0.0
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D816",
+   "data": "00012980",
+   "expect": {
+    "Battery current": -10.0
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D877",
+   "data": "3D",
+   "expect": {
+    "Battery temp, average": 21
+   },
+   "variant": "ECMP"
+  },
+  {
+   "car": "e-CMP example (Esco EV OBD Scanner formulas)",
+   "table": "STELLANTIS",
+   "unit": "bms",
+   "id": "D822",
+   "data": "30A2",
+   "expect": {
+    "12 V battery (BMS)": 12.45
+   },
+   "variant": "ECMP"
   }
  ]
 }

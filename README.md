@@ -47,8 +47,19 @@ attribution and under the same license. See *Attribution* below.
 }
 ```
 
-Tables: `VW_MQB` (VW, Cupra, Škoda, Audi), `HYUNDAI_KIA`, `TOYOTA`, `BMW`,
-`MERCEDES`. (Stellantis is still code in the app.)
+Tables: `STELLANTIS` (Citroën, DS, Opel, Peugeot), `VW_MQB` (VW, Cupra,
+Škoda, Audi), `HYUNDAI_KIA`, `TOYOTA`, `BMW`, `MERCEDES` – every battery unit
+Veen Auto knows.
+
+### Stellantis constructs (app 0.37.0 and newer; older apps ignore the Stellantis table)
+
+| Field | Where | Meaning |
+|---|---|---|
+| `"variantBy": {"unit", "id", "matches", "default"}` | table | the formulas come from a reply of the car: F08F (battery unit supplier) containing `PHEV` or `LGC` means the plug-in hybrid unit (`PHEV`), else `ECMP` |
+| `"clamp": true` | formula | limit to `min`…`max` instead of dropping (the estimated dashboard %) |
+| `"alternatives": [{"name", "size", "fmt"}]` | series | formats tried in turn; the first whose values are all within the range wins (unused raw-zero slots at the end dropped) |
+| `"rate": "NORMAL"` | series | read with the values every 3rd round instead of with the lists every 20th |
+| `"format": "ascii" / "bcdDate" / "productionDate"` | text, 3rd item of an identity entry | named text formats |
 
 ### More constructs (app 0.36.0 and newer; older apps ignore the VW and Hyundai tables)
 
