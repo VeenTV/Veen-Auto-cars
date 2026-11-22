@@ -1,0 +1,1948 @@
+{
+ "schema": 1,
+ "version": "2026.11.22.1",
+ "license": "CC BY-SA 4.0",
+ "attribution": [
+  "OBDb (https://github.com/OBDb), CC BY-SA 4.0: signal definitions for Toyota, Lexus, Suzuki, BMW, Mercedes-Benz, Audi, Skoda, VW, Cupra, Hyundai, Kia",
+  "Esco EV OBD Scanner by EsaHub (https://github.com/EsaHub/EscoEvObdScanner), CC BY 4.0: Stellantis identifiers",
+  "Veen Auto (Veen TV): Citroën C5 X Hybrid formulas, corrections from car check reports"
+ ],
+ "models": [
+  {
+   "id": "audi-a3-etron",
+   "brand": "Audi",
+   "name": "A3 Sportback e-tron (plug-in)",
+   "years": "2014–2020",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi, Audi-A3: same battery unit and formulas as the VW plug-ins"
+  },
+  {
+   "id": "audi-a3-tfsie-1",
+   "brand": "Audi",
+   "name": "A3 Sportback 40 / 45 TFSI e",
+   "years": "2020–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi, Audi-A3: same battery unit and formulas as the VW plug-ins"
+  },
+  {
+   "id": "audi-a3-tfsie-2",
+   "brand": "Audi",
+   "name": "A3 Sportback TFSI e (25.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi, Audi-Q4-e-tron, Audi-e-tron-GT: VW battery unit, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "audi-q4-etron",
+   "brand": "Audi",
+   "name": "Q4 e-tron / Q4 Sportback e-tron (electric)",
+   "years": "2021–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi, Audi-Q4-e-tron, Audi-e-tron-GT: VW battery unit, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "audi-q5-tfsie",
+   "brand": "Audi",
+   "name": "Q5 / Q5 Sportback 50 / 55 TFSI e",
+   "years": "2019–2024",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi-Q5, Audi-Q7: VW battery unit, MLB formulas (voltage /10, current /4 - 511)",
+   "vwVariant": "MLB"
+  },
+  {
+   "id": "audi-q7-tfsie",
+   "brand": "Audi",
+   "name": "Q7 e-tron, Q7 / Q8 TFSI e",
+   "years": "2016–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi-Q5, Audi-Q7: VW battery unit, MLB formulas (voltage /10, current /4 - 511)",
+   "vwVariant": "MLB"
+  },
+  {
+   "id": "audi-etron",
+   "brand": "Audi",
+   "name": "e-tron / Q8 e-tron (electric)",
+   "years": "2019–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi-e-tron: VW battery unit, 29-bit CAN, e-tron temperature and cell formulas",
+   "prefers29Bit": true,
+   "vwVariant": "ETRON"
+  },
+  {
+   "id": "audi-etron-gt",
+   "brand": "Audi",
+   "name": "e-tron GT (electric)",
+   "years": "2021–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Audi, Audi-Q4-e-tron, Audi-e-tron-GT: VW battery unit, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "bmw-225xe",
+   "brand": "BMW",
+   "name": "225xe Active Tourer",
+   "years": "2016–2022",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) generic BMW signal set: SME 0x07; no recordings of this model"
+  },
+  {
+   "id": "bmw-330e",
+   "brand": "BMW",
+   "name": "330e (G20 / G21)",
+   "years": "2019–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-530e",
+   "brand": "BMW",
+   "name": "530e (G30 / G31)",
+   "years": "2017–2023",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-x1-25e",
+   "brand": "BMW",
+   "name": "X1 / X2 xDrive25e, X1 xDrive30e",
+   "years": "2020–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-x3-30e",
+   "brand": "BMW",
+   "name": "X3 xDrive30e",
+   "years": "2020–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) generic BMW signal set: SME 0x07; no recordings of this model"
+  },
+  {
+   "id": "bmw-x5-45e",
+   "brand": "BMW",
+   "name": "X5 xDrive45e / xDrive50e",
+   "years": "2019–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-i3",
+   "brand": "BMW",
+   "name": "i3 / i3s (electric, range extender)",
+   "years": "2013–2022",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-i4",
+   "brand": "BMW",
+   "name": "i4 (electric)",
+   "years": "2021–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) generic BMW signal set: SME 0x07; no recordings of this model"
+  },
+  {
+   "id": "bmw-ix",
+   "brand": "BMW",
+   "name": "iX (electric)",
+   "years": "2021–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "bmw-ix3",
+   "brand": "BMW",
+   "name": "iX3 (electric)",
+   "years": "2020–",
+   "platform": "BMW",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) BMW signal sets: battery unit SME 0x07 (extended addressing via 0x6F1)"
+  },
+  {
+   "id": "citroen-c5x-hybrid",
+   "brand": "Citroën",
+   "name": "C5 X Hybrid (plug-in)",
+   "years": "2022–",
+   "platform": "STELLANTIS",
+   "readiness": "TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "citroen-c5-aircross-hybrid",
+   "brand": "Citroën",
+   "name": "C5 Aircross Hybrid (plug-in)",
+   "years": "2020–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "citroen-e-c4",
+   "brand": "Citroën",
+   "name": "ë-C4 / ë-C4 X (electric)",
+   "years": "2020–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0)"
+  },
+  {
+   "id": "cupra-formentor-ehybrid-1",
+   "brand": "Cupra",
+   "name": "Formentor / Leon e-Hybrid",
+   "years": "2021–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "cupra-formentor-ehybrid-2",
+   "brand": "Cupra",
+   "name": "Formentor / Leon e-Hybrid (19.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "ds-4-etense",
+   "brand": "DS",
+   "name": "DS 4 E-Tense",
+   "years": "2021–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "ds-7-etense",
+   "brand": "DS",
+   "name": "DS 7 E-Tense",
+   "years": "2019–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "hyundai-ioniq-hybrid",
+   "brand": "Hyundai",
+   "name": "Ioniq Hybrid / Plug-in",
+   "years": "2017–2022",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "hyundai-ioniq-electric",
+   "brand": "Hyundai",
+   "name": "Ioniq Electric",
+   "years": "2017–2021",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "hyundai-kona",
+   "brand": "Hyundai",
+   "name": "Kona Hybrid / Electric",
+   "years": "2018–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "hyundai-tucson-hybrid",
+   "brand": "Hyundai",
+   "name": "Tucson Hybrid / Plug-in",
+   "years": "2021–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): same battery unit layout as the Kia Sportage / Sorento; no recordings of this model"
+  },
+  {
+   "id": "hyundai-santa-fe-hybrid",
+   "brand": "Hyundai",
+   "name": "Santa Fe Hybrid / Plug-in",
+   "years": "2021–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): same battery unit layout as the Kia Sportage / Sorento; no recordings of this model"
+  },
+  {
+   "id": "kia-niro-1",
+   "brand": "Kia",
+   "name": "Niro Hybrid / Plug-in",
+   "years": "2017–2022",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "kia-niro-2",
+   "brand": "Kia",
+   "name": "Niro Hybrid / Plug-in (2nd gen)",
+   "years": "2022–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "kia-e-niro",
+   "brand": "Kia",
+   "name": "e-Niro / Niro EV",
+   "years": "2019–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "kia-sportage-hybrid",
+   "brand": "Kia",
+   "name": "Sportage Hybrid / Plug-in",
+   "years": "2022–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "kia-sorento-hybrid",
+   "brand": "Kia",
+   "name": "Sorento Hybrid / Plug-in",
+   "years": "2021–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Kia Niro, Sportage, Sorento, Hyundai Ioniq, Kona; checked against recorded Niro replies"
+  },
+  {
+   "id": "kia-ceed-phev",
+   "brand": "Kia",
+   "name": "Ceed SW / XCeed Plug-in",
+   "years": "2020–",
+   "platform": "HYUNDAI_KIA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): same battery unit layout as the Kia Sportage / Sorento; no recordings of this model"
+  },
+  {
+   "id": "lexus-ct200h",
+   "brand": "Lexus",
+   "name": "CT 200h",
+   "years": "2011–2022",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota, Toyota-Prius: battery ECU 0x7E3 and hybrid control 0x7E2, KWP 21"
+  },
+  {
+   "id": "lexus-is300h",
+   "brand": "Lexus",
+   "name": "IS 300h",
+   "years": "2013–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "lexus-es300h",
+   "brand": "Lexus",
+   "name": "ES 300h",
+   "years": "2018–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "lexus-ux",
+   "brand": "Lexus",
+   "name": "UX 250h / UX 300h",
+   "years": "2019–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "lexus-nx-1",
+   "brand": "Lexus",
+   "name": "NX 300h",
+   "years": "2014–2021",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "lexus-nx-2",
+   "brand": "Lexus",
+   "name": "NX 350h / NX 450h+ (plug-in)",
+   "years": "2022–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "lexus-rx",
+   "brand": "Lexus",
+   "name": "RX 450h / RX 450h+",
+   "years": "2016–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Lexus signal set: same units as the Toyota hybrids"
+  },
+  {
+   "id": "mb-a250e",
+   "brand": "Mercedes-Benz",
+   "name": "A 250 e / B 250 e",
+   "years": "2020–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "mb-c300e",
+   "brand": "Mercedes-Benz",
+   "name": "C 300 e / C 300 de",
+   "years": "2020–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "mb-e300e",
+   "brand": "Mercedes-Benz",
+   "name": "E 300 e / E 300 de",
+   "years": "2019–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "mb-glc300e",
+   "brand": "Mercedes-Benz",
+   "name": "GLC 300 e / GLC 300 de",
+   "years": "2020–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "mb-eqa",
+   "brand": "Mercedes-Benz",
+   "name": "EQA (electric)",
+   "years": "2021–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "mb-eqb",
+   "brand": "Mercedes-Benz",
+   "name": "EQB (electric)",
+   "years": "2021–",
+   "platform": "MERCEDES",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Mercedes-Benz signal sets: unit 0x7E5, charge, voltage, current only"
+  },
+  {
+   "id": "opel-astra-phev",
+   "brand": "Opel",
+   "name": "Astra Plug-in Hybrid",
+   "years": "2022–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "opel-grandland-phev",
+   "brand": "Opel",
+   "name": "Grandland Hybrid (plug-in)",
+   "years": "2020–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "opel-corsa-e",
+   "brand": "Opel",
+   "name": "Corsa Electric",
+   "years": "2020–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0)"
+  },
+  {
+   "id": "opel-mokka-e",
+   "brand": "Opel",
+   "name": "Mokka Electric",
+   "years": "2021–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0)"
+  },
+  {
+   "id": "peugeot-308-phev",
+   "brand": "Peugeot",
+   "name": "308 Hybrid (plug-in)",
+   "years": "2021–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "peugeot-3008-phev",
+   "brand": "Peugeot",
+   "name": "3008 Hybrid / Hybrid4",
+   "years": "2020–2023",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "peugeot-508-phev",
+   "brand": "Peugeot",
+   "name": "508 Hybrid (plug-in)",
+   "years": "2019–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0); plug-in hybrid formulas worked out on a Citroën C5 X Hybrid"
+  },
+  {
+   "id": "peugeot-e-208",
+   "brand": "Peugeot",
+   "name": "e-208 / e-2008 (electric)",
+   "years": "2019–",
+   "platform": "STELLANTIS",
+   "readiness": "NOT_TESTED",
+   "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0)"
+  },
+  {
+   "id": "skoda-octavia-iv",
+   "brand": "Škoda",
+   "name": "Octavia iV / RS iV",
+   "years": "2020–2024",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins"
+  },
+  {
+   "id": "skoda-superb-iv-1",
+   "brand": "Škoda",
+   "name": "Superb iV",
+   "years": "2019–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins"
+  },
+  {
+   "id": "skoda-superb-iv-2",
+   "brand": "Škoda",
+   "name": "Superb iV (25.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins",
+   "prefers29Bit": true
+  },
+  {
+   "id": "skoda-kodiaq-iv",
+   "brand": "Škoda",
+   "name": "Kodiaq iV (25.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins",
+   "prefers29Bit": true
+  },
+  {
+   "id": "skoda-enyaq",
+   "brand": "Škoda",
+   "name": "Enyaq / Enyaq Coupé (electric)",
+   "years": "2021–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins",
+   "prefers29Bit": true
+  },
+  {
+   "id": "skoda-elroq",
+   "brand": "Škoda",
+   "name": "Elroq (electric)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Skoda signal set: same battery unit and formulas as the VW plug-ins",
+   "prefers29Bit": true
+  },
+  {
+   "id": "suzuki-swace",
+   "brand": "Suzuki",
+   "name": "Swace (hybrid, Toyota-built)",
+   "years": "2020–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Suzuki / Toyota signal sets: built by Toyota, Toyota battery units"
+  },
+  {
+   "id": "suzuki-across",
+   "brand": "Suzuki",
+   "name": "Across (plug-in, Toyota-built)",
+   "years": "2020–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Suzuki / Toyota signal sets: built by Toyota, Toyota battery units"
+  },
+  {
+   "id": "toyota-prius-3",
+   "brand": "Toyota",
+   "name": "Prius (3rd gen) / Prius+",
+   "years": "2009–2015",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota, Toyota-Prius: battery ECU 0x7E3 and hybrid control 0x7E2, KWP 21"
+  },
+  {
+   "id": "toyota-prius-4",
+   "brand": "Toyota",
+   "name": "Prius (4th gen)",
+   "years": "2016–2022",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-prius-phev",
+   "brand": "Toyota",
+   "name": "Prius Plug-in",
+   "years": "2017–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-prius-5",
+   "brand": "Toyota",
+   "name": "Prius (5th gen, plug-in)",
+   "years": "2023–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-auris-hybrid",
+   "brand": "Toyota",
+   "name": "Auris Hybrid / Touring Sports",
+   "years": "2010–2018",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota, Toyota-Prius: battery ECU 0x7E3 and hybrid control 0x7E2, KWP 21"
+  },
+  {
+   "id": "toyota-yaris-hybrid-3",
+   "brand": "Toyota",
+   "name": "Yaris Hybrid",
+   "years": "2012–2020",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota, Toyota-Prius: battery ECU 0x7E3 and hybrid control 0x7E2, KWP 21"
+  },
+  {
+   "id": "toyota-yaris-hybrid-4",
+   "brand": "Toyota",
+   "name": "Yaris Hybrid (4th gen)",
+   "years": "2020–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-yaris-cross",
+   "brand": "Toyota",
+   "name": "Yaris Cross Hybrid",
+   "years": "2021–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-corolla-hybrid",
+   "brand": "Toyota",
+   "name": "Corolla Hybrid / Touring Sports",
+   "years": "2019–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-corolla-cross",
+   "brand": "Toyota",
+   "name": "Corolla Cross Hybrid",
+   "years": "2022–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-chr",
+   "brand": "Toyota",
+   "name": "C-HR Hybrid / Plug-in",
+   "years": "2016–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-camry-hybrid",
+   "brand": "Toyota",
+   "name": "Camry Hybrid",
+   "years": "2019–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-rav4-hybrid-4",
+   "brand": "Toyota",
+   "name": "RAV4 Hybrid (4th gen)",
+   "years": "2016–2018",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota, Toyota-Prius: battery ECU 0x7E3 and hybrid control 0x7E2, KWP 21"
+  },
+  {
+   "id": "toyota-rav4-hybrid-5",
+   "brand": "Toyota",
+   "name": "RAV4 Hybrid (5th gen)",
+   "years": "2019–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-rav4-phev",
+   "brand": "Toyota",
+   "name": "RAV4 Plug-in",
+   "years": "2020–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-highlander-hybrid",
+   "brand": "Toyota",
+   "name": "Highlander Hybrid",
+   "years": "2020–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "toyota-bz4x",
+   "brand": "Toyota",
+   "name": "bZ4X (electric)",
+   "years": "2022–",
+   "platform": "TOYOTA",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0) Toyota signal set (hybrid control 0x7D2, battery ECU 0x747, charging 0x745)"
+  },
+  {
+   "id": "vw-golf7-gte",
+   "brand": "Volkswagen",
+   "name": "Golf 7 GTE",
+   "years": "2015–2020",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Golf 7 GTE and e-Golf replies, 11-bit CAN"
+  },
+  {
+   "id": "vw-passat-b8-gte",
+   "brand": "Volkswagen",
+   "name": "Passat GTE (B8)",
+   "years": "2015–2022",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Golf 7 GTE and e-Golf replies, 11-bit CAN"
+  },
+  {
+   "id": "vw-golf8-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Golf 8 GTE / eHybrid",
+   "years": "2020–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Golf 7 GTE and e-Golf replies, 11-bit CAN; OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN"
+  },
+  {
+   "id": "vw-tiguan2-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Tiguan eHybrid",
+   "years": "2021–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Golf 7 GTE and e-Golf replies, 11-bit CAN; OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN"
+  },
+  {
+   "id": "vw-arteon-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Arteon eHybrid",
+   "years": "2021–2023",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): Golf 7 GTE and e-Golf replies, 11-bit CAN; OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN"
+  },
+  {
+   "id": "vw-golf85-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Golf 8.5 GTE / eHybrid (19.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "vw-tiguan3-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Tiguan eHybrid, 3rd gen (19.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "vw-passat-b9-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Passat eHybrid (B9, 19.7 kWh)",
+   "years": "2024–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "vw-tayron-ehybrid",
+   "brand": "Volkswagen",
+   "name": "Tayron eHybrid (19.7 kWh)",
+   "years": "2025–",
+   "platform": "VW_MQB",
+   "readiness": "NOT_TESTED",
+   "source": "OBDb (CC BY-SA 4.0): replies of a 2023 and a 2025 Cupra Formentor e-Hybrid, 29-bit CAN",
+   "prefers29Bit": true
+  },
+  {
+   "id": "other",
+   "brand": "",
+   "name": "Standard OBD-II",
+   "years": "",
+   "platform": "GENERIC",
+   "readiness": "GENERIC",
+   "source": "standard OBD-II only (no manufacturer requests)"
+  }
+ ],
+ "wmi": {
+  "Citroën": [
+   "VR7",
+   "VF7"
+  ],
+  "DS": [
+   "VR1"
+  ],
+  "Peugeot": [
+   "VF3",
+   "VR3"
+  ],
+  "Opel": [
+   "W0L",
+   "W0V",
+   "VXK"
+  ],
+  "Cupra": [
+   "VSS"
+  ],
+  "Hyundai": [
+   "KMH",
+   "KM8",
+   "TMA",
+   "NLH",
+   "5NM",
+   "5NP"
+  ],
+  "Kia": [
+   "KNA",
+   "KNC",
+   "KND",
+   "KNE",
+   "U5Y",
+   "5XX",
+   "5XY"
+  ],
+  "Škoda": [
+   "TMB"
+  ],
+  "Audi": [
+   "WAU",
+   "WA1",
+   "WUA",
+   "TRU"
+  ],
+  "BMW": [
+   "WBA",
+   "WBY",
+   "WBS",
+   "WBX",
+   "5UX",
+   "5YM"
+  ],
+  "Mercedes-Benz": [
+   "WDD",
+   "WDB",
+   "WDC",
+   "W1K",
+   "W1N",
+   "W1V",
+   "4JG",
+   "55S"
+  ],
+  "Toyota": [
+   "JTD",
+   "JTE",
+   "JTM",
+   "JTN",
+   "JTK",
+   "JTL",
+   "JTB",
+   "SB1",
+   "VNK",
+   "NMT",
+   "4T1",
+   "4T3",
+   "5TD",
+   "2T3"
+  ],
+  "Lexus": [
+   "JTH",
+   "JTJ",
+   "2T2",
+   "58A"
+  ],
+  "Volkswagen": [
+   "WVW",
+   "WVG",
+   "WV1",
+   "WV2",
+   "3VW",
+   "1VW",
+   "LFV",
+   "LSV"
+  ]
+ },
+ "tables": {
+  "TOYOTA": {
+   "label": "Toyota / Lexus",
+   "units": [
+    {
+     "id": "hv",
+     "name": "hybrid control 0x7D2",
+     "request": "7D2",
+     "reply": "7DA",
+     "probe": "1F9A"
+    },
+    {
+     "id": "batt",
+     "name": "battery ECU 0x747",
+     "request": "747",
+     "reply": "74F",
+     "probe": "1F5B"
+    },
+    {
+     "id": "charge",
+     "name": "charging control 0x745",
+     "request": "745",
+     "reply": "74D",
+     "probe": "1739"
+    },
+    {
+     "id": "old_batt",
+     "name": "battery ECU 0x7E3 (KWP)",
+     "request": "7E3",
+     "reply": "7EB",
+     "probe": "CE",
+     "service": "KWP"
+    },
+    {
+     "id": "old_hv",
+     "name": "hybrid control 0x7E2 (KWP)",
+     "request": "7E2",
+     "reply": "7EA",
+     "probe": "98",
+     "service": "KWP"
+    }
+   ],
+   "values": [
+    {
+     "unit": "hv",
+     "id": "1F9A",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "mul": 156.25,
+      "div": 10000
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "hv",
+     "id": "1F9A",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 32,
+      "len": 16,
+      "sign": true,
+      "div": 10
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "hv",
+     "id": "1F5B",
+     "name": "State of charge (hybrid control)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "mul": 100,
+      "div": 255
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "hv",
+     "id": "1829",
+     "name": "Battery temperature, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -50
+     },
+     "key": "bms.D817"
+    },
+    {
+     "unit": "hv",
+     "id": "182A",
+     "name": "Battery temperature, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -50
+     },
+     "key": "bms.D87D"
+    },
+    {
+     "unit": "hv",
+     "id": "1002",
+     "name": "12 V battery",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "mul": 61,
+      "div": 50000
+     },
+     "key": "bms.D822"
+    },
+    {
+     "unit": "hv",
+     "id": "106C",
+     "name": "State of charge window, max",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 8,
+      "len": 8,
+      "div": 2
+     }
+    },
+    {
+     "unit": "hv",
+     "id": "106C",
+     "name": "State of charge window, min",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 16,
+      "len": 8,
+      "div": 2
+     }
+    },
+    {
+     "unit": "batt",
+     "id": "1F5B",
+     "name": "State of charge (battery ECU)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "div": 2.55
+     }
+    },
+    {
+     "unit": "batt",
+     "id": "1802",
+     "name": "Battery fan",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 8,
+      "div": 2
+     }
+    },
+    {
+     "unit": "charge",
+     "id": "1739",
+     "name": "State of charge (dashboard)",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "max": 100
+     },
+     "key": "bms.dashpct"
+    },
+    {
+     "unit": "charge",
+     "id": "10D4",
+     "name": "Charging power",
+     "unitText": "kW",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100,
+      "add": -327.68
+     }
+    },
+    {
+     "unit": "old_batt",
+     "id": "CE",
+     "name": "State of charge (battery ECU)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "div": 2
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "old_batt",
+     "id": "CE",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 8,
+      "len": 16,
+      "div": 100,
+      "add": -327.68
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "old_batt",
+     "id": "CF",
+     "name": "Charge power limit",
+     "unitText": "kW",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 32,
+      "len": 8,
+      "add": -64
+     }
+    },
+    {
+     "unit": "old_hv",
+     "id": "98",
+     "name": "Discharge power limit",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 8,
+      "div": 2,
+      "add": -64
+     }
+    }
+   ],
+   "texts": [
+    {
+     "unit": "batt",
+     "id": "1D3E",
+     "name": "Full-charge capacity 1-8",
+     "list": {
+      "start": 0,
+      "size": 2,
+      "count": 8,
+      "fmt": {
+       "div": 100
+      },
+      "range": [
+       0.5,
+       300
+      ]
+     },
+     "decimals": 2,
+     "sep": " / ",
+     "suffix": " Ah"
+    },
+    {
+     "unit": "batt",
+     "id": "1819",
+     "name": "Block average voltages 1-5",
+     "list": {
+      "start": 0,
+      "size": 2,
+      "count": 5,
+      "fmt": {
+       "mul": 5,
+       "div": 65536
+      },
+      "range": [
+       0.5,
+       5.0
+      ]
+     },
+     "decimals": 3,
+     "sep": " / ",
+     "suffix": " V"
+    },
+    {
+     "unit": "old_batt",
+     "id": "D0",
+     "name": "Number of battery blocks",
+     "template": "{0}",
+     "fields": [
+      {
+       "len": 8,
+       "decimals": 0
+      }
+     ]
+    }
+   ],
+   "series": [
+    {
+     "unit": "batt",
+     "id": "182E",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "182E: 2 bytes x 5 / 65535 V",
+     "start": 0,
+     "size": 2,
+     "fmt": {
+      "mul": 5,
+      "div": 65535
+     }
+    },
+    {
+     "unit": "batt",
+     "id": "1814",
+     "name": "Battery temperatures",
+     "kind": "TEMPERATURE",
+     "listKey": "cells.D442",
+     "format": "1814: 2 bytes x 19531 / 5000000 - 50 °C",
+     "start": 0,
+     "size": 2,
+     "fmt": {
+      "mul": 19531,
+      "div": 5000000,
+      "add": -50
+     }
+    },
+    {
+     "unit": "old_batt",
+     "id": "CE",
+     "name": "Block voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D8AD",
+     "format": "21 CE: 2 bytes / 100 - 327.68 V",
+     "start": 3,
+     "size": 2,
+     "fmt": {
+      "div": 100,
+      "add": -327.68
+     },
+     "range": [
+      5.0,
+      30.0
+     ]
+    }
+   ],
+   "scan": {
+    "unit": "batt",
+    "ranges": [
+     [
+      "1800",
+      "18FF"
+     ],
+     [
+      "1D00",
+      "1DFF"
+     ],
+     [
+      "1F00",
+      "1FFF"
+     ],
+     [
+      "1000",
+      "10FF"
+     ],
+     [
+      "F180",
+      "F1FF"
+     ]
+    ],
+    "priority": 256
+   }
+  },
+  "BMW": {
+   "label": "BMW",
+   "units": [
+    {
+     "id": "sme",
+     "name": "battery unit SME (0x07)",
+     "request": "6F1",
+     "reply": "607",
+     "probe": "DDBC",
+     "extAddr": "07"
+    },
+    {
+     "id": "eme",
+     "name": "motor electronics EME (0x1A)",
+     "request": "6F1",
+     "reply": "61A",
+     "probe": "DE00",
+     "extAddr": "1A"
+    }
+   ],
+   "values": [
+    {
+     "unit": "sme",
+     "id": "DD68",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "sme",
+     "id": "E54D",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "sme",
+     "id": "DD69",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 32,
+      "sign": true,
+      "div": 100
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "sme",
+     "id": "E561",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "sign": true,
+      "mul": -1,
+      "div": 100
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "sme",
+     "id": "DDBC",
+     "name": "State of charge (battery unit)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 10
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "sme",
+     "id": "DDBC",
+     "name": "State of charge window, max",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "div": 10
+     }
+    },
+    {
+     "unit": "sme",
+     "id": "DDBC",
+     "name": "State of charge window, min",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 32,
+      "len": 16,
+      "div": 10
+     }
+    },
+    {
+     "unit": "sme",
+     "id": "DDBF",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 0,
+      "len": 16,
+      "div": 1000,
+      "nullFrom": 32767
+     },
+     "key": "bms.D86F"
+    },
+    {
+     "unit": "sme",
+     "id": "DDBF",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "div": 1000,
+      "nullFrom": 32767
+     },
+     "key": "bms.D870"
+    },
+    {
+     "unit": "sme",
+     "id": "E553",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 0,
+      "len": 16,
+      "div": 1000,
+      "nullFrom": 32767
+     },
+     "key": "bms.D86F"
+    },
+    {
+     "unit": "sme",
+     "id": "E553",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "div": 1000,
+      "nullFrom": 32767
+     },
+     "key": "bms.D870"
+    },
+    {
+     "unit": "sme",
+     "id": "DDC0",
+     "name": "Cell temperature, min",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "nullFrom": 32767,
+      "div": 100
+     },
+     "key": "bms.D87D"
+    },
+    {
+     "unit": "sme",
+     "id": "DDC0",
+     "name": "Cell temperature, max",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "sign": true,
+      "nullFrom": 32767,
+      "div": 100
+     },
+     "key": "bms.D817"
+    },
+    {
+     "unit": "sme",
+     "id": "DDC0",
+     "name": "Cell temperature, average",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 32,
+      "len": 16,
+      "sign": true,
+      "nullFrom": 32767,
+      "div": 100
+     },
+     "key": "bms.D877"
+    },
+    {
+     "unit": "sme",
+     "id": "6335",
+     "name": "State of health",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 24,
+      "len": 8,
+      "min": 40,
+      "max": 110
+     },
+     "key": "bms.D860"
+    },
+    {
+     "unit": "sme",
+     "id": "E5C7",
+     "name": "Energy stored",
+     "unitText": "kWh",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100,
+      "add": -50,
+      "min": 0,
+      "max": 150
+     },
+     "key": "bms.D865"
+    },
+    {
+     "unit": "sme",
+     "id": "E5CE",
+     "name": "Cell state of charge, min",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 16,
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D862"
+    },
+    {
+     "unit": "sme",
+     "id": "E5CE",
+     "name": "Cell state of charge, max",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 32,
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D863"
+    },
+    {
+     "unit": "eme",
+     "id": "DE00",
+     "name": "State of charge (power management)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 10,
+      "max": 100
+     },
+     "key": "bms.dashpct"
+    },
+    {
+     "unit": "eme",
+     "id": "DE00",
+     "name": "Minimum state of charge",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 16,
+      "len": 8,
+      "div": 2
+     }
+    },
+    {
+     "unit": "eme",
+     "id": "DE00",
+     "name": "Charger connected",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 24,
+      "len": 8
+     }
+    }
+   ],
+   "texts": [
+    {
+     "unit": "sme",
+     "id": "DF71",
+     "name": "Battery layout",
+     "template": "{0} cells, {1} per module, {2} modules, {3} temperature sensors per module",
+     "fields": [
+      {
+       "len": 16,
+       "decimals": 0
+      },
+      {
+       "bix": 16,
+       "len": 8,
+       "decimals": 0
+      },
+      {
+       "bix": 24,
+       "len": 8,
+       "decimals": 0
+      },
+      {
+       "bix": 32,
+       "len": 8,
+       "decimals": 0
+      }
+     ]
+    },
+    {
+     "unit": "sme",
+     "id": "DFA0",
+     "name": "Cell capacity min / max / average",
+     "template": "{0} / {1} / {2} Ah",
+     "fields": [
+      {
+       "bix": 0,
+       "len": 16,
+       "div": 100,
+       "nullFrom": 65535,
+       "decimals": 2
+      },
+      {
+       "bix": 16,
+       "len": 16,
+       "div": 100,
+       "nullFrom": 65535,
+       "decimals": 2
+      },
+      {
+       "bix": 32,
+       "len": 16,
+       "div": 100,
+       "nullFrom": 65535,
+       "decimals": 2
+      }
+     ]
+    },
+    {
+     "unit": "sme",
+     "id": "DFA0",
+     "name": "Cell resistance factor min / max / average",
+     "template": "{0} / {1} / {2}",
+     "fields": [
+      {
+       "bix": 144,
+       "len": 16,
+       "div": 10000,
+       "nullFrom": 65535,
+       "decimals": 3
+      },
+      {
+       "bix": 160,
+       "len": 16,
+       "div": 10000,
+       "nullFrom": 65535,
+       "decimals": 3
+      },
+      {
+       "bix": 176,
+       "len": 16,
+       "div": 10000,
+       "nullFrom": 65535,
+       "decimals": 3
+      }
+     ]
+    },
+    {
+     "unit": "sme",
+     "id": "DFA0",
+     "name": "Aging factor",
+     "template": "{0}",
+     "fields": [
+      {
+       "bix": 288,
+       "len": 16,
+       "div": 10000,
+       "nullFrom": 65535,
+       "decimals": 3
+      }
+     ]
+    }
+   ],
+   "series": [
+    {
+     "unit": "sme",
+     "id": "E554",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "E554: 2 bytes / 1000 V",
+     "start": 0,
+     "size": 2,
+     "fmt": {
+      "div": 1000,
+      "nullFrom": 32767
+     }
+    }
+   ],
+   "identity": {
+    "unit": "sme",
+    "dids": [
+     [
+      "F187",
+      "BMS part number"
+     ],
+     [
+      "F189",
+      "BMS software version"
+     ],
+     [
+      "F191",
+      "BMS hardware number"
+     ]
+    ]
+   },
+   "scan": {
+    "unit": "sme",
+    "ranges": [
+     [
+      "DD00",
+      "DFFF"
+     ],
+     [
+      "E500",
+      "E5FF"
+     ],
+     [
+      "6300",
+      "63FF"
+     ],
+     [
+      "F180",
+      "F1FF"
+     ]
+    ],
+    "priority": 768
+   }
+  },
+  "MERCEDES": {
+   "label": "Mercedes-Benz",
+   "units": [
+    {
+     "id": "hv",
+     "name": "high-voltage unit 0x7E5",
+     "request": "7E5",
+     "reply": "7ED",
+     "probe": "6050"
+    }
+   ],
+   "values": [
+    {
+     "unit": "hv",
+     "id": "6075",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "mul": 25,
+      "div": 1000
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "hv",
+     "id": "6053",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "div": 10
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "hv",
+     "id": "6050",
+     "name": "State of charge",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100,
+      "max": 100
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "hv",
+     "id": "2526",
+     "name": "Battery coolant temperature",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "mul": 0.125
+     }
+    },
+    {
+     "unit": "hv",
+     "id": "6502",
+     "name": "Electric range",
+     "unitText": "km",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 10
+     },
+     "candidate": true
+    },
+    {
+     "unit": "hv",
+     "id": "2005",
+     "name": "12 V battery",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "mul": 25.9,
+      "div": 255
+     },
+     "key": "bms.D822"
+    }
+   ],
+   "scan": {
+    "unit": "hv",
+    "ranges": [
+     [
+      "6000",
+      "60FF"
+     ],
+     [
+      "2500",
+      "25FF"
+     ],
+     [
+      "6500",
+      "65FF"
+     ],
+     [
+      "2000",
+      "20FF"
+     ],
+     [
+      "F180",
+      "F1FF"
+     ]
+    ],
+    "priority": 256
+   }
+  }
+ }
+}
