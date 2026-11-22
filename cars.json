@@ -204,15 +204,6 @@
    "readiness": "NOT_TESTED",
    "source": "Stellantis identifiers from Esco EV OBD Scanner (CC BY 4.0)"
   },
-    {
-   "id": "citroen-2cv",
-   "brand": "Citroën",
-   "name": "2CV (test dummy)",
-   "years": "1948-1990",
-   "platform": "STELLANTIS",
-   "readiness": "BASIC",
-   "source": "test only"
-  },
   {
    "id": "cupra-formentor-ehybrid-1",
    "brand": "Cupra",
