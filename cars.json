@@ -3413,6 +3413,948 @@
     ],
     "priority": 256
    }
+  },
+  "STELLANTIS": {
+   "label": "Stellantis",
+   "units": [
+    {
+     "id": "bms",
+     "name": "BMS 0x6B4",
+     "request": "6B4",
+     "reply": "694",
+     "probe": "F08F"
+    }
+   ],
+   "variantBy": {
+    "unit": "bms",
+    "id": "F08F",
+    "matches": [
+     [
+      "PHEV",
+      "PHEV"
+     ],
+     [
+      "LGC",
+      "PHEV"
+     ]
+    ],
+    "default": "ECMP"
+   },
+   "values": [
+    {
+     "unit": "bms",
+     "id": "D860",
+     "name": "State of health (SOH)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 8,
+      "len": 16,
+      "div": 16
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D410",
+     "name": "State of charge (SOC)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 512
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D810",
+     "name": "SOC, raw",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 512
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D865",
+     "name": "Available energy",
+     "unitText": "kWh",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 64
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D815",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 16
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D816",
+     "name": "Battery current",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 32,
+      "div": 64,
+      "add": -1200
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D877",
+     "name": "Battery temp, average",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -40
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D87D",
+     "name": "Battery temp, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -40
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D817",
+     "name": "Battery temp, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -40
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D86F",
+     "name": "Cell voltage, min",
+     "unitText": "mV",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D870",
+     "name": "Cell voltage, max",
+     "unitText": "mV",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D43D",
+     "name": "Cell voltage, average",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16,
+      "div": 1000
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D822",
+     "name": "12 V battery (BMS)",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 1000
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D49C",
+     "name": "Odometer (BMS copy)",
+     "unitText": "km",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 1024
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D878",
+     "name": "Battery temp spread",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D871",
+     "name": "Power limit? D871",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 128,
+      "add": -500
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D872",
+     "name": "Power limit? D872",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 32,
+      "div": 128,
+      "add": -500
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D873",
+     "name": "Power limit? D873",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 128,
+      "add": -500
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D874",
+     "name": "Power limit? D874",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 32,
+      "div": 128,
+      "add": -500
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D8B4",
+     "name": "Counter D8B4 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "DC10",
+     "name": "Counter DC10 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32
+     },
+     "variants": [
+      "ECMP"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D860",
+     "name": "State of health (SOH)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16,
+      "div": 4
+     },
+     "key": "bms.D860",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D810",
+     "name": "SOC, raw",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 4
+     },
+     "key": "bms.D810",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D810",
+     "name": "Dashboard % (estimated)",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "mul": 100,
+      "div": 306,
+      "add": -27.45098039215686,
+      "min": 0,
+      "max": 100,
+      "clamp": true
+     },
+     "key": "bms.dashpct",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D865",
+     "name": "Available energy",
+     "unitText": "kWh",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 1000
+     },
+     "key": "bms.D865",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D815",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 10
+     },
+     "key": "bms.D815",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D816",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "mul": 0.4
+     },
+     "key": "bms.D816",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D877",
+     "name": "Battery temp, average",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8
+     },
+     "key": "bms.D877",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D87D",
+     "name": "Battery temp, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -40
+     },
+     "key": "bms.D87D",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D817",
+     "name": "Battery temp, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8
+     },
+     "key": "bms.D817",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D86F",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "mul": 0.02
+     },
+     "key": "bms.D86F",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D870",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "mul": 0.02
+     },
+     "key": "bms.D870",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D822",
+     "name": "12 V battery (BMS)",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D822",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D49C",
+     "name": "Odometer (BMS copy)",
+     "unitText": "km",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32
+     },
+     "key": "bms.D49C",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D875",
+     "name": "Health, 2nd reading (D875)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16,
+      "div": 4
+     },
+     "key": "bms.D875",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D414",
+     "name": "D414 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     },
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D862",
+     "name": "Cell charge, lowest",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8
+     },
+     "key": "bms.D862",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D863",
+     "name": "Cell charge, highest",
+     "unitText": "%",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8
+     },
+     "key": "bms.D863",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D878",
+     "name": "Battery temp spread",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     },
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D804",
+     "name": "HV voltage, 2nd reading",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 10
+     },
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D871",
+     "name": "Power limit? D871",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 10
+     },
+     "key": "bms.D871",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D872",
+     "name": "Power limit? D872",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 32,
+      "div": 10
+     },
+     "key": "bms.D872",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D873",
+     "name": "Power limit? D873",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "div": 10
+     },
+     "key": "bms.D873",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D874",
+     "name": "Power limit? D874",
+     "unitText": "kW",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 32,
+      "div": 10
+     },
+     "key": "bms.D874",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D8B4",
+     "name": "Counter D8B4 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16
+     },
+     "key": "bms.D8B4",
+     "variants": [
+      "PHEV"
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "DC10",
+     "name": "Counter DC10 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32
+     },
+     "key": "bms.DC10",
+     "variants": [
+      "PHEV"
+     ]
+    }
+   ],
+   "series": [
+    {
+     "unit": "bms",
+     "id": "D440",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "alternatives": [
+      {
+       "name": "2 bytes / 1000",
+       "size": 2,
+       "fmt": {
+        "div": 1000
+       }
+      },
+      {
+       "name": "1 byte x 0.02",
+       "size": 1,
+       "fmt": {
+        "mul": 0.02
+       }
+      },
+      {
+       "name": "2 bytes / 10000",
+       "size": 2,
+       "fmt": {
+        "div": 10000
+       }
+      }
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D4B5",
+     "name": "Cell health",
+     "kind": "HEALTH",
+     "listKey": "cells.D4B5",
+     "alternatives": [
+      {
+       "name": "2 bytes / 16",
+       "size": 2,
+       "fmt": {
+        "div": 16
+       }
+      },
+      {
+       "name": "1 byte",
+       "size": 1,
+       "fmt": {}
+      },
+      {
+       "name": "2 bytes / 10",
+       "size": 2,
+       "fmt": {
+        "div": 10
+       }
+      }
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D426",
+     "name": "Block health",
+     "kind": "HEALTH",
+     "listKey": "cells.D426",
+     "alternatives": [
+      {
+       "name": "2 bytes / 16",
+       "size": 2,
+       "fmt": {
+        "div": 16
+       }
+      },
+      {
+       "name": "1 byte",
+       "size": 1,
+       "fmt": {}
+      },
+      {
+       "name": "2 bytes / 10",
+       "size": 2,
+       "fmt": {
+        "div": 10
+       }
+      }
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D442",
+     "name": "Temperature probes",
+     "kind": "TEMPERATURE",
+     "listKey": "cells.D442",
+     "alternatives": [
+      {
+       "name": "1 byte - 40",
+       "size": 1,
+       "fmt": {
+        "add": -40
+       }
+      },
+      {
+       "name": "1 byte",
+       "size": 1,
+       "fmt": {}
+      }
+     ]
+    },
+    {
+     "unit": "bms",
+     "id": "D8AD",
+     "name": "Module voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D8AD",
+     "rate": "NORMAL",
+     "alternatives": [
+      {
+       "name": "1 byte x 0.02",
+       "size": 1,
+       "fmt": {
+        "mul": 0.02
+       }
+      }
+     ]
+    }
+   ],
+   "identity": {
+    "unit": "bms",
+    "dids": [
+     [
+      "F08F",
+      "BMS supplier"
+     ],
+     [
+      "F18C",
+      "BMS serial number"
+     ],
+     [
+      "F195",
+      "BMS software version"
+     ],
+     [
+      "F187",
+      "BMS part number"
+     ],
+     [
+      "F18A",
+      "BMS supplier code"
+     ],
+     [
+      "F18B",
+      "BMS production date",
+      "productionDate"
+     ],
+     [
+      "F191",
+      "BMS hardware number"
+     ],
+     [
+      "F192",
+      "BMS supplier hardware number"
+     ],
+     [
+      "F194",
+      "BMS supplier software number"
+     ],
+     [
+      "F197",
+      "BMS system name"
+     ],
+     [
+      "DA82",
+      "BMS date record (DA82)",
+      "bcdDate"
+     ]
+    ]
+   },
+   "scan": {
+    "unit": "bms",
+    "ranges": [
+     [
+      "D400",
+      "D4FF"
+     ],
+     [
+      "D800",
+      "D8FF"
+     ],
+     [
+      "D000",
+      "D3FF"
+     ],
+     [
+      "D500",
+      "D7FF"
+     ],
+     [
+      "D900",
+      "DFFF"
+     ]
+    ],
+    "priority": 512
+   }
   }
  }
 }
