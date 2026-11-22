@@ -2,9 +2,39 @@
 
 The cars [Veen Auto](https://github.com/VeenTV/Veen-Auto) knows: models and
 their test status, VIN prefixes, and the hybrid / EV battery tables
-(diagnostic addresses, identifiers and formulas) of the table-driven brands.
-The app has a copy built in and fetches the newest release from here
-(Settings → Car → *Car models*, and weekly in the background).
+(diagnostic addresses, identifiers, formulas, per-cell series, identity
+fields and scan ranges) of **every brand** the app supports. The app has no
+car data of its own: each build bundles the newest signed release from here,
+and the app fetches newer releases (Settings → Car → *Car models*, and weekly
+in the background). New cars, status changes and formula fixes therefore
+need no app release – only a new way of talking to a car does.
+
+## Cars
+
+| Brands | Table | Models | Status |
+|---|---|---|---|
+| Citroën, DS, Opel, Peugeot | `STELLANTIS` | 13 | Citroën C5 X Hybrid **tested**, others not tested |
+| Volkswagen, Cupra, Škoda, Audi | `VW_MQB` | 25 | not tested |
+| Hyundai, Kia | `HYUNDAI_KIA` | 11 | not tested |
+| Toyota, Lexus, Suzuki (Swace, Across) | `TOYOTA` | 26 | not tested |
+| BMW | `BMW` | 10 | not tested |
+| Mercedes-Benz | `MERCEDES` | 6 | not tested |
+| Any other car | `GENERIC` | 1 | standard OBD-II only |
+
+*Not tested* means identifiers from public sources, checked against recorded
+replies where there are any, but not yet confirmed on a car by a Veen Auto
+user. Brands whose cars give engine data only (e.g. Suzuki's own hybrids)
+are not listed.
+
+## Reports from cars
+
+The app's **car check** (main screen, menu → *Car check*, Settings → Car)
+walks the driver through comparing Veen Auto's values with the car's own
+display and sends a report – to the developer through the report relay
+(filed in a private repository), by e-mail to veenauto@veen.tv, or shared.
+Confirmed reports move a model to `IN_DEVELOPMENT` or `TESTED` here, and
+their replies can become test cases in `tests/recorded.json`. A valid,
+useful report is rewarded with one month of Veen Auto Pro.
 
 **License:** [CC BY-SA 4.0](LICENSE.md). Use it, change it, share it – with
 attribution and under the same license. See *Attribution* below.
@@ -24,7 +54,7 @@ attribution and under the same license. See *Attribution* below.
 ```jsonc
 {
   "schema": 1,
-  "version": "2026.11.22.1",            // set by the release workflow
+  "version": "2026.11.22.10",           // set by the release workflow
   "models": [
     { "id": "toyota-rav4-phev", "brand": "Toyota", "name": "RAV4 Plug-in", "years": "2020–",
       "platform": "TOYOTA",               // how the app talks to the battery unit (code in the app)
@@ -34,7 +64,7 @@ attribution and under the same license. See *Attribution* below.
       "minApp": 76 }                      // optional: oldest app versionCode that may use this entry
   ],
   "wmi": { "Toyota": ["JTD", "SB1", …] }, // VIN prefixes per brand
-  "tables": {                             // TOYOTA, BMW, MERCEDES
+  "tables": {                             // one per platform, see below
     "TOYOTA": {
       "units":  [{ "id": "hv", "name": "hybrid control 0x7D2", "request": "7D2", "reply": "7DA",
                    "probe": "1F9A", "service": "UDS", "extAddr": "07" /* BMW only */ }],
@@ -90,9 +120,11 @@ module / block voltages.
 
 ### What the data can't do
 
-The app only ever sends read requests (UDS 0x22, KWP 0x21) to 11-bit
-diagnostic addresses (0x000–0x7FF), and rejects a database that asks for
-anything else. New ways of talking to a car (protocols, addressing) need an
+The app only ever sends read requests (UDS 0x22, KWP 0x21) to the fixed
+request / reply address pairs of a table's units – 11-bit (0x000–0x7FF), or
+29-bit for units marked `bits29`, with BMW's one-byte extended address
+(`extAddr`) on 11-bit only – and rejects a database that asks for anything
+else (the same rules as `tools/check.js`). It never sweeps addresses. New ways of talking to a car (protocols, addressing) need an
 app update; a new `platform` name is ignored by older apps.
 
 ## Changing the data
@@ -104,7 +136,14 @@ app update; a new `platform` name is ignored by older apps.
    the check runs there too, without releasing).
 
 The workflow publishes `cars-<version>` with `cars.json` and
-`cars.json.sig`; apps pick it up on the next refresh.
+`cars.json.sig`; apps pick it up on the next refresh, and the next app
+build bundles it. An app uses a downloaded database only if the signature
+matches its built-in public key, the data passes the same checks and the
+version is newer than its own copy.
+
+**Compatibility:** apps before 0.36.0 ignore the VW and Hyundai tables,
+apps before 0.37.0 the Stellantis table (they keep their built-in code for
+those brands). Use `minApp` on a model that needs a newer app.
 
 ## Signing (set up once)
 
