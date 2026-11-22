@@ -47,6 +47,22 @@ attribution and under the same license. See *Attribution* below.
 }
 ```
 
+Tables: `VW_MQB` (VW, Cupra, Škoda, Audi), `HYUNDAI_KIA`, `TOYOTA`, `BMW`,
+`MERCEDES`. (Stellantis is still code in the app.)
+
+### More constructs (app 0.36.0 and newer; older apps ignore the VW and Hyundai tables)
+
+| Field | Where | Meaning |
+|---|---|---|
+| `"bits29": true` | unit | 29-bit CAN: `request` / `reply` are full IDs (`17FC007B`) |
+| `"group": "bms"` | unit | alternatives for the same battery unit (VW 29-bit / 11-bit, Hyundai UDS / KWP): only the first that gives real data is used; with `prefers29Bit` the 29-bit one is tried first |
+| `"unit": ["bms29", "bms11"]` | value, text, series | the same entry on several units |
+| `"fmts": [ … ]` | value | several formulas, the first that gives a value wins; `minBytes` / `maxBytes` choose by reply length |
+| `"variants": ["MLB"]` | value, loop | only for models with that `vwVariant` |
+| `"count": 32` | series | at most this many values; series with the same `listKey` are joined in order (Hyundai cell blocks) |
+| `"loops": [ … ]` | table | one value per identifier from `first` (VW cells 1E40+): `max`, `outlier` (stop at a value further than this from the median), `stopAtGap`, `minCount`, `modules` / `moduleCells` (module averages) |
+| `"scan": {"group": …}`, `"identity": {"group": …}` | table | the group's answering unit |
+
 A formula (`fmt`) takes `len` bits from bit `bix` of the reply data (the
 bytes after `62 DID DID`, big-endian, bit 0 = first bit), signed if `sign`;
 a raw value ≥ `nullFrom` means "no value"; the value is

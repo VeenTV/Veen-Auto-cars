@@ -1,27 +1,406 @@
 {
  "about": "Replies recorded on real cars by OBDb (CC BY-SA 4.0). 'data' = the bytes after 62 DID DID (or 61 nn). 'expect' = value name -> expected value.",
  "cases": [
-  {"car": "2021 Toyota RAV4 Plug-in", "table": "TOYOTA", "unit": "hv", "id": "1F9A", "data": "0E0048C005DD00000000",
-   "expect": {"Pack voltage": 291.0, "Battery current (+ = discharging)": 150.1}},
-  {"car": "2021 Toyota RAV4 Plug-in", "table": "TOYOTA", "unit": "hv", "id": "1F9A", "data": "0E026200FCE800000000",
-   "expect": {"Pack voltage": 392.0, "Battery current (+ = discharging)": -79.2}},
-  {"car": "2021 Toyota RAV4 Plug-in", "table": "TOYOTA", "series": "182E",
+  {
+   "car": "2021 Toyota RAV4 Plug-in",
+   "table": "TOYOTA",
+   "unit": "hv",
+   "id": "1F9A",
+   "data": "0E0048C005DD00000000",
+   "expect": {
+    "Pack voltage": 291.0,
+    "Battery current (+ = discharging)": 150.1
+   }
+  },
+  {
+   "car": "2021 Toyota RAV4 Plug-in",
+   "table": "TOYOTA",
+   "unit": "hv",
+   "id": "1F9A",
+   "data": "0E026200FCE800000000",
+   "expect": {
+    "Pack voltage": 392.0,
+    "Battery current (+ = discharging)": -79.2
+   }
+  },
+  {
+   "car": "2021 Toyota RAV4 Plug-in",
+   "table": "TOYOTA",
+   "series": "182E",
    "data": "BE2BBECBBECBBECBBEDCBECBBEDCBEDCBEDCBEDCBEDCBEDCBEDCBECBBEDCBECBBECBBECBBECBBEDCBEDCBECBBECBBECBBFBCBF8BBFCBBF7BBFBCBF6CBFCBBF6CBFCBBF6CBFBCBF9BBFCBBFBCBFBCBFBCBF9BBFCBBFABBFDBBFCBBFCBBFCBBFCBBFABBF7BBFBCBF6CBFBCBF5BBF9BBF5BBFCBBF5BBFABBF9BBFABBFBCBFBCBFBCBFABBFCBBFCBBFABBFBCBFCBBFBCBFCBBF9BBF7BBFBCBF5BBFBCBF4BBFBCBF6CBFBCBF6CBF8BBF5BBFBCBFABBF8BBFBCBF7BBFBCBF9BBFCBBFBCBFBCBF9BBFBC",
-   "expectCount": 96, "expectFirst": [3.71427, 3.72648]},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "DDBC", "data": "006F038E0050FFFF",
-   "expect": {"State of charge (battery unit)": 11.1, "State of charge window, max": 91.0, "State of charge window, min": 8.0}},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "DD68", "data": "8DCD", "expect": {"Pack voltage": 363.01}},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "DD69", "data": "FFFFBF76FFFFFFFF", "expect": {"Battery current (+ = discharging)": -165.22}},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "DDBF", "data": "0F520F56FFFFFFFF", "expect": {"Cell voltage, min": 3.922, "Cell voltage, max": 3.926}},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "DDC0", "data": "05DC063F0639FFFF", "expect": {"Cell temperature, min": 15.0, "Cell temperature, max": 15.99}},
-  {"car": "2016 BMW i3", "table": "BMW", "unit": "sme", "id": "6335", "data": "00000057FFFFFFFF", "expect": {"State of health": 87}},
-  {"car": "2016 BMW i3", "table": "BMW", "text": "DF71", "name": "Battery layout", "data": "00600C0804FFFFFF",
-   "expectText": "96 cells, 12 per module, 8 modules, 4 temperature sensors per module"},
-  {"car": "2016 BMW i3", "table": "BMW", "text": "DFA0", "name": "Cell capacity min / max / average",
-   "data": "14BC14EC14D0939D93C593B105DC063F0639FFFFFFFF2F950B560B700B6090E2910A90F12F95", "expectText": "53.08 / 53.56 / 53.28 Ah"},
-  {"car": "2024 Mercedes-Benz EQB", "table": "MERCEDES", "unit": "hv", "id": "6050", "data": "1B83", "expect": {"State of charge": 70.43}},
-  {"car": "2024 Mercedes-Benz EQB", "table": "MERCEDES", "unit": "hv", "id": "6075", "data": "3564", "expect": {"Pack voltage": 341.7}},
-  {"car": "2024 Mercedes-Benz EQB", "table": "MERCEDES", "unit": "hv", "id": "6053", "data": "FE06", "expect": {"Battery current (+ = discharging)": -50.6}},
-  {"car": "2024 Mercedes-Benz EQB", "table": "MERCEDES", "unit": "hv", "id": "2526", "data": "0039", "expect": {"Battery coolant temperature": 7.125}}
+   "expectCount": 96,
+   "expectFirst": [
+    3.71427,
+    3.72648
+   ]
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "DDBC",
+   "data": "006F038E0050FFFF",
+   "expect": {
+    "State of charge (battery unit)": 11.1,
+    "State of charge window, max": 91.0,
+    "State of charge window, min": 8.0
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "DD68",
+   "data": "8DCD",
+   "expect": {
+    "Pack voltage": 363.01
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "DD69",
+   "data": "FFFFBF76FFFFFFFF",
+   "expect": {
+    "Battery current (+ = discharging)": -165.22
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "DDBF",
+   "data": "0F520F56FFFFFFFF",
+   "expect": {
+    "Cell voltage, min": 3.922,
+    "Cell voltage, max": 3.926
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "DDC0",
+   "data": "05DC063F0639FFFF",
+   "expect": {
+    "Cell temperature, min": 15.0,
+    "Cell temperature, max": 15.99
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "unit": "sme",
+   "id": "6335",
+   "data": "00000057FFFFFFFF",
+   "expect": {
+    "State of health": 87
+   }
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "text": "DF71",
+   "name": "Battery layout",
+   "data": "00600C0804FFFFFF",
+   "expectText": "96 cells, 12 per module, 8 modules, 4 temperature sensors per module"
+  },
+  {
+   "car": "2016 BMW i3",
+   "table": "BMW",
+   "text": "DFA0",
+   "name": "Cell capacity min / max / average",
+   "data": "14BC14EC14D0939D93C593B105DC063F0639FFFFFFFF2F950B560B700B6090E2910A90F12F95",
+   "expectText": "53.08 / 53.56 / 53.28 Ah"
+  },
+  {
+   "car": "2024 Mercedes-Benz EQB",
+   "table": "MERCEDES",
+   "unit": "hv",
+   "id": "6050",
+   "data": "1B83",
+   "expect": {
+    "State of charge": 70.43
+   }
+  },
+  {
+   "car": "2024 Mercedes-Benz EQB",
+   "table": "MERCEDES",
+   "unit": "hv",
+   "id": "6075",
+   "data": "3564",
+   "expect": {
+    "Pack voltage": 341.7
+   }
+  },
+  {
+   "car": "2024 Mercedes-Benz EQB",
+   "table": "MERCEDES",
+   "unit": "hv",
+   "id": "6053",
+   "data": "FE06",
+   "expect": {
+    "Battery current (+ = discharging)": -50.6
+   }
+  },
+  {
+   "car": "2024 Mercedes-Benz EQB",
+   "table": "MERCEDES",
+   "unit": "hv",
+   "id": "2526",
+   "data": "0039",
+   "expect": {
+    "Battery coolant temperature": 7.125
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "028C",
+   "data": "27",
+   "expect": {
+    "State of charge (battery unit)": 15.6
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "028C",
+   "data": "F0",
+   "expect": {
+    "State of charge (battery unit)": 96.0
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E3B",
+   "data": "054A",
+   "expect": {
+    "Pack voltage": 338.5
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E3E",
+   "data": "00020CC9",
+   "expect": {
+    "Battery current (+ = discharging)": 156.55
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E33",
+   "data": "38870003",
+   "expect": {
+    "Cell voltage, max": 3.53296
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E34",
+   "data": "38250025",
+   "expect": {
+    "Cell voltage, min": 3.50903
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E0E",
+   "data": "04A80006",
+   "expect": {
+    "Battery temperature, max": 18.625
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E0F",
+   "data": "04700007",
+   "expect": {
+    "Battery temperature, min": 17.75
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "2A0B",
+   "data": "74",
+   "expect": {
+    "Battery temperature": 18.0
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E2C",
+   "data": "07850009",
+   "expect": {
+    "Cell charge, max": 19.25
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E1B",
+   "data": "0297",
+   "expect": {
+    "Charge current limit": 132.6
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "unit": "bms29",
+   "id": "1E3C",
+   "data": "0014B598",
+   "expect": {
+    "Sum of cell voltages": 331.35
+   }
+  },
+  {
+   "car": "2025 Cupra Formentor e-Hybrid (29-bit)",
+   "table": "VW_MQB",
+   "loop": "1E40",
+   "variant": "MQB",
+   "data": "09D2",
+   "expectValue": 3.514
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "unit": "bms11",
+   "id": "028C",
+   "data": "68",
+   "expect": {
+    "State of charge (battery unit)": 40.784
+   }
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "unit": "bms11",
+   "id": "1E3B",
+   "data": "04DA",
+   "expect": {
+    "Pack voltage": 310.5
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "unit": "bms11",
+   "id": "1E3D",
+   "data": "050F",
+   "expect": {
+    "Battery current (+ = discharging)": 188.25
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "unit": "bms11",
+   "id": "1E0E",
+   "data": "07400001",
+   "expect": {
+    "Battery temperature, max": 29.0
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "unit": "bms11",
+   "id": "1E33",
+   "data": "3A200001",
+   "expect": {
+    "Cell voltage, max": 3.63281
+   },
+   "variant": "MQB"
+  },
+  {
+   "car": "2019 Volkswagen e-Golf (11-bit)",
+   "table": "VW_MQB",
+   "loop": "1E40",
+   "variant": "MQB",
+   "data": "0A3A",
+   "expectValue": 3.618
+  },
+  {
+   "car": "2023 Kia Niro",
+   "table": "HYUNDAI_KIA",
+   "unit": "uds",
+   "id": "0101",
+   "data": "EFFBE7ED410000000000000A0DA01D191B1A1A1A1B0047B55DB5180000900005BCF30005AD600002162E000202EA02307C0400015D000000000A5F",
+   "expect": {
+    "State of charge (battery unit)": 32.5,
+    "Battery current (+ = discharging)": 1.0,
+    "Pack voltage": 348.8,
+    "Battery temperature, max": 29,
+    "Battery temperature, min": 25,
+    "Cell voltage, max": 3.62,
+    "Cell number, max voltage": 93,
+    "Cell voltage, min": 3.62,
+    "Cell number, min voltage": 24,
+    "12 V": 14.4
+   }
+  },
+  {
+   "car": "2023 Kia Niro",
+   "table": "HYUNDAI_KIA",
+   "unit": "uds",
+   "text": "0101",
+   "name": "Lifetime counters",
+   "data": "EFFBE7ED410000000000000A0DA01D191B1A1A1A1B0047B55DB5180000900005BCF30005AD600002162E000202EA02307C0400015D000000000A5F",
+   "expectText": "charged 37605 Ah / 13675.0 kWh, discharged 37206 Ah / 13181.8 kWh"
+  },
+  {
+   "car": "2025 Kia Niro",
+   "table": "HYUNDAI_KIA",
+   "unit": "uds",
+   "id": "0105",
+   "data": "E03A0400005D01005800000019439000134A206C000050000003E80D115000C5000000000000008D010000",
+   "expect": {
+    "State of health": 100.0,
+    "State of charge (dashboard)": 98.5,
+    "Energy left (candidate)": 8.864,
+    "Cell voltage deviation": 0.0
+   }
+  },
+  {
+   "car": "Kia Niro (cell block)",
+   "table": "HYUNDAI_KIA",
+   "series": "0102",
+   "name": "Cell voltages",
+   "data": "FFFFFFFFC5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5C5",
+   "expectCount": 32,
+   "expectFirst": [
+    3.94
+   ]
+  }
  ]
 }

@@ -1943,6 +1943,1476 @@
     ],
     "priority": 256
    }
+  },
+  "VW_MQB": {
+   "label": "Volkswagen group",
+   "units": [
+    {
+     "id": "bms29",
+     "name": "battery unit, 29-bit CAN (0x17FC007B)",
+     "request": "17FC007B",
+     "reply": "17FE007B",
+     "probe": "028C",
+     "bits29": true,
+     "group": "bms"
+    },
+    {
+     "id": "bms11",
+     "name": "battery unit, 11-bit CAN (0x7E5)",
+     "request": "7E5",
+     "reply": "7ED",
+     "probe": "028C",
+     "group": "bms"
+    }
+   ],
+   "values": [
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E3B",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 4
+     },
+     "key": "bms.D815",
+     "variants": [
+      "MQB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": "bms29",
+     "id": "1E3E",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmts": [
+      {
+       "minBytes": 4,
+       "len": 32,
+       "mul": -0.01,
+       "add": 1500
+      },
+      {
+       "minBytes": 2,
+       "len": 16,
+       "mul": -0.25,
+       "add": 512
+      }
+     ],
+     "key": "bms.D816"
+    },
+    {
+     "unit": "bms11",
+     "id": "1E3D",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmts": [
+      {
+       "minBytes": 4,
+       "len": 32,
+       "mul": -0.01,
+       "add": 1500
+      },
+      {
+       "minBytes": 2,
+       "len": 16,
+       "mul": -0.25,
+       "add": 512
+      }
+     ],
+     "key": "bms.D816",
+     "variants": [
+      "MQB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": "bms11",
+     "id": "028C",
+     "name": "State of charge (battery unit)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "mul": 100,
+      "div": 255
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "bms29",
+     "id": "028C",
+     "name": "State of charge (battery unit)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "div": 2.5
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E33",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 4096
+     },
+     "key": "bms.D870",
+     "variants": [
+      "MQB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E34",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 4096
+     },
+     "key": "bms.D86F",
+     "variants": [
+      "MQB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E0E",
+     "name": "Battery temperature, max",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "div": 64
+     },
+     "key": "bms.D817",
+     "variants": [
+      "MQB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E0F",
+     "name": "Battery temperature, min",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "sign": true,
+      "div": 64
+     },
+     "key": "bms.D87D",
+     "variants": [
+      "MQB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "2A0B",
+     "name": "Battery temperature",
+     "unitText": "°C",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmts": [
+      {
+       "maxBytes": 1,
+       "len": 8,
+       "div": 2,
+       "add": -40
+      },
+      {
+       "minBytes": 2,
+       "len": 16,
+       "div": 64
+      }
+     ],
+     "key": "bms.D877",
+     "variants": [
+      "MQB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E3B",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "div": 10
+     },
+     "key": "bms.D815",
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E3D",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "len": 16,
+      "mul": -0.25,
+      "add": 511
+     },
+     "key": "bms.D816",
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E33",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmts": [
+      {
+       "len": 16,
+       "div": 1000,
+       "min": 2,
+       "max": 4.5
+      },
+      {
+       "len": 16,
+       "div": 4096,
+       "min": 2,
+       "max": 4.5
+      }
+     ],
+     "key": "bms.D870",
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E34",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmts": [
+      {
+       "len": 16,
+       "div": 1000,
+       "min": 2,
+       "max": 4.5
+      },
+      {
+       "len": 16,
+       "div": 4096,
+       "min": 2,
+       "max": 4.5
+      }
+     ],
+     "key": "bms.D86F",
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E0E",
+     "name": "Battery temperature, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -100
+     },
+     "key": "bms.D817",
+     "variants": [
+      "MLB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E0F",
+     "name": "Battery temperature, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -100
+     },
+     "key": "bms.D87D",
+     "variants": [
+      "MLB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "2A0B",
+     "name": "Battery temperature",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "add": -100
+     },
+     "key": "bms.D877",
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E33",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 1000
+     },
+     "key": "bms.D870",
+     "variants": [
+      "ETRON"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E34",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 3,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 1000
+     },
+     "key": "bms.D86F",
+     "variants": [
+      "ETRON"
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E2C",
+     "name": "Cell charge, max",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D863"
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E2D",
+     "name": "Cell charge, min",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 16,
+      "div": 100
+     },
+     "key": "bms.D862"
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E3C",
+     "name": "Sum of cell voltages",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 32,
+      "sign": true,
+      "div": 4096
+     }
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E1B",
+     "name": "Charge current limit",
+     "unitText": "A",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmts": [
+      {
+       "minBytes": 2,
+       "len": 16,
+       "div": 5
+      },
+      {
+       "len": 8
+      }
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E1C",
+     "name": "Discharge current limit",
+     "unitText": "A",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmts": [
+      {
+       "minBytes": 2,
+       "len": 16,
+       "div": 5
+      },
+      {
+       "len": 8
+      }
+     ]
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "5170",
+     "name": "Minimum discharge voltage",
+     "unitText": "V",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16
+     }
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "5171",
+     "name": "Maximum charge voltage",
+     "unitText": "V",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16
+     }
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "51E0",
+     "name": "State of health (candidate)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16,
+      "nullFrom": 65520,
+      "mul": 0.127,
+      "add": -1798.574,
+      "min": 50,
+      "max": 110
+     },
+     "candidate": true
+    },
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "7448",
+     "name": "Fast charging (candidate)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "bix": 3,
+      "len": 1
+     },
+     "candidate": true
+    }
+   ],
+   "texts": [
+    {
+     "unit": [
+      "bms29",
+      "bms11"
+     ],
+     "id": "1E32",
+     "name": "Lifetime counters",
+     "template": "charged {0} Ah / {1} kWh, discharged {2} Ah / {3} kWh",
+     "fields": [
+      {
+       "len": 32,
+       "div": 549.31642,
+       "decimals": 0
+      },
+      {
+       "bix": 64,
+       "len": 32,
+       "div": 8583.07212,
+       "decimals": 0
+      },
+      {
+       "bix": 32,
+       "len": 32,
+       "sign": true,
+       "mul": -1,
+       "div": 549.31642,
+       "decimals": 0
+      },
+      {
+       "bix": 96,
+       "len": 32,
+       "sign": true,
+       "mul": -1,
+       "div": 8583.07212,
+       "decimals": 0
+      }
+     ]
+    }
+   ],
+   "loops": [
+    {
+     "unit": "bms",
+     "first": "1E40",
+     "max": 108,
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "1E40+: 2 bytes / 1000 + 1 V",
+     "fmt": {
+      "len": 16,
+      "div": 1000,
+      "add": 1
+     },
+     "range": [
+      2.0,
+      4.5
+     ],
+     "outlier": 0.4,
+     "minCount": 20,
+     "modules": 8,
+     "moduleCells": 96,
+     "variants": [
+      "MQB",
+      "ETRON"
+     ]
+    },
+    {
+     "unit": "bms",
+     "first": "1E40",
+     "max": 108,
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "1E40+: 2 bytes / 4096 V",
+     "fmt": {
+      "len": 16,
+      "div": 4096
+     },
+     "range": [
+      2.0,
+      4.5
+     ],
+     "outlier": 0.4,
+     "minCount": 20,
+     "modules": 8,
+     "moduleCells": 96,
+     "variants": [
+      "MLB"
+     ]
+    },
+    {
+     "unit": "bms29",
+     "first": "1EAE",
+     "max": 8,
+     "name": "Module temperatures",
+     "kind": "TEMPERATURE",
+     "listKey": "cells.D442",
+     "format": "1EAE+: 2 bytes / 8 - 40 °C",
+     "fmt": {
+      "len": 16,
+      "div": 8,
+      "add": -40
+     },
+     "range": [
+      -40.0,
+      90.0
+     ],
+     "stopAtGap": false
+    }
+   ],
+   "identity": {
+    "group": "bms",
+    "dids": [
+     [
+      "F187",
+      "BMS part number"
+     ],
+     [
+      "F189",
+      "BMS software version"
+     ],
+     [
+      "F191",
+      "BMS hardware number"
+     ],
+     [
+      "F197",
+      "BMS system name"
+     ],
+     [
+      "F18C",
+      "BMS serial number"
+     ]
+    ]
+   },
+   "scan": {
+    "group": "bms",
+    "ranges": [
+     [
+      "1E00",
+      "1EFF"
+     ],
+     [
+      "0200",
+      "02FF"
+     ],
+     [
+      "1800",
+      "18FF"
+     ],
+     [
+      "2A00",
+      "2AFF"
+     ],
+     [
+      "5100",
+      "51FF"
+     ],
+     [
+      "7400",
+      "74FF"
+     ],
+     [
+      "F180",
+      "F1FF"
+     ]
+    ],
+    "priority": 256
+   }
+  },
+  "HYUNDAI_KIA": {
+   "label": "Hyundai / Kia",
+   "units": [
+    {
+     "id": "uds",
+     "name": "battery unit 0x7E4 (UDS 22 01nn)",
+     "request": "7E4",
+     "reply": "7EC",
+     "probe": "0101",
+     "group": "bms"
+    },
+    {
+     "id": "kwp",
+     "name": "battery unit 0x7E4 (KWP 21 nn)",
+     "request": "7E4",
+     "reply": "7EC",
+     "probe": "01",
+     "service": "KWP",
+     "group": "bms"
+    }
+   ],
+   "values": [
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "State of charge (battery unit)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 32,
+      "len": 8,
+      "div": 2
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 80,
+      "len": 16,
+      "sign": true,
+      "div": 10
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 96,
+      "len": 16,
+      "div": 10
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Battery temperature, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 112,
+      "len": 8,
+      "sign": true
+     },
+     "key": "bms.D817"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Battery temperature, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 120,
+      "len": 8,
+      "sign": true
+     },
+     "key": "bms.D87D"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Battery inlet temperature",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 176,
+      "len": 8,
+      "sign": true
+     }
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 184,
+      "len": 8,
+      "div": 50
+     },
+     "key": "bms.D870"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Cell number, max voltage",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 192,
+      "len": 8
+     }
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 200,
+      "len": 8,
+      "div": 50
+     },
+     "key": "bms.D86F"
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Cell number, min voltage",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 208,
+      "len": 8
+     }
+    },
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "12 V",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 232,
+      "len": 8,
+      "div": 10,
+      "min": 0.1
+     },
+     "key": "bms.D822"
+    },
+    {
+     "unit": "uds",
+     "id": "0105",
+     "name": "State of health",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 200,
+      "len": 16,
+      "div": 10,
+      "min": 50,
+      "max": 110
+     },
+     "key": "bms.D860"
+    },
+    {
+     "unit": "uds",
+     "id": "0105",
+     "name": "State of charge (dashboard)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 248,
+      "len": 8,
+      "div": 2,
+      "max": 100
+     },
+     "key": "bms.dashpct"
+    },
+    {
+     "unit": "uds",
+     "id": "0105",
+     "name": "Energy left (candidate)",
+     "unitText": "kWh",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 224,
+      "len": 16,
+      "mul": 2,
+      "div": 1000,
+      "min": 0.001,
+      "max": 149.999
+     },
+     "key": "bms.D865"
+    },
+    {
+     "unit": "uds",
+     "id": "0105",
+     "name": "Cell voltage deviation",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 160,
+      "len": 8,
+      "div": 50
+     }
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "State of charge (battery unit)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 32,
+      "len": 8,
+      "div": 2
+     },
+     "key": "bms.D810"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Battery current (+ = discharging)",
+     "unitText": "A",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 80,
+      "len": 16,
+      "sign": true,
+      "div": 10
+     },
+     "key": "bms.D816"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Pack voltage",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 96,
+      "len": 16,
+      "div": 10
+     },
+     "key": "bms.D815"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Battery temperature, max",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 112,
+      "len": 8,
+      "sign": true
+     },
+     "key": "bms.D817"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Battery temperature, min",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 120,
+      "len": 8,
+      "sign": true
+     },
+     "key": "bms.D87D"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Battery inlet temperature",
+     "unitText": "°C",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 176,
+      "len": 8,
+      "sign": true
+     }
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Cell voltage, max",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 184,
+      "len": 8,
+      "div": 50
+     },
+     "key": "bms.D870"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Cell number, max voltage",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 192,
+      "len": 8
+     }
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Cell voltage, min",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 200,
+      "len": 8,
+      "div": 50
+     },
+     "key": "bms.D86F"
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Cell number, min voltage",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 208,
+      "len": 8
+     }
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "12 V",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "FAST",
+     "fmt": {
+      "bix": 232,
+      "len": 8,
+      "div": 10,
+      "min": 0.1
+     },
+     "key": "bms.D822"
+    },
+    {
+     "unit": "kwp",
+     "id": "05",
+     "name": "State of health",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 200,
+      "len": 16,
+      "div": 10,
+      "min": 50,
+      "max": 110
+     },
+     "key": "bms.D860"
+    },
+    {
+     "unit": "kwp",
+     "id": "05",
+     "name": "State of charge (dashboard)",
+     "unitText": "%",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 248,
+      "len": 8,
+      "div": 2,
+      "max": 100
+     },
+     "key": "bms.dashpct"
+    },
+    {
+     "unit": "kwp",
+     "id": "05",
+     "name": "Energy left (candidate)",
+     "unitText": "kWh",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 224,
+      "len": 16,
+      "mul": 2,
+      "div": 1000,
+      "min": 0.001,
+      "max": 149.999
+     },
+     "key": "bms.D865"
+    },
+    {
+     "unit": "kwp",
+     "id": "05",
+     "name": "Cell voltage deviation",
+     "unitText": "V",
+     "decimals": 2,
+     "rate": "NORMAL",
+     "fmt": {
+      "bix": 160,
+      "len": 8,
+      "div": 50
+     }
+    }
+   ],
+   "texts": [
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Lifetime counters",
+     "template": "charged {0} Ah / {1} kWh, discharged {2} Ah / {3} kWh",
+     "fields": [
+      {
+       "bix": 240,
+       "len": 32,
+       "div": 10,
+       "decimals": 0
+      },
+      {
+       "bix": 304,
+       "len": 32,
+       "div": 10,
+       "decimals": 1
+      },
+      {
+       "bix": 272,
+       "len": 32,
+       "div": 10,
+       "decimals": 0
+      },
+      {
+       "bix": 336,
+       "len": 32,
+       "div": 10,
+       "decimals": 1
+      }
+     ]
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Lifetime counters",
+     "template": "charged {0} Ah / {1} kWh, discharged {2} Ah / {3} kWh",
+     "fields": [
+      {
+       "bix": 240,
+       "len": 32,
+       "div": 10,
+       "decimals": 0
+      },
+      {
+       "bix": 304,
+       "len": 32,
+       "div": 10,
+       "decimals": 1
+      },
+      {
+       "bix": 272,
+       "len": 32,
+       "div": 10,
+       "decimals": 0
+      },
+      {
+       "bix": 336,
+       "len": 32,
+       "div": 10,
+       "decimals": 1
+      }
+     ]
+    }
+   ],
+   "series": [
+    {
+     "unit": "uds",
+     "id": "0101",
+     "name": "Module temperatures",
+     "kind": "TEMPERATURE",
+     "listKey": "cells.D442",
+     "format": "block 01 bytes 16-19: signed °C",
+     "start": 16,
+     "size": 1,
+     "count": 4,
+     "fmt": {
+      "sign": true
+     }
+    },
+    {
+     "unit": "uds",
+     "id": "0102",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "uds",
+     "id": "0103",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "uds",
+     "id": "0104",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "uds",
+     "id": "010A",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "uds",
+     "id": "010B",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "uds",
+     "id": "010C",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "kwp",
+     "id": "01",
+     "name": "Module temperatures",
+     "kind": "TEMPERATURE",
+     "listKey": "cells.D442",
+     "format": "block 01 bytes 16-19: signed °C",
+     "start": 16,
+     "size": 1,
+     "count": 4,
+     "fmt": {
+      "sign": true
+     }
+    },
+    {
+     "unit": "kwp",
+     "id": "02",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "kwp",
+     "id": "03",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    },
+    {
+     "unit": "kwp",
+     "id": "04",
+     "name": "Cell voltages",
+     "kind": "VOLTAGE",
+     "listKey": "cells.D440",
+     "format": "blocks 02-04/0A-0C: 1 byte / 50 V",
+     "start": 4,
+     "size": 1,
+     "count": 32,
+     "fmt": {
+      "div": 50
+     },
+     "range": [
+      2.0,
+      4.5
+     ]
+    }
+   ],
+   "scan": {
+    "unit": "uds",
+    "ranges": [
+     [
+      "0100",
+      "01FF"
+     ],
+     [
+      "0200",
+      "02FF"
+     ],
+     [
+      "F180",
+      "F1FF"
+     ]
+    ],
+    "priority": 256
+   }
   }
  }
 }
