@@ -210,7 +210,7 @@
    "name": "2CV (test dummy)",
    "years": "1948-1990",
    "platform": "STELLANTIS",
-   "readiness": "NOT_TESTED",
+   "readiness": "TESTED",
    "source": "test only"
   },
   {
