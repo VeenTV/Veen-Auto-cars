@@ -10,7 +10,8 @@ const err = (m) => errors.push(m);
 
 const PLATFORMS = ['STELLANTIS', 'VW_MQB', 'HYUNDAI_KIA', 'TOYOTA', 'BMW', 'MERCEDES', 'GENERIC'];
 const READINESS = ['TESTED', 'IN_DEVELOPMENT', 'NOT_TESTED', 'GENERIC'];
-const TABLES = ['TOYOTA', 'BMW', 'MERCEDES'];
+const TABLES = ['TOYOTA', 'BMW', 'MERCEDES', 'VW_MQB', 'HYUNDAI_KIA'];
+const VARIANT = /^[A-Z0-9_]{1,20}$/;
 const LIST_KEYS = ['cells.D440', 'cells.D442', 'cells.D8AD'];
 const KINDS = ['VOLTAGE', 'HEALTH', 'TEMPERATURE'];
 const hex = (s, max, what) => {
@@ -44,37 +45,58 @@ function checkFmt(f, where) {
 for (const [name, t] of Object.entries(db.tables || {})) {
   if (!TABLES.includes(name)) { err(`table ${name}: unknown platform`); continue; }
   const units = {};
+  const groups = new Set();
   for (const u of t.units) {
     const svc = u.service || 'UDS';
     if (!['UDS', 'KWP'].includes(svc)) err(`${name}/${u.id}: service ${svc}`);
-    hex(u.request, 0x7FF, `${name}/${u.id} request`);
-    hex(u.reply, 0x7FF, `${name}/${u.id} reply`);
+    const maxCan = u.bits29 ? 0x1FFFFFFF : 0x7FF;
+    if (u.bits29 && u.extAddr !== undefined) err(`${name}/${u.id}: extended address on 29-bit CAN`);
+    hex(u.request, maxCan, `${name}/${u.id} request`);
+    hex(u.reply, maxCan, `${name}/${u.id} reply`);
+    if (u.group) groups.add(u.group);
     hex(u.probe, svc === 'UDS' ? 0xFFFF : 0xFF, `${name}/${u.id} probe`);
     if (u.extAddr !== undefined) hex(u.extAddr, 0xFF, `${name}/${u.id} extAddr`);
     units[u.id] = u;
   }
-  const unit = (x, w) => units[x.unit] || (err(`${w}: unknown unit ${x.unit}`), { service: 'UDS' });
+  const unitList = (x, w) => (Array.isArray(x.unit) ? x.unit : [x.unit]).map((id) => units[id] || (err(`${w}: unknown unit ${id}`), { service: 'UDS' }));
+  const unit = (x, w) => unitList(x, w)[0];
+  const variants = (x, w) => (x.variants || []).forEach((v) => { if (!VARIANT.test(v)) err(`${w}: variant ${v}`); });
+  const unitOrGroup = (n, w) => { if (!units[n] && !groups.has(n)) err(`${w}: unknown unit or group ${n}`); };
   for (const v of t.values || []) {
     const w = `${name}/${v.unit}/${v.id} ${v.name}`;
-    const u = unit(v, w);
-    hex(v.id, (u.service || 'UDS') === 'UDS' ? 0xFFFF : 0xFF, w);
+    for (const u of unitList(v, w)) hex(v.id, (u.service || 'UDS') === 'UDS' ? 0xFFFF : 0xFF, w);
     if (!['FAST', 'NORMAL', 'ONCE'].includes(v.rate)) err(`${w}: rate`);
     if (v.key && !/^bms\.[A-Za-z0-9]{2,12}$/.test(v.key)) err(`${w}: key ${v.key}`);
-    checkFmt(v.fmt, w);
+    const fs = v.fmts || [v.fmt];
+    if (!fs.length || fs.length > 8 || fs.some((f) => !f)) err(`${w}: formulas`);
+    fs.forEach((f) => f && checkFmt(f, w));
+    variants(v, w);
   }
   for (const x of t.texts || []) {
     const w = `${name}/${x.unit}/${x.id} ${x.name}`;
-    unit(x, w);
+    unitList(x, w);
     if (x.list) checkFmt(x.list.fmt, w); else if (!x.template || !Array.isArray(x.fields)) err(`${w}: template/fields`); else x.fields.forEach((f) => checkFmt(f, w));
   }
   for (const s of t.series || []) {
     const w = `${name}/${s.unit}/${s.id} ${s.name}`;
-    unit(s, w);
+    unitList(s, w);
     if (!LIST_KEYS.includes(s.listKey)) err(`${w}: listKey`);
     if (!KINDS.includes(s.kind)) err(`${w}: kind`);
     if (!((s.size ?? 2) >= 1 && (s.size ?? 2) <= 4)) err(`${w}: size`);
     checkFmt(s.fmt, w);
   }
+  for (const l of t.loops || []) {
+    const w = `${name}/loop ${l.first} ${l.name}`;
+    unitOrGroup(l.unit, w);
+    const first = hex(l.first, 0xFFFF, w);
+    if (!(l.max >= 1 && l.max <= 256) || first + l.max > 0x10000) err(`${w}: length`);
+    if (!LIST_KEYS.includes(l.listKey)) err(`${w}: listKey`);
+    if (!KINDS.includes(l.kind)) err(`${w}: kind`);
+    checkFmt(l.fmt, w);
+    variants(l, w);
+  }
+  if (t.scan && t.scan.group) unitOrGroup(t.scan.group, `${name} scan`);
+  if (t.identity && t.identity.group) unitOrGroup(t.identity.group, `${name} identity`);
 }
 
 // ---- formulas (the same arithmetic as DidTable.Fmt in the app) ----
@@ -94,10 +116,12 @@ function scale(f, r) {
   if (f.max !== undefined && v > f.max) return null;
   return v;
 }
-const decode = (f, d) => scale(f, raw(d, f.bix ?? 0, f.len ?? 8, !!f.sign));
-function list(d, start, size, f) {
+const decode = (f, d) => (d.length < (f.minBytes ?? 0) || d.length > (f.maxBytes ?? Infinity)) ? null : scale(f, raw(d, f.bix ?? 0, f.len ?? 8, !!f.sign));
+// Several formulas: the first that gives a value (e.g. chosen by reply length).
+const decodeAny = (v, d) => { for (const f of v.fmts || [v.fmt]) { const x = decode(f, d); if (x !== null) return x; } return null; };
+function list(d, start, size, f, count = Infinity) {
   const out = [];
-  for (let i = start; i + size <= d.length; i += size) { const v = scale(f, raw(d, i * 8, size * 8, !!f.sign)); if (v !== null) out.push(v); }
+  for (let i = start, n = 0; i + size <= d.length && n < count; i += size, n++) { const v = scale(f, raw(d, i * 8, size * 8, !!f.sign)); if (v !== null) out.push(v); }
   return out;
 }
 const fix = (v, n) => v.toFixed(n);
@@ -120,22 +144,31 @@ for (const c of rec.cases) {
   if (!t) { err(`${w}: table missing`); continue; }
   if (c.expect) {
     for (const [name, want] of Object.entries(c.expect)) {
-      const v = t.values.find((x) => x.unit === c.unit && x.id.toUpperCase() === c.id.toUpperCase() && x.name === name);
+      const v = t.values.find((x) => (Array.isArray(x.unit) ? x.unit.includes(c.unit) : x.unit === c.unit) &&
+        x.id.toUpperCase() === c.id.toUpperCase() && x.name === name && (!c.variant || !x.variants || x.variants.includes(c.variant)));
       if (!v) { err(`${w}: value "${name}" missing`); continue; }
-      const got = decode(v.fmt, d);
+      const got = decodeAny(v, d);
       if (got === null || Math.abs(got - want) > 0.0015) err(`${w}: ${name} = ${got}, recorded ${want}`);
       checked++;
     }
   }
   if (c.series) {
-    const s = t.series.find((x) => x.id.toUpperCase() === c.series.toUpperCase());
-    const vals = s ? list(d, s.start ?? 0, s.size ?? 2, s.fmt) : [];
+    const s = t.series.find((x) => x.id.toUpperCase() === c.series.toUpperCase() && (!c.name || x.name === c.name));
+    let vals = s ? list(d, s.start ?? 0, s.size ?? 2, s.fmt, s.count ?? Infinity) : [];
+    if (s && s.range) vals = vals.filter((v) => v >= s.range[0] && v <= s.range[1]);
     if (vals.length !== c.expectCount) err(`${w}: ${vals.length} values, recorded ${c.expectCount}`);
     c.expectFirst.forEach((want, i) => { if (Math.abs(vals[i] - want) > 0.00002) err(`${w}: value ${i + 1} = ${vals[i]}, recorded ${want}`); });
     checked++;
   }
+  if (c.loop) {
+    const l = (t.loops || []).find((x) => x.first.toUpperCase() === c.loop.toUpperCase() && (!c.variant || !x.variants || x.variants.includes(c.variant)));
+    const got = l ? decode(l.fmt, d) : null;
+    if (got === null || Math.abs(got - c.expectValue) > 0.0015) err(`${w}: loop value ${got}, recorded ${c.expectValue}`);
+    checked++;
+  }
   if (c.text) {
-    const x = t.texts.find((y) => y.id.toUpperCase() === c.text.toUpperCase() && y.name === c.name);
+    const x = t.texts.find((y) => y.id.toUpperCase() === c.text.toUpperCase() && y.name === c.name &&
+      (!c.unit || (Array.isArray(y.unit) ? y.unit.includes(c.unit) : y.unit === c.unit)));
     const got = x ? text(x, d) : null;
     if (got !== c.expectText) err(`${w}: "${got}", recorded "${c.expectText}"`);
     checked++;
