@@ -21,6 +21,11 @@ if (!/^\d{4}\.\d{1,2}\.\d{1,2}\.\d+$/.test(db.version || '')) err('bad version')
 const advice = db.advice || {};
 for (const [k, a] of Object.entries(advice)) for (const l of LANGS) if (typeof a[l] !== 'string' || !a[l]) err(`advice ${k}: ${l} missing`);
 
+for (const [k, f] of Object.entries(db.failureTypes || {})) {
+  if (!/^[0-9A-F]{2}$/.test(k)) err(`failure type ${k}: not a hex byte`);
+  for (const l of LANGS) if (typeof f[l] !== 'string' || !f[l]) err(`failure type ${k}: ${l} missing`);
+}
+
 function entry(e, w) {
   if (!AREAS.includes(e.area)) err(`${w}: area ${e.area}`);
   if (!SEVS.includes(e.sev)) err(`${w}: severity ${e.sev}`);

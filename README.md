@@ -144,6 +144,7 @@ several codes together usually mean.
 {
   "schema": 1, "version": "…",            // version set by the release workflow
   "advice": { "battery_test": {"en": "…", "fi": "…", "sv": "…"} },
+  "failureTypes": { "1C": {"en": "voltage out of range", …} },  // 3rd byte of battery unit codes
   "codes":  { "P0A80": { "area": "battery", "sev": "high", "advice": "battery_test",
                           "en": {"title": "…", "text": "…"}, "fi": {…}, "sv": {…} } },
   "ranges": [ { "from": "P0B00", "to": "P0BFF", "area": "battery", "sev": "medium", … } ],

@@ -48,6 +48,128 @@
    "sv": "Prova en annan laddpunkt och kabel; om felet kvarstår, låt kontrollera bilens inbyggda laddare."
   }
  },
+ "failureTypes": {
+  "11": {
+   "en": "short to ground",
+   "fi": "oikosulku maahan",
+   "sv": "kortslutning till jord"
+  },
+  "12": {
+   "en": "short to battery voltage",
+   "fi": "oikosulku akkujännitteeseen",
+   "sv": "kortslutning till batterispänning"
+  },
+  "13": {
+   "en": "open circuit",
+   "fi": "katkos piirissä",
+   "sv": "avbrott i kretsen"
+  },
+  "14": {
+   "en": "short to ground or open",
+   "fi": "oikosulku maahan tai katkos",
+   "sv": "kortslutning till jord eller avbrott"
+  },
+  "15": {
+   "en": "short to battery voltage or open",
+   "fi": "oikosulku akkujännitteeseen tai katkos",
+   "sv": "kortslutning till batterispänning eller avbrott"
+  },
+  "16": {
+   "en": "voltage below threshold",
+   "fi": "jännite alle rajan",
+   "sv": "spänning under gränsen"
+  },
+  "17": {
+   "en": "voltage above threshold",
+   "fi": "jännite yli rajan",
+   "sv": "spänning över gränsen"
+  },
+  "1C": {
+   "en": "voltage out of range",
+   "fi": "jännite sallitun alueen ulkopuolella",
+   "sv": "spänning utanför tillåtet område"
+  },
+  "1F": {
+   "en": "circuit intermittent",
+   "fi": "ajoittainen piirivika",
+   "sv": "intermittent kretsfel"
+  },
+  "21": {
+   "en": "signal amplitude too low",
+   "fi": "signaalin taso liian matala",
+   "sv": "signalnivån för låg"
+  },
+  "22": {
+   "en": "signal amplitude too high",
+   "fi": "signaalin taso liian korkea",
+   "sv": "signalnivån för hög"
+  },
+  "29": {
+   "en": "signal invalid",
+   "fi": "virheellinen signaali",
+   "sv": "ogiltig signal"
+  },
+  "31": {
+   "en": "no signal",
+   "fi": "ei signaalia",
+   "sv": "ingen signal"
+  },
+  "4B": {
+   "en": "over temperature",
+   "fi": "ylilämpö",
+   "sv": "övertemperatur"
+  },
+  "54": {
+   "en": "missing calibration",
+   "fi": "kalibrointi puuttuu",
+   "sv": "kalibrering saknas"
+  },
+  "62": {
+   "en": "signal compare failure",
+   "fi": "signaalien vertailuvirhe",
+   "sv": "signaljämförelsefel"
+  },
+  "64": {
+   "en": "signal plausibility failure",
+   "fi": "signaali epäuskottava",
+   "sv": "signalen orimlig"
+  },
+  "71": {
+   "en": "actuator stuck",
+   "fi": "toimilaite jumissa",
+   "sv": "ställdon fastnat"
+  },
+  "73": {
+   "en": "actuator stuck closed",
+   "fi": "toimilaite jumissa kiinni",
+   "sv": "ställdon fastnat stängt"
+  },
+  "81": {
+   "en": "invalid serial data received",
+   "fi": "vastaanotettu virheellistä sarjadataa",
+   "sv": "ogiltiga seriella data mottagna"
+  },
+  "87": {
+   "en": "missing message",
+   "fi": "viesti puuttuu",
+   "sv": "meddelande saknas"
+  },
+  "92": {
+   "en": "performance or incorrect operation",
+   "fi": "suorituskyky tai virheellinen toiminta",
+   "sv": "prestanda eller felaktig funktion"
+  },
+  "96": {
+   "en": "component internal failure",
+   "fi": "komponentin sisäinen vika",
+   "sv": "internt komponentfel"
+  },
+  "98": {
+   "en": "component or system over temperature",
+   "fi": "komponentin tai järjestelmän ylilämpö",
+   "sv": "komponent eller system övertemperatur"
+  }
+ },
  "codes": {
   "P0A00": {
    "area": "hybrid",
