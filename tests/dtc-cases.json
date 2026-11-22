@@ -1,0 +1,23 @@
+[
+ {"codes": ["P0A80", "P0AFA"], "combos": ["weak-module"],
+  "titles": {"P0A80": "Replace hybrid battery pack", "P0AFA": "Hybrid battery system voltage low"}},
+ {"codes": ["P0A80", "P3014"], "brand": "Toyota", "combos": ["weak-module"],
+  "titles": {"P3014": "Hybrid battery block 4 weak"}},
+ {"codes": ["P3014"], "brand": "Volkswagen", "combos": [], "titles": {"P3014": null}},
+ {"codes": ["P0A7F", "P0A80", "P0AFA"], "combos": ["weak-module", "pack-worn"]},
+ {"codes": ["P0A7E", "P0A82"], "combos": ["hot-battery-fan"]},
+ {"codes": ["P0562", "U0100", "U0121"], "combos": ["low-12v-network"]},
+ {"codes": ["U0100", "U0121", "U0155"], "combos": ["many-network"]},
+ {"codes": ["U0100", "U0121"], "combos": []},
+ {"codes": ["U0111", "P0B3B"], "combos": ["battery-unit-silent"],
+  "titles": {"P0B3B": "Hybrid / EV battery system", "U0111": "Lost communication with battery energy control module"}},
+ {"codes": ["P0AA6"], "combos": ["hv-safety"], "titles": {"P0AA6": "Hybrid battery voltage system isolation fault"}},
+ {"codes": ["P0A0D-1C"], "combos": ["hv-safety"]},
+ {"codes": ["P0171", "P0174", "P0302"], "combos": ["both-banks-lean", "lean-misfire"],
+  "titles": {"P0302": "Misfire in one cylinder", "P0171": "System too lean (bank 1)"}},
+ {"codes": ["P0303", "P0420"], "combos": ["misfire-catalyst"]},
+ {"codes": ["P0455"], "combos": []},
+ {"codes": ["P0455", "P0442"], "combos": ["evap-cap"]},
+ {"codes": ["P0D27"], "combos": [], "titles": {"P0D27": "Charging system", "P0AB9": "Hybrid / EV propulsion system", "P0388": "Ignition system or misfire"}},
+ {"codes": ["P1234", "C0035", "B1000"], "combos": [], "titles": {"P1234": null, "C0035": null}}
+]

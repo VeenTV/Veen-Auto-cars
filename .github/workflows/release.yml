@@ -1,14 +1,14 @@
 name: Check and release
 
-# Every change to cars.json on main is checked (structure, safety rules,
+# Every change to cars.json or dtc.json on main is checked (structure, safety rules,
 # recorded replies), stamped with a version, signed and published as a
-# release. Veen Auto downloads releases/latest/download/cars.json + .sig and
-# uses the data only if the signature matches the key built into the app.
+# release. Veen Auto downloads releases/latest/download/cars.json, dtc.json
+# and their .sig files and uses the data only if the signature matches the key built into the app.
 on:
   push:
     branches: [main]
     # Documentation changes don't publish a new release.
-    paths: [cars.json, tests/**, tools/**, public-key.txt, .github/workflows/release.yml]
+    paths: [cars.json, dtc.json, tests/**, tools/**, public-key.txt, .github/workflows/release.yml]
   pull_request:
   workflow_dispatch:
 
@@ -24,8 +24,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check cars.json
-        run: node tools/check.js cars.json
+      - name: Check cars.json and dtc.json
+        run: |
+          node tools/check.js cars.json
+          node tools/check-dtc.js dtc.json
 
       - name: Stamp version
         if: github.event_name != 'pull_request'
@@ -34,6 +36,8 @@ jobs:
           mkdir -p dist
           jq --arg v "$V" '.version = $v' cars.json > dist/cars.json
           node tools/check.js dist/cars.json
+          jq --arg v "$V" '.version = $v' dtc.json > dist/dtc.json
+          node tools/check-dtc.js dist/dtc.json
           echo "CARS_VERSION=$V" >> "$GITHUB_ENV"
 
       - name: Sign
@@ -55,6 +59,8 @@ jobs:
           openssl dgst -sha256 -sign "$RUNNER_TEMP/key.pem" -out dist/cars.json.sig dist/cars.json
           openssl ec -in "$RUNNER_TEMP/key.pem" -pubout -out "$RUNNER_TEMP/pub.pem" 2>/dev/null
           openssl dgst -sha256 -verify "$RUNNER_TEMP/pub.pem" -signature dist/cars.json.sig dist/cars.json
+          openssl dgst -sha256 -sign "$RUNNER_TEMP/key.pem" -out dist/dtc.json.sig dist/dtc.json
+          openssl dgst -sha256 -verify "$RUNNER_TEMP/pub.pem" -signature dist/dtc.json.sig dist/dtc.json
           rm -f "$RUNNER_TEMP/key.pem"
 
       - name: Release
@@ -69,4 +75,6 @@ jobs:
           files: |
             dist/cars.json
             dist/cars.json.sig
+            dist/dtc.json
+            dist/dtc.json.sig
           make_latest: true
