@@ -1,0 +1,70 @@
+name: Check and release
+
+# Every change to cars.json on main is checked (structure, safety rules,
+# recorded replies), stamped with a version, signed and published as a
+# release. Veen Auto downloads releases/latest/download/cars.json + .sig and
+# uses the data only if the signature matches the key built into the app.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check cars.json
+        run: node tools/check.js cars.json
+
+      - name: Stamp version
+        if: github.event_name != 'pull_request'
+        run: |
+          V="$(date -u +%Y.%-m.%-d).${{ github.run_number }}"
+          mkdir -p dist
+          jq --arg v "$V" '.version = $v' cars.json > dist/cars.json
+          node tools/check.js dist/cars.json
+          echo "CARS_VERSION=$V" >> "$GITHUB_ENV"
+
+      - name: Sign
+        if: github.event_name != 'pull_request'
+        env:
+          CARS_SIGNING_KEY: ${{ secrets.CARS_SIGNING_KEY }}
+        run: |
+          if [ -z "$CARS_SIGNING_KEY" ]; then
+            echo "::error::Repository secret CARS_SIGNING_KEY is missing (see README)."
+            exit 1
+          fi
+          printf '%s\n' "$CARS_SIGNING_KEY" > "$RUNNER_TEMP/key.pem"
+          # The secret must be the private half of public-key.txt (the key built into the app).
+          openssl ec -in "$RUNNER_TEMP/key.pem" -pubout -outform DER 2>/dev/null | base64 -w0 > "$RUNNER_TEMP/pub.b64"
+          if ! diff -q <(tr -d '\n' < public-key.txt) "$RUNNER_TEMP/pub.b64" > /dev/null; then
+            echo "::error::CARS_SIGNING_KEY does not match public-key.txt"
+            exit 1
+          fi
+          openssl dgst -sha256 -sign "$RUNNER_TEMP/key.pem" -out dist/cars.json.sig dist/cars.json
+          openssl ec -in "$RUNNER_TEMP/key.pem" -pubout -out "$RUNNER_TEMP/pub.pem" 2>/dev/null
+          openssl dgst -sha256 -verify "$RUNNER_TEMP/pub.pem" -signature dist/cars.json.sig dist/cars.json
+          rm -f "$RUNNER_TEMP/key.pem"
+
+      - name: Release
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cars-${{ env.CARS_VERSION }}
+          name: Car database ${{ env.CARS_VERSION }}
+          body: |
+            Veen Auto car database ${{ env.CARS_VERSION }}, built from ${{ github.sha }}.
+            CC BY-SA 4.0 – see README for attribution.
+          files: |
+            dist/cars.json
+            dist/cars.json.sig
+          make_latest: true
