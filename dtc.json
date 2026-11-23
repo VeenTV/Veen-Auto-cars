@@ -1328,20 +1328,122 @@
    }
   },
   "P0606": {
-   "area": "engine",
+   "area": "electrical",
    "sev": "high",
-   "advice": "workshop",
+   "advice": "twelve_v",
    "en": {
     "title": "Control module processor fault",
-    "text": "The engine control unit found an internal fault. Sometimes caused by a low 12 V supply; check that first."
+    "text": "A control unit found a fault in its own processor. Often caused by a dip in its 12 V supply rather than a failed unit; check the 12 V battery first."
    },
    "fi": {
     "title": "Ohjainlaitteen prosessorivika",
-    "text": "Moottorinohjain havaitsi sisäisen vian. Joskus syynä on matala 12 V:n syöttö; tarkista se ensin."
+    "text": "Ohjainlaite havaitsi vian omassa prosessorissaan. Syynä on usein notkahdus sen 12 V:n syötössä eikä rikkoutunut laite; tarkista ensin 12 V:n akku."
    },
    "sv": {
     "title": "Styrenhetens processorfel",
-    "text": "Motorstyrenheten har upptäckt ett internt fel. Ibland orsakat av låg 12 V-matning; kontrollera det först."
+    "text": "En styrenhet har upptäckt ett fel i sin egen processor. Orsaken är ofta en spänningsdipp i dess 12 V-matning snarare än en trasig enhet; kontrollera 12 V-batteriet först."
+   }
+  },
+  "P0602": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Control module programming error",
+    "text": "A control unit found a problem with its own software or memory. As a history code it is often left by a 12 V supply dip (weak battery, jump start, battery change); if it keeps coming back, the unit may need a software update."
+   },
+   "fi": {
+    "title": "Ohjainlaitteen ohjelmointivirhe",
+    "text": "Ohjainlaite havaitsi ongelman omassa ohjelmistossaan tai muistissaan. Historiakoodina sen jättää usein 12 V:n syötön notkahdus (heikko akku, apukäynnistys, akun vaihto); jos se palaa toistuvasti, laite voi tarvita ohjelmistopäivityksen."
+   },
+   "sv": {
+    "title": "Styrenhetens programmeringsfel",
+    "text": "En styrenhet har upptäckt ett problem med sin egen programvara eller sitt minne. Som historikkod lämnas den ofta av en dipp i 12 V-matningen (svagt batteri, startkablar, batteribyte); om den återkommer kan enheten behöva en programuppdatering."
+   }
+  },
+  "P0604": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Control module internal RAM error",
+    "text": "A control unit found a problem with its own software or memory. As a history code it is often left by a 12 V supply dip (weak battery, jump start, battery change); if it keeps coming back, the unit may need a software update."
+   },
+   "fi": {
+    "title": "Ohjainlaitteen sisäinen RAM-muistivirhe",
+    "text": "Ohjainlaite havaitsi ongelman omassa ohjelmistossaan tai muistissaan. Historiakoodina sen jättää usein 12 V:n syötön notkahdus (heikko akku, apukäynnistys, akun vaihto); jos se palaa toistuvasti, laite voi tarvita ohjelmistopäivityksen."
+   },
+   "sv": {
+    "title": "Styrenhetens interna RAM-fel",
+    "text": "En styrenhet har upptäckt ett problem med sin egen programvara eller sitt minne. Som historikkod lämnas den ofta av en dipp i 12 V-matningen (svagt batteri, startkablar, batteribyte); om den återkommer kan enheten behöva en programuppdatering."
+   }
+  },
+  "P0605": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Control module internal ROM error",
+    "text": "A control unit found a problem with its own software or memory. As a history code it is often left by a 12 V supply dip (weak battery, jump start, battery change); if it keeps coming back, the unit may need a software update."
+   },
+   "fi": {
+    "title": "Ohjainlaitteen sisäinen ROM-muistivirhe",
+    "text": "Ohjainlaite havaitsi ongelman omassa ohjelmistossaan tai muistissaan. Historiakoodina sen jättää usein 12 V:n syötön notkahdus (heikko akku, apukäynnistys, akun vaihto); jos se palaa toistuvasti, laite voi tarvita ohjelmistopäivityksen."
+   },
+   "sv": {
+    "title": "Styrenhetens interna ROM-fel",
+    "text": "En styrenhet har upptäckt ett problem med sin egen programvara eller sitt minne. Som historikkod lämnas den ofta av en dipp i 12 V-matningen (svagt batteri, startkablar, batteribyte); om den återkommer kan enheten behöva en programuppdatering."
+   }
+  },
+  "U0001": {
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "High-speed CAN bus",
+    "text": "A control unit had trouble communicating on the high-speed CAN bus (the network between the powertrain units)."
+   },
+   "fi": {
+    "title": "Nopea CAN-väylä",
+    "text": "Ohjainlaitteella oli vaikeuksia viestiä nopealla CAN-väylällä (voimalinjan ohjainlaitteiden välinen verkko)."
+   },
+   "sv": {
+    "title": "Höghastighets-CAN-buss",
+    "text": "En styrenhet hade problem att kommunicera på höghastighets-CAN-bussen (nätverket mellan drivlinans styrenheter)."
+   }
+  },
+  "U0167": {
+   "area": "network",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Lost communication with immobiliser",
+    "text": "A control unit did not get the expected messages from the immobiliser (the anti-theft unit that approves starting). Often appears after a 12 V dip or when the key was not recognised at once."
+   },
+   "fi": {
+    "title": "Yhteys ajonestolaitteeseen katkennut",
+    "text": "Ohjainlaite ei saanut odotettuja viestejä ajonestolaitteelta (käynnistyksen hyväksyvä varkaudenestolaite). Esiintyy usein 12 V:n notkahduksen jälkeen tai kun avainta ei tunnistettu heti."
+   },
+   "sv": {
+    "title": "Förlorad kommunikation med startspärren",
+    "text": "En styrenhet fick inte de väntade meddelandena från startspärren (stöldskyddet som godkänner start). Visas ofta efter en 12 V-dipp eller när nyckeln inte kändes igen direkt."
+   }
+  },
+  "U3006": {
+   "area": "electrical",
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Control module input power A",
+    "text": "The supply voltage to a control unit's power input was out of range or interrupted (12 V battery, fuse, connector or ground)."
+   },
+   "fi": {
+    "title": "Ohjainlaitteen virransyöttö A",
+    "text": "Ohjainlaitteen virransyötön jännite oli sallitun alueen ulkopuolella tai katkesi (12 V:n akku, sulake, liitin tai maadoitus)."
+   },
+   "sv": {
+    "title": "Styrenhetens strömmatning A",
+    "text": "Matningsspänningen till en styrenhets strömingång var utanför området eller bröts (12 V-batteri, säkring, kontakt eller jord)."
    }
   },
   "P0700": {
@@ -2550,6 +2652,37 @@
    "sv": {
     "title": "Misständningar och svag katalysator",
     "text": "Oförbränt bränsle från misständningar överhettar och skadar katalysatorn. Åtgärda misständningarna först; katalysatorkoden kan försvinna efteråt eller katalysatorn kan redan vara skadad."
+   }
+  },
+  {
+   "id": "supply-dip",
+   "any": [
+    "P0602",
+    "P0604",
+    "P0605",
+    "P0606"
+   ],
+   "anyMin": 2,
+   "also": [
+    "U3006",
+    "P0562",
+    "P0A09"
+   ],
+   "alsoMin": 1,
+   "history": true,
+   "sev": "medium",
+   "advice": "twelve_v",
+   "en": {
+    "title": "Supply voltage dip, not a failed unit",
+    "text": "Several control units reported internal memory or processor faults together with a power-supply code. That pattern is typical of a dip in the 12 V supply (weak 12 V battery, jump start, battery change) rather than of failed units, especially when the codes are history only."
+   },
+   "fi": {
+    "title": "Syöttöjännitteen notkahdus, ei rikkoutunut laite",
+    "text": "Useat ohjainlaitteet ilmoittivat sisäisistä muisti- tai prosessorivioista yhdessä virransyöttökoodin kanssa. Tämä on tyypillistä 12 V:n syötön notkahdukselle (heikko 12 V:n akku, apukäynnistys, akun vaihto) eikä rikkoutuneille laitteille, varsinkin kun koodit ovat vain historiassa."
+   },
+   "sv": {
+    "title": "Spänningsdipp, inte en trasig enhet",
+    "text": "Flera styrenheter rapporterade interna minnes- eller processorfel tillsammans med en kod för strömmatning. Mönstret är typiskt för en dipp i 12 V-matningen (svagt 12 V-batteri, startkablar, batteribyte) snarare än trasiga enheter, särskilt när koderna bara finns i historiken."
    }
   },
   {

@@ -19,5 +19,11 @@
  {"codes": ["P0455"], "combos": []},
  {"codes": ["P0455", "P0442"], "combos": ["evap-cap"]},
  {"codes": ["P0D27"], "combos": [], "titles": {"P0D27": "Charging system", "P0AB9": "Hybrid / EV propulsion system", "P0388": "Ignition system or misfire"}},
- {"codes": ["P1234", "C0035", "B1000"], "combos": [], "titles": {"P1234": null, "C0035": null}}
+ {"codes": ["P1234", "C0035", "B1000"], "combos": [], "titles": {"P1234": null, "C0035": null}},
+ {"codes": ["P0606-41", "P0602-42", "P160F-51", "P0604-44", "P0605-42", "P06AB-2A", "P0666-2A", "P073E-29", "P0A44-64", "P0A78-01",
+            "P0AED-2A", "P0BFF-02", "P0C19-64", "P0C19-92", "P0C19-94", "P0C25-12", "P160A-51", "P16A3-47", "U0167-87", "U0001-48",
+            "U3006-1C", "U3017-47", "P13E9"],
+  "brand": "Citroën", "combos": ["supply-dip"],
+  "titles": {"P0606": "Control module processor fault", "P0605": "Control module internal ROM error", "U0167": "Lost communication with immobiliser",
+             "U3006": "Control module input power A", "U0001": "High-speed CAN bus", "P13E9": null, "P160A": null}}
 ]
