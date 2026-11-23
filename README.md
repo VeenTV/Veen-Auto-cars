@@ -107,6 +107,12 @@ Veen Auto knows.
 | `"loops": [ … ]` | table | one value per identifier from `first` (VW cells 1E40+): `max`, `outlier` (stop at a value further than this from the median), `stopAtGap`, `minCount`, `modules` / `moduleCells` (module averages) |
 | `"scan": {"group": …}`, `"identity": {"group": …}` | table | the group's answering unit |
 
+### Fault code units (app 0.39.0 and newer; older apps ignore them)
+
+| Field | Where | Meaning |
+|---|---|---|
+| `"faultUnits": [{"id", "name", "request", "reply"}]` | table | further control units asked for their fault codes (UDS 19 02, and 19 04 / 19 06 details on request), besides the battery unit and the standard engine (0x7E0) and gearbox (0x7E1) units. Same address rules as `units` (`bits29`, `extAddr`), UDS only, no probe, at most 8 |
+
 A formula (`fmt`) takes `len` bits from bit `bix` of the reply data (the
 bytes after `62 DID DID`, big-endian, bit 0 = first bit), signed if `sign`;
 a raw value ≥ `nullFrom` means "no value"; the value is

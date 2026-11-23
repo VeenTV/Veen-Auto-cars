@@ -60,6 +60,19 @@ for (const [name, t] of Object.entries(db.tables || {})) {
     if (u.extAddr !== undefined) hex(u.extAddr, 0xFF, `${name}/${u.id} extAddr`);
     units[u.id] = u;
   }
+  // Units only asked for their fault codes (UDS 19 02): fixed addresses, UDS, no probe.
+  if (t.faultUnits !== undefined) {
+    if (!Array.isArray(t.faultUnits) || t.faultUnits.length > 8) err(`${name}: faultUnits must be a list of at most 8`);
+    else for (const u of t.faultUnits) {
+      if (!/^[a-z0-9_]{1,20}$/.test(u.id || '') || typeof u.name !== 'string') err(`${name}: fault unit id/name`);
+      if ((u.service || 'UDS') !== 'UDS') err(`${name}/${u.id}: fault codes are read over UDS only`);
+      const maxCan = u.bits29 ? 0x1FFFFFFF : 0x7FF;
+      if (u.bits29 && u.extAddr !== undefined) err(`${name}/${u.id}: extended address on 29-bit CAN`);
+      hex(u.request, maxCan, `${name}/${u.id} request`);
+      hex(u.reply, maxCan, `${name}/${u.id} reply`);
+      if (u.extAddr !== undefined) hex(u.extAddr, 0xFF, `${name}/${u.id} extAddr`);
+    }
+  }
   const unitList = (x, w) => (Array.isArray(x.unit) ? x.unit : [x.unit]).map((id) => units[id] || (err(`${w}: unknown unit ${id}`), { service: 'UDS' }));
   const unit = (x, w) => unitList(x, w)[0];
   const variants = (x, w) => (x.variants || []).forEach((v) => { if (!VARIANT.test(v)) err(`${w}: variant ${v}`); });
