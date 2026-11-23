@@ -4354,7 +4354,21 @@
      ]
     ],
     "priority": 512
-   }
+   },
+   "faultUnits": [
+    {
+     "id": "hcu2",
+     "name": "Hybrid control unit HCU2 0x6A6",
+     "request": "6A6",
+     "reply": "686"
+    },
+    {
+     "id": "vcu",
+     "name": "Vehicle control unit VCU 0x6A2",
+     "request": "6A2",
+     "reply": "682"
+    }
+   ]
   }
  }
 }
