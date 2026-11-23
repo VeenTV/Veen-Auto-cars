@@ -65,10 +65,13 @@ for (const c of db.combos || []) {
   }
   for (const m of ['anyMin', 'alsoMin']) if (c[m] !== undefined && !(Number.isInteger(c[m]) && c[m] >= 1 && c[m] <= 20)) err(`${w}: ${m}`);
   if (c.alsoMin !== undefined && c.also === undefined) err(`${w}: alsoMin without also`);
+  if (c.history !== undefined && typeof c.history !== 'boolean') err(`${w}: history must be true or false`);
   entry({ ...c, area: 'other' }, w);
 }
 
 // ---- matching, as the app does it ----
+// (The app matches combinations against active codes only, unless a combination has "history": true;
+// the cases below list codes without status, so every combination sees all of them.)
 const matches = (p, code) => {
   const [a, b] = p.split('-');
   return b === undefined ? code === a : (code[0] === a[0] && num(code) >= num(a) && num(code) <= num(b));

@@ -162,6 +162,9 @@ several codes together usually mean.
 
 - `area`: battery, hybrid, charging, engine, fuel, emissions, transmission,
   electrical, network, chassis, body, other. `sev`: low, medium, high, critical.
+- Combinations are matched against active codes (failing now, pending,
+  confirmed or warning lamp); `"history": true` makes one look at history
+  codes too (e.g. a 12 V dip that left internal faults in several units).
 - A combination applies when every `all` pattern matches one of the codes,
   at least `anyMin` (default 1) codes match `any`, and at least `alsoMin`
   (default 1) match `also`. A pattern is a code or a range (`P0300-P0312`).
