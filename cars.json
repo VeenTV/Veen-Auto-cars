@@ -4161,45 +4161,49 @@
     {
      "unit": "hcu2",
      "id": "D406",
-     "name": "HCU2 D406 (unknown)",
-     "unitText": "",
+     "name": "HCU2 D406 (temperature candidate)",
+     "unitText": "°C",
      "decimals": 0,
      "rate": "ONCE",
      "fmt": {
-      "len": 8
+      "len": 8,
+      "add": -40
      }
     },
     {
      "unit": "hcu2",
      "id": "D407",
-     "name": "HCU2 D407 (unknown)",
-     "unitText": "",
+     "name": "HCU2 D407 (temperature candidate)",
+     "unitText": "°C",
      "decimals": 0,
      "rate": "ONCE",
      "fmt": {
-      "len": 8
+      "len": 8,
+      "add": -40
      }
     },
     {
      "unit": "hcu2",
      "id": "D408",
-     "name": "HCU2 D408 (unknown)",
-     "unitText": "",
+     "name": "HCU2 D408 (temperature candidate)",
+     "unitText": "°C",
      "decimals": 0,
      "rate": "ONCE",
      "fmt": {
-      "len": 8
+      "len": 8,
+      "add": -40
      }
     },
     {
      "unit": "hcu2",
      "id": "D410",
-     "name": "HCU2 D410 (unknown)",
-     "unitText": "",
+     "name": "HCU2 D410 (temperature candidate)",
+     "unitText": "°C",
      "decimals": 0,
      "rate": "ONCE",
      "fmt": {
-      "len": 8
+      "len": 8,
+      "add": -40
      }
     },
     {
@@ -4238,7 +4242,7 @@
     {
      "unit": "hcu2",
      "id": "D551",
-     "name": "HCU2 D551 (12 V candidate)",
+     "name": "HCU2 12 V supply",
      "unitText": "V",
      "decimals": 1,
      "rate": "NORMAL",
@@ -4261,12 +4265,13 @@
     {
      "unit": "hcu2",
      "id": "D555",
-     "name": "HCU2 D555 (unknown, candidate)",
-     "unitText": "",
+     "name": "HCU2 D555 (temperature candidate)",
+     "unitText": "°C",
      "decimals": 0,
      "rate": "NORMAL",
      "fmt": {
-      "len": 8
+      "len": 8,
+      "add": -40
      }
     },
     {
@@ -4349,7 +4354,7 @@
     {
      "unit": "hcu2",
      "id": "D802",
-     "name": "HCU2 D802 (odometer candidate)",
+     "name": "Odometer (HCU2)",
      "unitText": "km",
      "decimals": 0,
      "rate": "ONCE",
