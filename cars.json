@@ -3423,6 +3423,13 @@
      "request": "6B4",
      "reply": "694",
      "probe": "F08F"
+    },
+    {
+     "id": "hcu2",
+     "name": "HCU2 0x6A6",
+     "request": "6A6",
+     "reply": "686",
+     "probe": "D551"
     }
    ],
    "variantBy": {
@@ -4150,6 +4157,238 @@
      "variants": [
       "PHEV"
      ]
+    },
+    {
+     "unit": "hcu2",
+     "id": "D406",
+     "name": "HCU2 D406 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D407",
+     "name": "HCU2 D407 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D408",
+     "name": "HCU2 D408 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D410",
+     "name": "HCU2 D410 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D412",
+     "name": "HCU2 D412 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D414",
+     "name": "HCU2 D414 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D505",
+     "name": "HCU2 D505 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D551",
+     "name": "HCU2 D551 (12 V candidate)",
+     "unitText": "V",
+     "decimals": 1,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8,
+      "div": 10
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D553",
+     "name": "HCU2 D553 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 16
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D555",
+     "name": "HCU2 D555 (unknown, candidate)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "NORMAL",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D705",
+     "name": "HCU2 D705 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D708",
+     "name": "HCU2 D708 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D710",
+     "name": "HCU2 D710 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D711",
+     "name": "HCU2 D711 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D712",
+     "name": "HCU2 D712 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D715",
+     "name": "HCU2 D715 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D801",
+     "name": "HCU2 D801 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 32
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D802",
+     "name": "HCU2 D802 (odometer candidate)",
+     "unitText": "km",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 24
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D803",
+     "name": "HCU2 D803 (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 24
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "D80A",
+     "name": "HCU2 D80A (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
+    },
+    {
+     "unit": "hcu2",
+     "id": "DADD",
+     "name": "HCU2 DADD (unknown)",
+     "unitText": "",
+     "decimals": 0,
+     "rate": "ONCE",
+     "fmt": {
+      "len": 8
+     }
     }
    ],
    "series": [
