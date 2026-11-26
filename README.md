@@ -107,6 +107,16 @@ Veen Auto knows.
 | `"loops": [ … ]` | table | one value per identifier from `first` (VW cells 1E40+): `max`, `outlier` (stop at a value further than this from the median), `stopAtGap`, `minCount`, `modules` / `moduleCells` (module averages) |
 | `"scan": {"group": …}`, `"identity": {"group": …}` | table | the group's answering unit |
 
+### Candidate values
+
+Values named "(candidate)" or "(unknown)" have no `key`, so they never feed
+the dashboard. They show in Raw data so a meaning can be confirmed on a car.
+Example: the Stellantis table's second unit `hcu2` (HCU2 0x6A6) reads live
+the 21 identifiers the HCU2 stores with its fault codes. D551 is read as a 12 V
+candidate (0.1 V per step), to find the auxiliary 12 V battery of the plug-in
+hybrids, and D802 as an odometer candidate. Once a meaning is confirmed, the
+value gets a proper name and, if useful, a `key`.
+
 ### Fault code units (app 0.39.0 and newer; older apps ignore them)
 
 | Field | Where | Meaning |
