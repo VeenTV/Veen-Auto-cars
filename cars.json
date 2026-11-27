@@ -4265,7 +4265,7 @@
     {
      "unit": "hcu2",
      "id": "D555",
-     "name": "HCU2 D555 (temperature candidate)",
+     "name": "Coolant temperature (HCU2)",
      "unitText": "°C",
      "decimals": 0,
      "rate": "NORMAL",

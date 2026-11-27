@@ -121,8 +121,9 @@ Confirmed on the C5 X (report #11, multimeter): D551 is the HCU2's 12 V
 supply (14.8 V against 14.88 V at the engine-bay battery and 14.91 V at the
 console battery: both batteries are charged together while the car is
 awake). D802 is the odometer (the same as the battery unit's copy). D406,
-D407, D408, D410 and D555 read as temperatures (raw - 40 °C) and stay
-candidates. The app also uses these names to explain freeze frames
+D407, D408 and D410 read as temperatures (raw - 40 °C) and stay
+candidates. D555 is the engine coolant temperature (report #13: 69 °C, the
+same as OBD PID 05; 8 °C on a cold start in report #11). The app also uses these names to explain freeze frames
 (e.g. the odometer when a fault was stored).
 
 ### Fault code units (app 0.39.0 and newer; older apps ignore them)
