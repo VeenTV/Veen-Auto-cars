@@ -122,8 +122,12 @@ supply (14.8 V against 14.88 V at the engine-bay battery and 14.91 V at the
 console battery: both batteries are charged together while the car is
 awake). D802 is the odometer (the same as the battery unit's copy). D406,
 D407, D408 and D410 read as temperatures (raw - 40 °C) and stay
-candidates. D555 is the engine coolant temperature (report #13: 69 °C, the
-same as OBD PID 05; 8 °C on a cold start in report #11). The app also uses these names to explain freeze frames
+candidates; D407 and D410 warm up with electric driving (electric motor or
+inverter?). D555 is the engine temperature: it equals OBD coolant (PID 05)
+once the engine has run (69/69 °C, 48/48 °C), but stays near the outside
+temperature on electric-only trips (report #16: 1 °C at -4 °C outside), while
+PID 05 reads warmer (18 °C) because the 5 kW electric cabin heater heats the
+coolant in EV mode. So D555 is the better "has the engine warmed up" reading. The app also uses these names to explain freeze frames
 (e.g. the odometer when a fault was stored).
 
 ### Fault code units (app 0.39.0 and newer; older apps ignore them)
